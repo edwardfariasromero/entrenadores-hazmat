@@ -1,5 +1,8 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.5 · 19/11/2026
+- Escudos de Haz-Mat Uruguay y de Produtos Perigosos CBMAM en alta definición (antes se veían pixelados en pantallas grandes).
+
 ## v0.4 · 19/11/2026
 - Verificación simplificada: un solo código de 12 caracteres (XXXX-XXXX-XXXX) que lleva adentro nivel, actividades, dominio, puntos y fecha. Para verificar alcanza con escribir el nombre y el código; no importan tildes, mayúsculas, espacios ni guiones.
 - Al verificar se muestran los datos guardados en el código para compararlos con la imagen.

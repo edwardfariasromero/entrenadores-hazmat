@@ -3,6 +3,9 @@
 Numeración: v0.x = versiones de prueba (antes de la entrega oficial al CBMAM). v1.0 = primera versión oficial.
 Cada versión se guarda como archivo propio en esta carpeta. El número aparece en la pantalla de inicio, en "Como funciona", en Créditos (Contato), en el asunto del correo de contacto y en la imagen para compartir.
 
+## v0.8 · 19/11/2026
+- Escudos de Haz-Mat Uruguay y de Produtos Perigosos CBMAM en alta definición (antes se veían pixelados en pantallas grandes).
+
 ## v0.7 · 19/11/2026
 - Verificación simplificada: un solo código de 12 caracteres (XXXX-XXXX-XXXX) que lleva adentro nivel, actividades, dominio, puntos y fecha. Para verificar alcanza con escribir el nombre y el código; no importan tildes, mayúsculas, espacios ni guiones.
 - Al verificar se muestran los datos guardados en el código para compararlos con la imagen.
