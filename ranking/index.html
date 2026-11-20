@@ -22,7 +22,7 @@ main{max-width:640px;margin:0 auto;padding:16px}
 <p class="note">Solo aparecen resultados con código válido. Si una persona envió varios, queda el mejor.<br>Para participar o quitarte: en el entrenador, «Compartir progreso» → «Enviar al ranking» o «Quitarme del ranking».<br><a href="../uruguay/">Abrir el entrenador</a></p>
 </main>
 <script>
-const CSV="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg5YZKtgeKEHhAn9wU6VDBuL4c3Mjf51gnViDBgmmUKT8mmfzrXRJTfQ66dVRGp-aom-VNcziWb83B/pub?gid=1140639247&single=true&output=csv";
+const CSV="https://docs.google.com/spreadsheets/d/1C3NuV8WoXxGJowIfnFNhgLVp-KvoGi4eFQoGdFdR-xM/gviz/tq?tqx=out:csv&gid=1140639247",CSV2="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg5YZKtgeKEHhAn9wU6VDBuL4c3Mjf51gnViDBgmmUKT8mmfzrXRJTfQ66dVRGp-aom-VNcziWb83B/pub?gid=1140639247&single=true&output=csv";
 const SALT="hmuy";
 /* código de verificación compacto: nivel, actividades, dominio, puntos y fecha van dentro del código */
 const B32="0123456789ABCDEFGHJKMNPQRSTVWXYZ",D0=Date.UTC(2026,0,1);
@@ -64,6 +64,7 @@ function render(){const L=[...ROWS].sort((a,b)=>ORD==="d"?(b.dom-a.dom||b.pts-a.
  document.getElementById("lst").innerHTML=L.map((r,i)=>`<div class="rk"><span class="pos">${i<3?`<svg width="26" height="26" viewBox="0 0 48 48" aria-label="Puesto ${i+1}" style="color:${MEDAL[i]}"><circle cx="24" cy="28" r="11" fill="none" stroke="currentColor" stroke-width="3"/><path d="M17 6 L21 18 M31 6 L27 18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><text x="24" y="33" text-anchor="middle" font-family="Arial" font-weight="900" font-size="13" fill="currentColor">${i+1}</text></svg>`:i+1}</span><span class="nm">${esc(r.name)}<small>Nivel ${r.lv} · ${ORD==="d"?f(r.pts)+" pts":r.dom+" % dominio"} · ${dayStr(r.day)}</small></span><span class="val">${ORD==="d"?r.dom+" %":f(r.pts)}</span></div>`).join("");}
 document.getElementById("td").onclick=()=>{ORD="d";render();};document.getElementById("tp").onclick=()=>{ORD="p";render();};
 if(!CSV){document.getElementById("lst").innerHTML='<div class="msg">El ranking todavía no está habilitado.</div>';}
-else fetch(CSV+(CSV.includes("?")?"&":"?")+"t="+Date.now()).then(r=>{if(!r.ok)throw 0;return r.text();}).then(t=>{ROWS=build(parseCSV(t));render();})
- .catch(()=>{document.getElementById("lst").innerHTML='<div class="msg">No se pudo cargar el ranking. Revisa la conexión y vuelve a intentar.</div>';});
+else{const get=u=>fetch(u+(u.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.text();}).then(t=>{if(/^\s*</.test(t))throw 0;return t;});
+ get(CSV).catch(()=>get(CSV2)).then(t=>{ROWS=build(parseCSV(t));render();})
+ .catch(()=>{document.getElementById("lst").innerHTML='<div class="msg">No se pudo cargar el ranking. Revisa la conexión y vuelve a intentar.</div>';});}
 </script></body></html>
