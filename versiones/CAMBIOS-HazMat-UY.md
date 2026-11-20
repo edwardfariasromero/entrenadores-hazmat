@@ -3,7 +3,7 @@
 ## v0.9 · 20/11/2026
 - Logros: tres medallas por puntos (bronce 1.000, plata 5.000, oro 10.000) y nueve insignias por desafíos (Ojo clínico, Conoce su equipo, Filtros, escenas, Estudioso, Sangre fría, Perfeccionista, Constancia, La 312). Resumen en el inicio, pantalla de logros y aviso al ganar uno.
 - Glosario de siglas (36): pantalla con buscador y siglas tocables en preguntas, explicaciones y tarjetas.
-- Ranking: en «Compartir progreso», sección para enviar el resultado a un formulario de Google (nombre precargado y editable) y botón «Ver el ranking». Página de ranking con vista por dominio y por puntos; solo cuenta resultados con código válido y deja el mejor de cada persona.
+- Ranking: en «Compartir progreso», sección para enviar el resultado a un formulario de Google (nombre precargado y editable), botón «Ver el ranking» y opción «Quitarme del ranking» (código de baja). Página de ranking con vista por dominio y por puntos; solo cuenta resultados con código válido y deja el mejor de cada persona.
 - Se quitaron las menciones a que el Departamento trabaja solo con ERA (se quitó la tarjeta «Filtros y el Departamento»); se mantienen las actividades de filtros y ERA.
 - Fotos de los equipos sin recuadro blanco.
 

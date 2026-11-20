@@ -211,6 +211,7 @@ input,select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--l
 .finale h2{font-size:2.1rem;margin:6px 0;letter-spacing:.02em}
 .finale p{margin:0 auto 8px;max-width:520px;font-weight:700;font-size:1.05rem}
 @media (max-width:520px){.mgwrap>img{height:140px}.cell b{font-size:1.1rem}.finale h2{font-size:1.6rem}.opts.g2{grid-template-columns:1fr}.two{grid-template-columns:1fr}.hero{grid-template-columns:96px 1fr}.hero .av img{max-height:150px}.fogo{font-size:2.6rem}.lv img{height:48px}.top .tt>span,.top .lg{display:none}}
+.lnk{background:none;border:none;padding:4px 0;color:var(--mut,#a0a6b1);text-decoration:underline;font-size:.88rem;cursor:pointer;font-family:inherit;display:block}
 </style>
 </head>
 <body>
@@ -1649,17 +1650,22 @@ function shareWire(maker,kind){
 }
 /* ================= RANKING ================= */
 const RANK={form:"https://docs.google.com/forms/d/e/1FAIpQLScb9FJl9SQ9lgmHYcHtkdAGycNT7Ll5UtxTyViyIqM6XQ86bQ/viewform",eName:"entry.1993191253",eCode:"entry.358091143",page:"https://edwardfariasromero.github.io/entrenadores-hazmat/ranking/"};
-function rankUrl(name){const c=makeCode(name,curLevel(),twoStar(),dominio(),totalPts(),dayNum());
+function rankUrl(name,baja){const c=baja?makeCode(name,7,0,0,0,dayNum()):makeCode(name,curLevel(),twoStar(),dominio(),totalPts(),dayNum());
  return RANK.form+(RANK.form.includes("?")?"&":"?")+"usp=pp_url&"+RANK.eName+"="+encodeURIComponent(name)+"&"+RANK.eCode+"="+encodeURIComponent(c);}
 function rankBox(){return `<div class="card"><h3 style="margin-top:0">Ranking</h3><p class="mut">Participar es opcional. Si envías tu resultado, se publican el nombre, el nivel, el dominio y los puntos. Puedes volver a enviarlo cuando mejores: queda el mejor.</p>
  <div class="form"><div><label for="rkn">Nombre para el ranking</label><input id="rkn" maxlength="40" value="${esc(S.name)}" autocomplete="off"></div></div>
- <div class="row"><button class="btn" id="rks">Enviar al ranking</button><button class="btn sec" id="rkv">Ver el ranking</button></div><p class="mut" id="rkm" style="margin:8px 0 0;font-size:.85rem"></p></div>`;}
+ <div class="row"><button class="btn" id="rks">Enviar al ranking</button><button class="btn sec" id="rkv">Ver el ranking</button></div><button class="lnk" id="rkq" style="margin-top:10px">Quitarme del ranking</button><p class="mut" id="rkm" style="margin:8px 0 0;font-size:.85rem"></p></div>`;}
 function rankWire(){
  $("#rks").onclick=()=>{const n=$("#rkn").value.trim();if(!n){$("#rkm").textContent="Escribe un nombre.";$("#rkn").focus();return;}
   if(S.rev){$("#rkm").textContent="En el modo revisión no se puede enviar al ranking.";return;}
   if(!RANK.form){$("#rkm").textContent="El ranking todavía no está habilitado.";return;}
   window.open(rankUrl(n),"_blank","noopener");$("#rkm").textContent="Se abrió el formulario con tus datos: tócale «Enviar». Hace falta conexión a internet.";};
  $("#rkv").onclick=()=>window.open(RANK.page,"_blank","noopener");
+ let rkq=0;$("#rkq").onclick=()=>{const n=$("#rkn").value.trim();if(!n){$("#rkm").textContent="Escribe el nombre con el que figuras en el ranking.";$("#rkn").focus();return;}
+  if(S.rev){$("#rkm").textContent="En el modo revisión no se puede usar el ranking.";return;}
+  if(!RANK.form){$("#rkm").textContent="El ranking todavía no está habilitado.";return;}
+  if(!rkq){rkq=1;$("#rkq").textContent="Confirmar: quitar a «"+n+"» del ranking";$("#rkm").textContent="Se quitan todos los resultados enviados con ese nombre. Si después vuelves a enviar, apareces de nuevo.";return;}
+  rkq=0;$("#rkq").textContent="Quitarme del ranking";window.open(rankUrl(n,true),"_blank","noopener");$("#rkm").textContent="Se abrió el formulario con un código de baja: tócale «Enviar». En unos minutos dejas de aparecer.";};
 }
 function shareScreen(){
  view(`<div class="card center"><h2>Compartir progreso</h2><p class="mut">La imagen muestra tu nivel, el dominio del contenido y un código para verificar que los datos no se modificaron.</p>

@@ -19,7 +19,7 @@ main{max-width:640px;margin:0 auto;padding:16px}
 <main>
 <div class="tg" role="tablist"><button id="td" class="on" role="tab">Por dominio</button><button id="tp" role="tab">Por puntos</button></div>
 <div class="list" id="lst"><div class="msg">Cargando el ranking…</div></div>
-<p class="note">Solo aparecen resultados con código válido. Si una persona envió varios, queda el mejor.<br>Para participar: en el entrenador, «Compartir progreso» → «Enviar al ranking».<br><a href="../uruguay/">Abrir el entrenador</a></p>
+<p class="note">Solo aparecen resultados con código válido. Si una persona envió varios, queda el mejor.<br>Para participar o quitarte: en el entrenador, «Compartir progreso» → «Enviar al ranking» o «Quitarme del ranking».<br><a href="../uruguay/">Abrir el entrenador</a></p>
 </main>
 <script>
 const CSV="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg5YZKtgeKEHhAn9wU6VDBuL4c3Mjf51gnViDBgmmUKT8mmfzrXRJTfQ66dVRGp-aom-VNcziWb83B/pub?gid=1140639247&single=true&output=csv";
@@ -43,6 +43,9 @@ function readCode(name,s){const c=cleanCode(s);if(c.length!==12||[...c].some(ch=
  const r={lv:Number((pl>>41n)&7n),a2:Number((pl>>35n)&63n),dom:Number((pl>>28n)&127n),pts:Number((pl>>13n)&32767n),day:Number(pl&8191n)};
  return r.lv>=1&&r.lv<=6&&r.dom<=100?r:null;}
 
+function isBaja(name,s){const c=cleanCode(s);if(c.length!==12||[...c].some(ch=>B32.indexOf(ch)<0))return false;
+ let v=0n;for(const ch of c)v=(v<<5n)|BigInt(B32.indexOf(ch));const sig=Number(v&0xFFFFn),pl=(v>>16n)^vmask(sig);
+ return vsig(name,pl)===sig&&Number((pl>>41n)&7n)===7;}
 const MEDAL=["#ffc21a","#c9ced6","#c98a4b"];let ROWS=[],ORD="d";
 function parseCSV(t){const out=[];let row=[],cur="",q=false;for(let i=0;i<t.length;i++){const c=t[i];
  if(q){if(c==='"'){if(t[i+1]==='"'){cur+='"';i++;}else q=false;}else cur+=c;}
@@ -50,8 +53,9 @@ function parseCSV(t){const out=[];let row=[],cur="",q=false;for(let i=0;i<t.leng
  if(cur||row.length){row.push(cur);out.push(row);}return out;}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 function build(rows){const best={};
- rows.slice(1).forEach(r=>{const name=(r[1]||"").trim(),code=(r[2]||"").trim();if(!name||!code)return;const d=readCode(name,code);if(!d)return;
-  const k=nameKey(name),cur=best[k];if(!cur||d.pts>cur.pts||(d.pts===cur.pts&&d.dom>cur.dom))best[k]=Object.assign({name},d);});
+ rows.slice(1).forEach(r=>{const name=(r[1]||"").trim(),code=(r[2]||"").trim();if(!name||!code)return;
+  const k=nameKey(name);if(isBaja(name,code)){delete best[k];return;}const d=readCode(name,code);if(!d)return;
+  const cur=best[k];if(!cur||d.pts>cur.pts||(d.pts===cur.pts&&d.dom>cur.dom))best[k]=Object.assign({name},d);});
  return Object.values(best);}
 function render(){const L=[...ROWS].sort((a,b)=>ORD==="d"?(b.dom-a.dom||b.pts-a.pts):(b.pts-a.pts||b.dom-a.dom));
  document.getElementById("td").className=ORD==="d"?"on":"";document.getElementById("tp").className=ORD==="p"?"on":"";
