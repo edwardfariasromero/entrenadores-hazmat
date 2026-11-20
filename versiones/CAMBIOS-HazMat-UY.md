@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.8 · 20/11/2026
+- Bump test: lo hace la guardia entrante todos los días por la mañana, después del relevo (antes decía «antes de cada uso»).
+- Calibración: la hace una empresa especializada externa; el Departamento no calibra equipos. Si el bump falla, el equipo queda fuera de servicio hasta calibrarlo.
+- Dos preguntas nuevas sobre esto y tarjeta «Antes de usar el detector» actualizada.
+
 ## v0.7 · 20/11/2026
 - Pantalla de bienvenida con la imagen de portada de Haz-Mat (recortada para dejar afuera el rombo NFPA con la leyenda equivocada) en lugar del escudo solo.
 
