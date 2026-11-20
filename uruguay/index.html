@@ -88,6 +88,7 @@ p{margin:0 0 10px}
 .prog i{display:block;height:100%;background:var(--acc)}
 .qtx{font-size:1.12rem;font-weight:700;margin:6px 0 12px}
 .photo{display:block;margin:0 auto 12px;max-height:340px;border-radius:14px;border:1px solid var(--line);background:#fff}
+.photo.eq{background:none;border:none;border-radius:0;max-height:240px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
 .opts{display:grid;gap:8px}
 .opts.g2{grid-template-columns:1fr 1fr}
 .opt{background:var(--pan2);border:2px solid var(--line);border-radius:12px;padding:12px 14px;text-align:left;cursor:pointer;font-weight:600;min-height:50px}
@@ -142,6 +143,20 @@ button.cell{cursor:pointer}button.cell:hover:not(:disabled){border-color:#111}
 .rankup{display:flex;gap:14px;align-items:center;background:radial-gradient(120% 140% at 100% 0%,rgba(255,194,26,.25),transparent 60%),var(--pan)}
 .rankup img{height:150px;width:auto}
 .shareprev{max-width:240px;border-radius:12px;border:1px solid var(--line);display:block;margin:6px auto}
+abbr.g{text-decoration:underline dotted;text-underline-offset:3px;cursor:help;border:none}
+#gtip{position:absolute;z-index:50;background:var(--pan2);color:var(--tx);border:1px solid var(--acc2);border-radius:12px;padding:10px 12px;font-size:.9rem;box-shadow:var(--sh);line-height:1.4}
+#gtip span{display:block;color:var(--mut);margin-top:4px;font-size:.85rem}
+.gi{padding:10px 0;border-bottom:1px solid var(--line)}.gi:last-child{border-bottom:none}.gi b{color:var(--acc2);margin-right:8px}.gi .gm{font-weight:600}.gi .mut{display:block;font-size:.88rem;margin-top:2px}
+.achsum{display:block;width:100%;text-align:left;cursor:pointer;color:inherit;font:inherit}
+.achrow{display:flex;flex-wrap:wrap;gap:6px}
+.achg{margin:16px 0 8px;font-size:.85rem;color:var(--acc2);letter-spacing:.04em}
+.achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.achb{background:var(--pan2);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.achb b{display:block;margin-top:6px}.achb span{display:block;font-size:.8rem;color:var(--mut);margin-top:4px;line-height:1.35}
+.achb.off b{color:var(--mut)}
+.atoast{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:60;display:flex;gap:12px;align-items:center;background:var(--pan2);border:1px solid var(--acc2);border-radius:14px;padding:12px 16px;box-shadow:var(--sh);max-width:92vw;width:360px;transition:transform .35s ease}
+.atoast.on{transform:translate(-50%,0)}.atoast small{display:block;color:var(--acc2);font-size:.75rem;letter-spacing:.06em}.atoast b{display:block}.atoast span{display:block;font-size:.8rem;color:var(--mut)}
+@media (prefers-reduced-motion:reduce){.atoast{transition:none}}
 /* tarjetas */
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
 .fl{background:var(--pan2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:700;font-size:.85rem}
@@ -441,7 +456,7 @@ Object.assign(ACTS,{
   {q:"En un filtro europeo A2P3, ¿qué indican el 2 y el 3?",fsvg:"A2P3",o:["Capacidad de gas y eficacia de partículas","La cantidad de horas de uso de cada parte","El número de usos permitidos de cada filtro","El tamaño de la rosca y de la máscara compatible"],e:"Gas: clase 1, 2 o 3 según la capacidad. Partículas: P1, P2 o P3 según la eficacia (EN 143)."},
   {q:"Un operario sale de una fuga de amoníaco con media máscara y cartuchos de etiqueta negra. ¿Estaba protegido?",fsvg:"US:OV",o:["No: el negro es para vapores orgánicos","Sí: el negro sirve para todos los gases","Sí, si la fuga era chica","Sí: el amoníaco es un vapor orgánico"],e:"Para amoníaco hace falta etiqueta verde (o el europeo K). Hay que tratarlo como expuesto sin protección y avisarle al médico."},
   {q:"Un pintor trabajaba con cartuchos de vapores orgánicos dentro de un tanque con O₂ de 18 %. ¿Estaba protegido?",o:["No: el cartucho no aporta oxígeno","Sí: el cartucho era el correcto para el solvente","Sí, si cambió los cartuchos ese día","Sí, porque el O₂ todavía es mayor que 16 %"],e:"Con O₂ por debajo de 19,5 % ningún filtro sirve. Hace falta aire: ERA o línea de aire."},
-  {q:"El encargado de la planta les ofrece máscaras con cartucho multigás para entrar a una sala con amoníaco de concentración desconocida. ¿Qué haces?",fsvg:"US:MG",o:["No: sin conocer la concentración, ERA","Aceptar: el multigás protege del amoníaco","Aceptar, pero entrar solo unos minutos","Aceptar si la máscara es facial completa"],e:"El cartucho tiene un límite de concentración. Sin saber cuánto hay, se trabaja con ERA, como siempre en el Departamento."},
+  {q:"El encargado de la planta les ofrece máscaras con cartucho multigás para entrar a una sala con amoníaco de concentración desconocida. ¿Qué haces?",fsvg:"US:MG",o:["No: sin conocer la concentración, ERA","Aceptar: el multigás protege del amoníaco","Aceptar, pero entrar solo unos minutos","Aceptar si la máscara es facial completa"],e:"El cartucho tiene un límite de concentración. Sin saber cuánto hay, se trabaja con ERA."},
   {q:"Trabajadores con cartuchos de etiqueta blanca durante una pequeña pérdida de cloro. ¿Es el tipo de cartucho correcto?",fsvg:"US:AG",o:["Sí, pero solo en baja concentración","No: el blanco es para partículas","No: para cloro hace falta el verde","Sí, y sirve para cualquier concentración"],e:"El cartucho de gases ácidos sirve para cloro en baja concentración y con O₂ normal. En una fuga grande o desconocida, no alcanza."},
   {q:"¿Una mascarilla N95 protege de los vapores de un solvente?",fsvg:"MASK:N95",o:["No: solo filtra partículas","Sí, filtra el 95 % de los vapores","Sí, si se usa menos de un turno","Solo de los solventes poco volátiles"],e:"Las mascarillas N95, KN95 o FFP2 son de partículas. Contra gases y vapores no protegen."},
   {q:"¿Qué indica el 95 de una mascarilla N95?",fsvg:"MASK:N95",o:["Filtra al menos el 95 % de partículas","Que protege durante 95 minutos de uso continuo","Que sirve para 95 contaminantes","Que resiste el aceite en un 95 %"],e:"El número es la eficiencia mínima: 95, 99 o 100 (99,97 %)."},
@@ -618,7 +633,6 @@ CARDS.push(
  {id:"k23",lv:2,tp:"epi",t:"Filtro o ERA",x:"ERA cuando: O₂ por debajo de 19,5 %, atmósfera IDLH, producto o concentración desconocidos, espacio confinado sin medición. • Filtro solo con producto y concentración conocidos, dentro del límite del filtro, y O₂ adecuado. • El filtro no aporta oxígeno."},
  {id:"k24",lv:2,tp:"epi",t:"Filtros europeos (EN 14387 / EN 143)",x:"A (marrón): vapores orgánicos. • B (gris): gases inorgánicos (cloro, H₂S, HCN). • E (amarillo): gases ácidos (SO₂, HCl). • K (verde): amoníaco. • P (blanco): partículas, P1 a P3. • El número tras la letra es la clase: A2 = capacidad media. • CO: ningún filtro común. • Forma típica: filtro de rosca Rd40 de las máscaras completas."},
  {id:"k24b",lv:2,tp:"epi",t:"Cartuchos estadounidenses (NIOSH, ej. 3M)",x:"Negro: vapores orgánicos. • Blanco: gases ácidos. • Amarillo: orgánicos + gases ácidos. • Verde: amoníaco y metilamina. • Oliva: multigás. • Magenta: partículas P100. • Partículas: N (no resiste aceite), R (resiste, un turno), P (a prueba de aceite); 95, 99 o 100 = eficiencia mínima. • ¡El mismo color no significa lo mismo que en el sistema europeo!"},
- {id:"k24c",lv:2,tp:"epi",t:"Filtros y el Departamento",x:"El Departamento trabaja con ERA en todas las intervenciones con riesgo respiratorio. • Conocer los filtros sirve para evaluar a los trabajadores: ¿su filtro era el correcto para el producto? ¿había O₂ suficiente? ¿la concentración superaba el límite del filtro? • Si el filtro no era el adecuado, se lo trata como expuesto sin protección y se informa al médico."},
  {id:"k25",lv:2,tp:"dec",t:"Métodos físicos",x:"No alteran la composición del producto. • Absorción: el producto entra en el material. • Adsorción: se adhiere a la superficie (carbón activado). • Dilución: agua para bajar la concentración. • Aspiración: polvo y fibras, con filtro HEPA. • Dispersión de vapores: ventilación. • Eliminación: descartar en lugar de limpiar."},
  {id:"k26",lv:2,tp:"cena",t:"Zonas de trabajo",x:"Caliente: donde está el producto. Solo con EPP adecuado. • Tibia: entre la caliente y la fría; ahí queda el corredor de descontaminación. • Fría: Puesto de Comando, espera de recursos, atención médica y rehabilitación."},
  {id:"k30",lv:3,tp:"det",t:"Limitaciones de la detección",x:"Falso positivo: alarma sin el producto. • Falso negativo: el producto está y el detector no lo muestra (el más peligroso). • Deriva: el sensor pierde precisión de a poco. • Envenenamiento del sensor catalítico: siliconas, plomo, azufre. • Sensibilidad cruzada: el sensor de CO reacciona al hidrógeno."},
@@ -790,6 +804,46 @@ LEVELS[2].acts=["d5","g_per","d6","d7","e5","g_epi","e6","c4","c5","s4"];
 LEVELS[3].acts=["d8","g_area","e7","e8","e9","c6","g_corr","c7","s5"];
 LEVELS[4].acts=["x1","x2","x3","x4"];
 LEVELS[5].acts=["y1","y2","y3","y4","y5","y6"];
+
+/* ================= GLOSARIO ================= */
+const GLOS=[
+ ["A1 / A2","Alarmas del detector","Primera y segunda alarma configuradas en un detector. La A2 corresponde a una concentración más peligrosa."],
+ ["AGQ","Agentes de guerra química","Sustancias tóxicas fabricadas o usadas como armas, como el sarín o la mostaza."],
+ ["BLEVE","Explosión de vapor de un líquido en ebullición","Rotura violenta de un recipiente con líquido a presión calentado, por ejemplo por un incendio."],
+ ["CO","Monóxido de carbono","Gas tóxico, incoloro e inodoro. Impide que la sangre transporte oxígeno."],
+ ["CO₂","Dióxido de carbono","Gas más pesado que el aire. En espacios cerrados desplaza el oxígeno."],
+ ["Cl₂","Cloro","Gas tóxico y corrosivo, más pesado que el aire. Muy usado en la potabilización del agua."],
+ ["EN","Norma europea","Prefijo de las normas técnicas europeas, por ejemplo EN 14387 (filtros de gas) o EN 143 (filtros de partículas)."],
+ ["EPP","Equipo de protección personal","Todo lo que se pone el bombero para protegerse: traje, guantes, botas, protección respiratoria."],
+ ["ERA","Equipo de respiración autónomo","Equipo con cilindro de aire comprimido que el bombero lleva a la espalda. No depende del aire del ambiente."],
+ ["eV","Electronvoltio","Unidad de energía. En el PID indica la energía de la lámpara (por ejemplo, 10,6 eV)."],
+ ["FFP2","Mascarilla de partículas (Europa)","Mascarilla descartable de la norma europea, de eficacia parecida a la N95."],
+ ["GRE","Guía de Respuesta en caso de Emergencia","Guía para las primeras acciones ante materiales peligrosos en el transporte, organizada por número ONU."],
+ ["H₂S","Sulfuro de hidrógeno","Gas muy tóxico e inflamable, más pesado que el aire. En concentraciones altas paraliza el olfato."],
+ ["HCN","Cianuro de hidrógeno","Gas muy tóxico que impide a las células usar el oxígeno."],
+ ["HEPA","Filtro de partículas de alta eficiencia","Filtro que retiene partículas muy finas. Se usa, por ejemplo, en aspiradoras para recoger polvo peligroso."],
+ ["IDLH","Inmediatamente peligroso para la vida o la salud","Concentración que puede matar, causar daños irreversibles o impedir escapar. Exige ERA."],
+ ["IMS","Espectrometría de movilidad iónica","Tecnología de detección de agentes de guerra química y explosivos."],
+ ["KN95","Mascarilla de partículas (China)","Mascarilla descartable de la norma china, de eficacia parecida a la N95."],
+ ["LEL","Límite inferior de explosividad","Concentración mínima de un gas o vapor en el aire para que pueda encenderse. El multigás muestra el % del LEL."],
+ ["N95","Mascarilla de partículas (EE. UU.)","Mascarilla aprobada por NIOSH que filtra al menos el 95 % de las partículas. No protege de gases ni vapores."],
+ ["NH₃","Amoníaco","Gas tóxico y corrosivo, más liviano que el aire. Muy usado en la refrigeración industrial."],
+ ["NIOSH","Instituto Nacional de Seguridad y Salud Ocupacional (EE. UU.)","Organismo de Estados Unidos que aprueba respiradores y filtros, y publica los valores IDLH."],
+ ["O₂","Oxígeno","El aire tiene 20,9 %. Rango aceptable: de 19,5 % a 23 %."],
+ ["ONU (número)","Número de las Naciones Unidas","Número de cuatro cifras que identifica una sustancia o un grupo de sustancias en el transporte. Va en la parte de abajo del panel naranja."],
+ ["OPAQ","Organización para la Prohibición de las Armas Químicas","Organismo internacional que vela por el cumplimiento de la Convención sobre Armas Químicas."],
+ ["P100","Filtro de partículas P100","Filtro NIOSH de partículas, a prueba de aceite, que retiene el 99,97 %. Es de color magenta."],
+ ["PH₃","Fosfina","Gas muy tóxico que se usa como fumigante de granos y madera."],
+ ["PID","Detector de fotoionización","Sensor que ioniza los vapores con luz ultravioleta y mide el total de VOC, en ppm."],
+ ["ppb","Partes por billón","Unidad de concentración mil veces más chica que la ppm."],
+ ["ppm","Partes por millón","Unidad de concentración: 10.000 ppm equivalen a 1 % en volumen."],
+ ["QBRN","Químico, biológico, radiológico y nuclear","Se usa para nombrar los riesgos y los equipos de protección contra esos agentes."],
+ ["QIT","Químicos industriales tóxicos","Sustancias tóxicas de uso industrial común, como el cloro o el amoníaco."],
+ ["SO₂","Dióxido de azufre","Gas tóxico e irritante, más pesado que el aire."],
+ ["UEL","Límite superior de explosividad","Concentración máxima de un gas o vapor en el aire para que pueda encenderse. Por encima, la mezcla es demasiado rica para arder."],
+ ["UV","Ultravioleta","Tipo de luz que usa el PID para ionizar los vapores."],
+ ["VOC","Compuestos orgánicos volátiles","Vapores de solventes, combustibles y otros productos orgánicos. El multigás los mide con el PID."]
+];
 
 /* ================= MINIJUEGOS ================= */
 function svgPt(svg,ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
@@ -987,7 +1041,8 @@ function gaugeSVG(v){
 
 
 /* ================= ESTADO ================= */
-const VER="v0.8",VDATE="20/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
+const VER="v0.9",VDATE="20/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1032,7 +1087,75 @@ $("#revx").onclick=exitRev;
 $("#thm").onclick=()=>{S.theme=S.theme==="dark"?"light":"dark";save();applyTheme();};
 $("#hdimg").src=IMG.e_hm;$("#hdimg").onclick=()=>S.name&&home();$("#hdtt").onclick=()=>S.name&&home();
 let TIMERS=[];function clearT(){TIMERS.forEach(clearTimeout);TIMERS=[];}
-function view(h){clearT();app.innerHTML=h;window.scrollTo(0,0);}
+function view(h){{const t=document.getElementById("gtip");if(t)t.remove();}clearT();app.innerHTML=h;window.scrollTo(0,0);}
+
+
+/* ================= GLOSARIO ================= */
+const GKEYS=(()=>{const m={};GLOS.forEach(g=>g[0].split(" / ").forEach(k=>{m[k.replace(/ \(.*\)$/,"")]=g;}));return m;})();
+const GRX=new RegExp("(^|[^\\wÀ-ÿ₀-₉])("+Object.keys(GKEYS).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![\\wÀ-ÿ₀-₉])","g");
+function gl(html){const done=new Set();return html.replace(GRX,(m,pre,k)=>{if(done.has(k))return m;done.add(k);const g=GKEYS[k];return `${pre}<abbr class="g" tabindex="0" title="${g[1]}" data-g="${k}">${k}</abbr>`;});}
+function glTip(e){const a=e.target.closest&&e.target.closest("abbr.g");let t=document.getElementById("gtip");if(t)t.remove();if(!a)return;e.stopPropagation();e.preventDefault();
+ const g=GKEYS[a.dataset.g],r=a.getBoundingClientRect();t=document.createElement("div");t.id="gtip";t.innerHTML=`<b>${g[0]}</b> · ${g[1]}<span>${g[2]}</span>`;document.body.appendChild(t);
+ const w=Math.min(300,window.innerWidth-24);t.style.width=w+"px";t.style.left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+window.scrollX-20))+"px";t.style.top=(r.bottom+window.scrollY+8)+"px";}
+document.addEventListener("click",glTip,true);
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches&&e.target.matches("abbr.g"))glTip(e);if(e.key==="Escape"){const t=document.getElementById("gtip");if(t)t.remove();}});
+function glossary(){
+ view(`<div class="card"><h2>Glosario</h2><p class="mut">Siglas y fórmulas que aparecen en el entrenador. En las preguntas y en las tarjetas, las siglas subrayadas se pueden tocar para ver su significado.</p>
+ <div class="form"><div><label for="gq">Buscar</label><input id="gq" placeholder="Por ejemplo, LEL" autocomplete="off"></div></div></div>
+ <div class="card" id="gl">${GLOS.map(g=>`<div class="gi" data-s="${(g[0]+" "+g[1]).toLowerCase()}"><b>${g[0]}</b><span class="gm">${g[1]}</span><span class="mut">${g[2]}</span></div>`).join("")}</div>
+ <div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
+ $("#bk").onclick=home;$("#gq").oninput=e=>{const q=e.target.value.toLowerCase().trim();document.querySelectorAll(".gi").forEach(d=>d.style.display=!q||d.dataset.s.includes(q)?"":"none");};
+}
+
+/* ================= LOGROS ================= */
+const AICO={
+ medal:'<circle cx="24" cy="28" r="11" fill="none" stroke="currentColor" stroke-width="3"/><path d="M17 6 L21 18 M31 6 L27 18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M24 22 l2 4 4.4.6-3.2 3 .8 4.4-4-2.1-4 2.1.8-4.4-3.2-3 4.4-.6z" fill="currentColor"/>',
+ eye:'<path d="M6 24 Q24 8 42 24 Q24 40 6 24Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="6" fill="currentColor"/>',
+ device:'<rect x="14" y="6" width="20" height="36" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><rect x="18" y="11" width="12" height="11" rx="1.5" fill="currentColor"/><circle cx="24" cy="33" r="2.5" fill="currentColor"/>',
+ filter:'<path d="M8 10 H40 L28 25 V38 L20 42 V25 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>',
+ pin:'<path d="M24 42 C14 30 11 24 11 18 a13 13 0 0 1 26 0 c0 6-3 12-13 24Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="18" r="4.5" fill="currentColor"/>',
+ cards:'<rect x="8" y="12" width="22" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 8 H36 a3 3 0 0 1 3 3 V34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>',
+ shield:'<path d="M24 5 L39 11 V22 C39 32 32 39 24 43 C16 39 9 32 9 22 V11Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 24 l5 5 9-10" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>',
+ target:'<circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="3.5" fill="currentColor"/>',
+ cal:'<rect x="7" y="10" width="34" height="31" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M7 18 H41 M16 6 V13 M32 6 V13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M16 29 l5 5 10-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+ truck:'<path d="M4 14 H29 V33 H4Z M29 20 H37 L44 27 V33 H29Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="12" cy="36" r="4" fill="currentColor"/><circle cx="36" cy="36" r="4" fill="currentColor"/><text x="16.5" y="28" text-anchor="middle" font-family="Arial" font-weight="900" font-size="10" fill="currentColor">312</text>'
+};
+function st3(ids){return ids.every(id=>S.act[id]&&S.act[id].stars>=3);}
+function achList(){
+ const pts=totalPts(),scn=builtActs().filter(id=>ACTS[id].type==="scn");
+ const L=[
+  {id:"m1",g:"Medallas",ic:"medal",col:"#c98a4b",t:"Bronce",d:"1.000 puntos",ok:pts>=1000,left:1000-pts},
+  {id:"m2",g:"Medallas",ic:"medal",col:"#c9ced6",t:"Plata",d:"5.000 puntos",ok:pts>=5000,left:5000-pts},
+  {id:"m3",g:"Medallas",ic:"medal",col:"#ffc21a",t:"Oro",d:"10.000 puntos",ok:pts>=10000,left:10000-pts},
+  {id:"ojo",g:"Insignias",ic:"eye",col:"#5aa2ff",t:"Ojo clínico",d:"3 estrellas en «Lee el multigás» y «Lectura de pantalla»",ok:st3(["d2","q3"])},
+  {id:"equipo",g:"Insignias",ic:"device",col:"#5aa2ff",t:"Conoce su equipo",d:"3 estrellas en «Equipos del Departamento» y «Alarmas del Pac 8000»",ok:st3(["q1","q2"])},
+  {id:"filtro",g:"Insignias",ic:"filter",col:"#ff5a4f",t:"Filtro fino",d:"3 estrellas en «Filtros que se ven en el campo»",ok:st3(["e4"])},
+  {id:"escena",g:"Insignias",ic:"pin",col:"#ffc21a",t:"Mando en escena",d:"3 estrellas en «Arma la escena», «Arma el corredor» y «Área de acción protectora»",ok:st3(["g_cena","g_corr","g_area"])},
+  {id:"estudio",g:"Insignias",ic:"cards",col:"#3fd18a",t:"Estudioso",d:"Abrir todas las tarjetas de repaso",ok:CARDS.every(c=>S.cards[c.id])},
+  {id:"sangre",g:"Insignias",ic:"shield",col:"#3fd18a",t:"Sangre fría",d:"Terminar cada escenario al menos una vez sin un error crítico",ok:scn.every(id=>S.act[id]&&S.act[id].clean)},
+  {id:"perfecto",g:"Insignias",ic:"target",col:"#ff5a4f",t:"Perfeccionista",d:"100 % de dominio",ok:dominio()>=100},
+  {id:"constancia",g:"Insignias",ic:"cal",col:"#5aa2ff",t:"Constancia",d:"Entrenar en 5 días distintos",ok:(S.days||[]).length>=5,left:5-(S.days||[]).length},
+  {id:"la312",g:"Insignias",ic:"truck",col:"#e3241b",t:"La 312",d:"Llegar a la pantalla final",ok:allDone()}
+ ];
+ return L;
+}
+function achIcon(a,size){return `<svg width="${size}" height="${size}" viewBox="0 0 48 48" aria-hidden="true" style="color:${a.ok?a.col:"var(--line)"}">${AICO[a.ic]}</svg>`;}
+function achCheck(){
+ if(S.rev)return;S.ach=S.ach||[];const nw=achList().filter(a=>a.ok&&!S.ach.includes(a.id));
+ if(!nw.length)return;nw.forEach(a=>S.ach.push(a.id));save();
+ nw.forEach((a,i)=>setTimeout(()=>achToast(a),400+i*3600));
+}
+function achToast(a){
+ const t=document.createElement("div");t.className="atoast";t.setAttribute("role","status");
+ t.innerHTML=`${achIcon(a,40)}<div><small>${a.g==="Medallas"?"Nueva medalla":"Nueva insignia"}</small><b>${a.t}</b><span>${a.d}</span></div>`;
+ document.body.appendChild(t);setTimeout(()=>t.classList.add("on"),30);setTimeout(()=>{t.classList.remove("on");setTimeout(()=>t.remove(),400);},3200);
+}
+function achSummary(){const L=achList(),n=L.filter(a=>a.ok).length;
+ return `<button class="card achsum" id="bach"><div class="hd" style="margin:0 0 8px"><b>Logros</b><span class="mut">${n} de ${L.length}</span></div><div class="achrow">${L.map(a=>achIcon(a,30)).join("")}</div></button>`;}
+function achScreen(){const L=achList(),n=L.filter(a=>a.ok).length,fmtn=x=>x.toLocaleString("es-UY");
+ const grp=g=>`<h3 class="achg">${g==="Medallas"?"Medallas por puntos":"Insignias por desafíos"}</h3><div class="achgrid">${L.filter(a=>a.g===g).map(a=>`<div class="achb${a.ok?"":" off"}">${achIcon(a,40)}<b>${a.t}</b><span>${a.d}${!a.ok&&a.left>0?` · te faltan ${fmtn(a.left)}${a.id==="constancia"?(a.left===1?" día":" días"):""}`:""}</span></div>`).join("")}</div>`;
+ view(`<div class="card"><div class="hd" style="margin:0"><h2 style="margin:0">Logros</h2><span class="mut">${n} de ${L.length}</span></div>${grp("Medallas")}${grp("Insignias")}</div><div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
+ $("#bk").onclick=home;}
 
 /* ================= BIENVENIDA ================= */
 function welcome(){
@@ -1055,6 +1178,7 @@ function home(){
   <div class="info"><div class="lvn">Nivel ${c}</div><h2>${esc(S.name)}</h2><div class="mut" style="margin-bottom:8px">${L.t}</div>
   <div class="bar"><i style="width:${m?Math.round(100*s/m):0}%"></i></div><div class="mut" style="font-size:.78rem;margin-top:4px">${m?`${s} de ${m} estrellas en este nivel`:"Nivel en construcción"}</div>
   </div><div class="stats"><div class="stat"><b>${totalPts()}</b>puntos</div><div class="stat"><b>${dominio()} %</b>dominio</div><div class="stat"><b>${twoStar()}/${builtActs().length}</b>con ⭐⭐</div></div></div>
+  ${achSummary()}
   <h3 style="margin:18px 4px 10px">Camino de niveles</h3>
   ${LEVELS.map(l=>{const u=unlocked(l.n),d=lvlDone(l.n),cur=l.n===c&&!d;const[ls,lm]=lvlStars(l.n);
    return `<button class="lv ${d?"done":cur?"cur":""} ${u?"":"lock"}" data-n="${l.n}" ${u?"":'aria-disabled="true"'}>
@@ -1063,12 +1187,12 @@ function home(){
    ${d?'<span class="chip ok">Completado</span>':u?(l.acts.length?`<span class="chip go">${ls}/${lm} estrellas</span>`:'<span class="chip">En construcción</span>'):`<span class="chip">Aprueba la prueba del nivel ${l.n-1}</span>`}</span>
    <img src="${lvImg(l.n)}" alt="" style="${u?"":"filter:grayscale(1) brightness(.6)"}"></button>`;}).join("")}
   <div class="card" style="margin-top:16px"><div class="row" style="margin-top:0">
-   <button class="btn" id="bk">Tarjetas de repaso</button><button class="btn sec" id="bh">Cómo funciona</button>
+   <button class="btn" id="bk">Tarjetas de repaso</button><button class="btn sec" id="bg">Glosario</button><button class="btn sec" id="bh">Cómo funciona</button>
    <button class="btn sec" id="bs">${ICO.share} Compartir progreso</button></div>
    <div class="row"><button class="btn sec" id="bc">Créditos</button><button class="btn sec" id="bv">Verificar un resultado</button><button class="btn sec" id="br">Reiniciar</button></div></div>`);
  document.querySelectorAll(".lv").forEach(b=>b.onclick=()=>{const n=+b.dataset.n;if(unlocked(n))level(n);});
- if($("#revx2"))$("#revx2").onclick=exitRev;if($("#bfin"))$("#bfin").onclick=finale;
- $("#bk").onclick=()=>cards();$("#bh").onclick=howto;$("#bc").onclick=credits;$("#bv").onclick=verify;$("#br").onclick=resetScreen;$("#bs").onclick=()=>shareScreen();
+ if($("#revx2"))$("#revx2").onclick=exitRev;$("#bach").onclick=achScreen;if($("#bfin"))$("#bfin").onclick=finale;
+ $("#bk").onclick=()=>cards();$("#bg").onclick=glossary;$("#bh").onclick=howto;$("#bc").onclick=credits;$("#bv").onclick=verify;$("#br").onclick=resetScreen;$("#bs").onclick=()=>shareScreen();
 }
 
 function howto(){
@@ -1203,14 +1327,14 @@ function runQuiz(o){
   const it=o.items[i];window.__it=it;
   view(`<div class="card"><div class="hd"><span class="tag ${o.tp||""}">${esc(o.title)}</span><span class="mut" style="font-size:.85rem">${i+1}/${o.items.length}</span></div>
   <div class="prog"><i style="width:${100*i/o.items.length}%"></i></div>
-  ${it.img?`<img class="photo" src="${IMG[it.img]}" alt="Foto para identificar" style="margin-top:12px">`:""}
-  ${it.ctx?`<div class="ctx">${esc(it.ctx)}</div>`:""}
+  ${it.img?`<img class="photo${EQIMG.has(it.img)?" eq":""}" src="${IMG[it.img]}" alt="Foto para identificar" style="margin-top:12px">`:""}
+  ${it.ctx?`<div class="ctx">${gl(esc(it.ctx))}</div>`:""}
   ${it.fsvg?`<div class="fbig">${filterSVG(it.fsvg,it.fsvg.includes(":")?160:110)}</div>`:""}
   ${it.gauge!=null?gaugeSVG(it.gauge):""}
   ${it.room?`<div id="rm">${roomSVG(it,null)}</div>`:""}
   ${it.scr?`<div style="margin-top:12px">${mgHTML(it.scr)}</div>`:""}
   ${it.pn?pnlHTML(it.pn):""}
-  <div class="qtx">${esc(it.q)}</div>
+  <div class="qtx">${gl(esc(it.q))}</div>
   <div class="opts ${it.g2?"g2":""}">${it.opts.map((t,k)=>{const fc=it.fico&&/^[ABEKP]+ ·/.test(t);return `<button class="opt${fc?" wi":""}" data-k="${k}">${fc?filterSVG(t.split(" ")[0],40):""}<span>${esc(t)}</span></button>`;}).join("")}</div>
   ${S.rev?`<div class="revtools"><button id="rva">Ver respuesta</button><button id="rvs">Saltar</button></div>`:""}
   <div id="fb"></div></div>
@@ -1220,7 +1344,7 @@ function runQuiz(o){
    document.querySelectorAll(".opt").forEach(x=>{x.disabled=true;const t=it.opts[+x.dataset.k];if(t===it.ans)x.classList.add("ok");else if(x===b)x.classList.add("no");});
    if(good)ok++;else miss.push(it);
    if(it.room)$("#rm").innerHTML=roomSVG(it,it.opts.indexOf(it.ans));
-   $("#fb").innerHTML=`<div class="fb ${good?"":"bad"}"><b>${good?"Correcto.":"No. Respuesta: "+esc(it.ans)}</b>${esc(it.e||"")}</div><div class="row"><button class="btn full" id="nx">${i+1<o.items.length?"Siguiente":"Ver resultado"}</button></div>`;
+   $("#fb").innerHTML=`<div class="fb ${good?"":"bad"}"><b>${good?"Correcto.":"No. Respuesta: "+esc(it.ans)}</b>${gl(esc(it.e||""))}</div><div class="row"><button class="btn full" id="nx">${i+1<o.items.length?"Siguiente":"Ver resultado"}</button></div>`;
    $("#nx").focus();$("#nx").onclick=()=>{i++;step();};
   });
   if(S.rev){$("#rva").onclick=()=>document.querySelectorAll(".opt").forEach(x=>{if(it.opts[+x.dataset.k]===it.ans)x.classList.add("hint");});$("#rvs").onclick=()=>{i++;step();};}
@@ -1253,17 +1377,17 @@ function runScn(id,onEnd,onExit){
   const st=A.steps[i],opts=shuffle(st.o);window.__it={ans:st.o.find(o=>o[1]===1)[0],crit:(st.o.find(o=>o[1]===2)||[])[0]};
   view(`<div class="card"><div class="hd"><span class="tag int">Escenario · ${esc(A.t)}</span><span class="mut" style="font-size:.85rem">${i+1}/${A.steps.length}</span></div>
   <div class="prog"><i style="width:${100*i/A.steps.length}%"></i></div>
-  <div class="ctx">${esc(A.ctx)}</div>
+  <div class="ctx">${gl(esc(A.ctx))}</div>
   ${st.mg?mgHTML(st.mg):""}${st.pac?pacHTML(st.pac[0],st.pac[1],200,true):""}${st.pn?pnlHTML(st.pn):""}
-  <div class="qtx">${esc(st.q)}</div>
+  <div class="qtx">${gl(esc(st.q))}</div>
   <div class="opts">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o[0])}</button>`).join("")}</div>${S.rev?`<div class="revtools"><button id="rva">Ver respuesta</button><button id="rvs">Saltar</button></div>`:""}<div id="fb"></div></div>
   <div class="row"><button class="btn sec" id="qx">Salir</button></div>`);
   document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
    const o=opts[+b.dataset.k],good=opts.find(x=>x[1]===1);
    document.querySelectorAll(".opt").forEach(x=>{x.disabled=true;const t=opts[+x.dataset.k];if(t[1]===1)x.classList.add("ok");else if(x===b)x.classList.add("no");});
-   if(o[1]===1){ok++;$("#fb").innerHTML=`<div class="fb"><b>Correcto.</b>${esc(o[2])}</div>`;}
+   if(o[1]===1){ok++;$("#fb").innerHTML=`<div class="fb"><b>Correcto.</b>${gl(esc(o[2]))}</div>`;}
    else if(o[1]===2){$("#fb").innerHTML=`<div class="crit"><b>ERROR CRÍTICO</b>${esc((t=>t.charAt(0).toUpperCase()+t.slice(1))(o[2].replace(/^ERROR CRÍTICO:\s*/,"")))}<p class="mut" style="margin:6px 0 0">Mejor decisión: ${esc(good[0])}</p></div>`;}
-   else{miss.push({q:st.q,ans:good[0]});$("#fb").innerHTML=`<div class="fb bad"><b>No es la mejor decisión.</b>${esc(o[2])}<p style="margin:6px 0 0"><b style="display:inline">Mejor:</b> ${esc(good[0])}</p></div>`;}
+   else{miss.push({q:st.q,ans:good[0]});$("#fb").innerHTML=`<div class="fb bad"><b>No es la mejor decisión.</b>${gl(esc(o[2]))}<p style="margin:6px 0 0"><b style="display:inline">Mejor:</b> ${esc(good[0])}</p></div>`;}
    const crit=o[1]===2;
    $("#fb").insertAdjacentHTML("beforeend",`<div class="row"><button class="btn full" id="nx">${crit?"Ver resultado":i+1<A.steps.length?"Siguiente decisión":"Ver resultado"}</button></div>`);
    $("#nx").focus();$("#nx").onclick=()=>{if(crit)return onEnd(0,A.steps.length,[{q:st.q,ans:good[0]}],{crit:o[0]});i++;step();};
@@ -1281,9 +1405,9 @@ function play(id){
   if(S.rev){const p=x&&x.crit?0:ok/total;return actResult(id,{p,st:starsFor(p),ok,total,miss,gain:0,newStars:false,crit:x&&x.crit,rev:true});}
   const p=x&&x.crit?0:ok/total,st=starsFor(p),r=S.act[id]||{best:0,stars:0,pts:0,plays:0};
   const prevStars=r.stars,pts=Math.round(p*100)*A.lv,gain=Math.max(0,pts-r.pts);
-  r.plays++;if(p>r.best)r.best=p;if(st>r.stars)r.stars=st;if(pts>r.pts)r.pts=pts;
+  r.plays++;if(p>r.best)r.best=p;if(st>r.stars)r.stars=st;if(pts>r.pts)r.pts=pts;if(A.type==="scn"&&!(x&&x.crit))r.clean=true;{const dd=new Date(),k=dd.getFullYear()+"-"+(dd.getMonth()+1)+"-"+dd.getDate();S.days=S.days||[];if(!S.days.includes(k))S.days.push(k);}
   S.act[id]=r;if(S.lock[A.lv])delete S.lock[A.lv];save();hud();
-  actResult(id,{p,st,ok,total,miss,gain,newStars:st>prevStars,crit:x&&x.crit});
+  actResult(id,{p,st,ok,total,miss,gain,newStars:st>prevStars,crit:x&&x.crit});achCheck();
  };
  if(A.type==="ord")return runOrder(id,end,()=>level(A.lv));
  if(A.type==="scn")return runScn(id,end,()=>level(A.lv));
@@ -1329,7 +1453,7 @@ function test(n){
   const t=S.test[n]||{passed:false,best:0,tries:0},was=t.passed;
   t.tries++;if(p>t.best)t.best=p;
   const pass=p>=.8;if(pass)t.passed=true;else if(!was)S.lock[n]=true;
-  S.test[n]=t;save();hud();
+  S.test[n]=t;save();hud();setTimeout(achCheck,300);
   const up=pass&&!was&&n<LEVELS.length,fin=pass&&n===LEVELS.length;
   view(`<div class="card center">${pass?`<div class="fogo">${ICO.flame}${CHEER}</div><p class="mut">Prueba del nivel ${n} aprobada</p>`:`<h2>Todavía no</h2><p class="mut">Faltó poco: hace falta 80 %.</p>`}
   <div class="big">${Math.round(p*100)} %</div><div class="mut">${ok} de ${total} aciertos</div></div>
@@ -1350,12 +1474,12 @@ function cards(tp,lv){
  view(`<div class="card"><h2>Tarjetas de repaso</h2><p class="mut">Toca una tarjeta para abrirla. Repasadas: ${seen} de ${CARDS.length} · puntos de repaso: ${S.cpts||0} de ${CARDCAP}.</p>
  <div class="filters">${[["all","Todas"],...Object.entries(TOPICS)].map(([k,v])=>`<button class="fl ${tp===k?"on":""}" data-tp="${k}">${v}</button>`).join("")}</div>
  <div class="filters">${[0,...LEVELS.map(l=>l.n)].map(n=>`<button class="fl ${lv===n?"on":""}" data-lv="${n}">${n?"Nivel "+n:"Todos los niveles"}</button>`).join("")}</div></div>
- ${list.length?list.map(c=>`<div class="kcard" style="border-left-color:var(--${{det:"blue",epi:"acc",dec:"good",cena:"acc2",int:"mut"}[c.tp]})"><button data-id="${c.id}" aria-expanded="false"><span class="tag ${c.tp}">${TOPICS[c.tp]}</span><b>${esc(c.t)}</b>${S.cards[c.id]?'<span class="seen">✓</span>':""}</button><div class="body hide">${cardText(esc(c.x))}</div></div>`).join(""):`<div class="card mut">Todavía no hay tarjetas para este filtro.</div>`}
+ ${list.length?list.map(c=>`<div class="kcard" style="border-left-color:var(--${{det:"blue",epi:"acc",dec:"good",cena:"acc2",int:"mut"}[c.tp]})"><button data-id="${c.id}" aria-expanded="false"><span class="tag ${c.tp}">${TOPICS[c.tp]}</span><b>${esc(c.t)}</b>${S.cards[c.id]?'<span class="seen">✓</span>':""}</button><div class="body hide">${gl(cardText(esc(c.x)))}</div></div>`).join(""):`<div class="card mut">Todavía no hay tarjetas para este filtro.</div>`}
  <div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
  document.querySelectorAll("[data-tp]").forEach(b=>b.onclick=()=>cards(b.dataset.tp,lv));
  document.querySelectorAll("[data-lv]").forEach(b=>b.onclick=()=>cards(tp,+b.dataset.lv));
  document.querySelectorAll(".kcard>button").forEach(b=>b.onclick=()=>{const body=b.nextElementSibling,open=body.classList.toggle("hide")===false;b.setAttribute("aria-expanded",open);
-  const id=b.dataset.id;if(open&&!S.cards[id]){S.cards[id]=1;if((S.cpts||0)<CARDCAP)S.cpts=(S.cpts||0)+1;save();hud();if(!b.querySelector(".seen"))b.insertAdjacentHTML("beforeend",'<span class="seen">✓</span>');}});
+  const id=b.dataset.id;if(open&&!S.cards[id]){S.cards[id]=1;if((S.cpts||0)<CARDCAP)S.cpts=(S.cpts||0)+1;save();hud();achCheck();if(!b.querySelector(".seen"))b.insertAdjacentHTML("beforeend",'<span class="seen">✓</span>');}});
  $("#bk").onclick=home;
 }
 
@@ -1398,11 +1522,11 @@ function runScrn(id,onEnd,onExit){
    const good=b.dataset.k===target;document.querySelector(`.cell[data-k="${target}"]`).classList.add("ok");
    if(good)ok++;else{b.classList.add("no");miss.push({q:"Lectura anormal en la pantalla",ans:target==="none"?"Todo normal":MGN[target]});}
    const opts=shuffle(s.o);
-   $("#qa").innerHTML=`<p class="mut" style="margin-top:6px">${good?"Bien ubicada.":"La lectura a mirar es la marcada en verde."} Ahora interprétala:</p><div class="qtx">${esc(s.q)}</div><div class="opts">${opts.map((t,k)=>`<button class="opt" data-k="${k}">${esc(t)}</button>`).join("")}</div><div id="fb"></div>`;
+   $("#qa").innerHTML=`<p class="mut" style="margin-top:6px">${good?"Bien ubicada.":"La lectura a mirar es la marcada en verde."} Ahora interprétala:</p><div class="qtx">${gl(esc(s.q))}</div><div class="opts">${opts.map((t,k)=>`<button class="opt" data-k="${k}">${esc(t)}</button>`).join("")}</div><div id="fb"></div>`;
    document.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{const pick=opts[+o.dataset.k],g2=pick===s.o[0];
     document.querySelectorAll(".opt").forEach(x=>{x.disabled=true;const t=opts[+x.dataset.k];if(t===s.o[0])x.classList.add("ok");else if(x===o)x.classList.add("no");});
     if(g2)ok++;else miss.push({q:s.q,ans:s.o[0]});
-    $("#fb").innerHTML=`<div class="fb ${g2?"":"bad"}"><b>${g2?"Correcto.":"No. Respuesta: "+esc(s.o[0])}</b>${esc(s.e)}</div><div class="row"><button class="btn full" id="nx">${i+1<L.length?"Siguiente":"Ver resultado"}</button></div>`;
+    $("#fb").innerHTML=`<div class="fb ${g2?"":"bad"}"><b>${g2?"Correcto.":"No. Respuesta: "+esc(s.o[0])}</b>${gl(esc(s.e))}</div><div class="row"><button class="btn full" id="nx">${i+1<L.length?"Siguiente":"Ver resultado"}</button></div>`;
     $("#nx").focus();$("#nx").onclick=()=>{i++;step();};});
   });
  }
@@ -1523,13 +1647,28 @@ function shareWire(maker,kind){
   if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:"Entrenador de Materiales Peligrosos",text:kind==="felicitaciones"?"¡Completé el Entrenador de Materiales Peligrosos de Haz-Mat Uruguay!":"Mi progreso en el Entrenador de Materiales Peligrosos"});msg("Listo.");}catch(e){if(e&&e.name!=="AbortError")msg("No se pudo abrir el menú. Usa “Descargar imagen”.");}}
   else{download(b);msg("Este navegador no permite compartir directo, así que la imagen se descargó. Envíala como foto.");}};
 }
+/* ================= RANKING ================= */
+const RANK={form:"",eName:"",eCode:"",page:"https://edwardfariasromero.github.io/entrenadores-hazmat/ranking/"};
+function rankUrl(name){const c=makeCode(name,curLevel(),twoStar(),dominio(),totalPts(),dayNum());
+ return RANK.form+(RANK.form.includes("?")?"&":"?")+"usp=pp_url&"+RANK.eName+"="+encodeURIComponent(name)+"&"+RANK.eCode+"="+encodeURIComponent(c);}
+function rankBox(){return `<div class="card"><h3 style="margin-top:0">Ranking</h3><p class="mut">Participar es opcional. Si envías tu resultado, se publican el nombre, el nivel, el dominio y los puntos. Puedes volver a enviarlo cuando mejores: queda el mejor.</p>
+ <div class="form"><div><label for="rkn">Nombre para el ranking</label><input id="rkn" maxlength="40" value="${esc(S.name)}" autocomplete="off"></div></div>
+ <div class="row"><button class="btn" id="rks">Enviar al ranking</button><button class="btn sec" id="rkv">Ver el ranking</button></div><p class="mut" id="rkm" style="margin:8px 0 0;font-size:.85rem"></p></div>`;}
+function rankWire(){
+ $("#rks").onclick=()=>{const n=$("#rkn").value.trim();if(!n){$("#rkm").textContent="Escribe un nombre.";$("#rkn").focus();return;}
+  if(S.rev){$("#rkm").textContent="En el modo revisión no se puede enviar al ranking.";return;}
+  if(!RANK.form){$("#rkm").textContent="El ranking todavía no está habilitado.";return;}
+  window.open(rankUrl(n),"_blank","noopener");$("#rkm").textContent="Se abrió el formulario con tus datos: tócale «Enviar». Hace falta conexión a internet.";};
+ $("#rkv").onclick=()=>window.open(RANK.page,"_blank","noopener");
+}
 function shareScreen(){
  view(`<div class="card center"><h2>Compartir progreso</h2><p class="mut">La imagen muestra tu nivel, el dominio del contenido y un código para verificar que los datos no se modificaron.</p>
  <img class="shareprev" id="pv" alt="Vista previa de la imagen del resultado">
  <div class="row c"><button class="btn" id="sh">${ICO.share} Compartir</button><button class="btn sec" id="dl">${ICO.down} Descargar imagen</button></div>
  <p class="mut" id="msg" style="margin:10px 0 0">Compartir abre el menú del celular o de la computadora para elegir la aplicación.</p></div>
+ ${rankBox()}
  <div class="row"><button class="btn sec" id="bk">Volver al inicio</button></div>`);
- shareWire(cardBlob,"resultado");
+ shareWire(cardBlob,"resultado");rankWire();
  $("#bk").onclick=home;
 }
 function verify(){
