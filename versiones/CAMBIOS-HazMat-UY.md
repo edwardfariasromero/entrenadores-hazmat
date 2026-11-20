@@ -1,5 +1,8 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.7 · 20/11/2026
+- Pantalla de bienvenida con la imagen de portada de Haz-Mat (recortada para dejar afuera el rombo NFPA con la leyenda equivocada) en lugar del escudo solo.
+
 ## v0.6 · 20/11/2026
 - Actividad «¿Qué filtro?» reemplazada por «Filtros que se ven en el campo»: filtros europeos (EN 14387 / EN 143) y cartuchos estadounidenses (NIOSH, tipo 3M), mascarillas N95/KN95/FFP2, clases N/R/P y situaciones de trabajadores con filtros inadecuados.
 - Dibujos nuevos: filtro europeo de rosca Rd40, cartuchos 3M por color, discos y filtros P100, mascarillas.
