@@ -1648,7 +1648,7 @@ function shareWire(maker,kind){
   else{download(b);msg("Este navegador no permite compartir directo, así que la imagen se descargó. Envíala como foto.");}};
 }
 /* ================= RANKING ================= */
-const RANK={form:"",eName:"",eCode:"",page:"https://edwardfariasromero.github.io/entrenadores-hazmat/ranking/"};
+const RANK={form:"https://docs.google.com/forms/d/e/1FAIpQLScb9FJl9SQ9lgmHYcHtkdAGycNT7Ll5UtxTyViyIqM6XQ86bQ/viewform",eName:"entry.1993191253",eCode:"entry.358091143",page:"https://edwardfariasromero.github.io/entrenadores-hazmat/ranking/"};
 function rankUrl(name){const c=makeCode(name,curLevel(),twoStar(),dominio(),totalPts(),dayNum());
  return RANK.form+(RANK.form.includes("?")?"&":"?")+"usp=pp_url&"+RANK.eName+"="+encodeURIComponent(name)+"&"+RANK.eCode+"="+encodeURIComponent(c);}
 function rankBox(){return `<div class="card"><h3 style="margin-top:0">Ranking</h3><p class="mut">Participar es opcional. Si envías tu resultado, se publican el nombre, el nivel, el dominio y los puntos. Puedes volver a enviarlo cuando mejores: queda el mejor.</p>
