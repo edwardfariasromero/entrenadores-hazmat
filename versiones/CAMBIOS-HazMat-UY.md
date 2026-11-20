@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.6 · 20/11/2026
+- Actividad «¿Qué filtro?» reemplazada por «Filtros que se ven en el campo»: filtros europeos (EN 14387 / EN 143) y cartuchos estadounidenses (NIOSH, tipo 3M), mascarillas N95/KN95/FFP2, clases N/R/P y situaciones de trabajadores con filtros inadecuados.
+- Dibujos nuevos: filtro europeo de rosca Rd40, cartuchos 3M por color, discos y filtros P100, mascarillas.
+- Tarjetas nuevas: cartuchos estadounidenses y «Filtros y el Departamento» (el Departamento trabaja con ERA).
+
 ## v0.5 · 19/11/2026
 - Escudos de Haz-Mat Uruguay y de Produtos Perigosos CBMAM en alta definición (antes se veían pixelados en pantallas grandes).
 

@@ -1145,7 +1145,7 @@ function gaugeSVG(v){
 
 
 /* ================= ESTADO ================= */
-const VER="v0.8",VDATE="19/11/2026",KEY="hazmat_cbmam_v1",CARDCAP=20;
+const VER="v0.9",VDATE="19/11/2026",KEY="hazmat_cbmam_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1288,12 +1288,56 @@ function buildItems(id,count,fresh){
  }
  return [];
 }
-const FCOL={A:"#7a4a1f",B:"#9aa0a6",E:"#f2c200",K:"#2e8b3e",P:"#f4f4f4"};
+const FCOL={A:"#8a5a2b",B:"#9aa0a6",E:"#f2c200",K:"#1f9d3a",P:"#f4f4f4"};
+const UCOL={OV:["#1d1d1f","#fff"],AG:["#f1f1ef","#222"],OVAG:["#f2c200","#222"],AM:["#1f9d3a","#fff"],MG:["#6f7232","#fff"]};
 function filterSVG(code,w){
- const L=code.split(""),bw=60/L.length;
- const stripes=L.map((c,i)=>`<rect x="${10+i*bw}" y="38" width="${bw}" height="34" fill="${FCOL[c]}"/>`).join("");
- const txt=L.length===1?`<text x="40" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="22" fill="${"EP".includes(code)?"#111":"#fff"}">${code}</text>`:`<text x="40" y="86" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#fff">${code}</text>`;
- return `<svg class="fi" width="${w}" height="${w*1.25}" viewBox="0 0 80 100" role="img" aria-label="Filtro ${code}"><rect x="22" y="4" width="36" height="12" rx="3" fill="#6b7178"/><path d="M24 7h32M24 11h32" stroke="#4a4f55" stroke-width="1.5"/><rect x="10" y="14" width="60" height="80" rx="10" fill="#2b2f34" stroke="#111" stroke-width="2"/><g>${stripes}</g><rect x="10" y="38" width="60" height="34" fill="none" stroke="#111" stroke-width="1.5"/>${txt}</svg>`;
+ if(code.startsWith("US:"))return usSVG(code.slice(3),w);
+ if(code.startsWith("MASK:"))return maskSVG(code.slice(5),w);
+ /* filtro europeo de rosca Rd40: cilindro corto con franjas */
+ const L=code.replace(/[0-9]/g,"").split(""),n=L.length,y0=44,h=40,sh=h/n;
+ const bands=L.map((c,i)=>`<rect x="10" y="${y0+i*sh}" width="80" height="${sh+.3}" fill="${FCOL[c]}"/>`).join("");
+ const big=n===1,lab=code;
+ return `<svg class="fi" width="${w}" height="${w*1.1}" viewBox="0 0 100 110" role="img" aria-label="Filtro europeu ${lab}">
+ <defs><linearGradient id="cy" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".35"/><stop offset=".35" stop-color="#fff" stop-opacity=".18"/><stop offset=".65" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></linearGradient></defs>
+ <path d="M10 30 V96 A40 9 0 0 0 90 96 V30 Z" fill="#8d9298"/>${bands}
+ <path d="M10 30 V96 A40 9 0 0 0 90 96 V30 Z" fill="url(#cy)"/>
+ <path d="M10 ${y0} H90 M10 ${y0+h} H90" stroke="#3a3e43" stroke-width="1.6"/>
+ <ellipse cx="50" cy="30" rx="40" ry="9" fill="#b9bdc2" stroke="#6d7277" stroke-width="1"/>
+ <ellipse cx="50" cy="30" rx="27" ry="6" fill="none" stroke="#8d9298" stroke-width="2"/>
+ <path d="M37 30 V14 A13 3.2 0 0 0 63 14 V30 A13 3.2 0 0 1 37 30Z" fill="#cfd2d5" stroke="#6d7277" stroke-width="1"/>
+ <path d="M37 18 Q50 22 63 18 M37 22 Q50 26 63 22 M37 26 Q50 30 63 26" fill="none" stroke="#8d9298" stroke-width="1.2"/>
+ <ellipse cx="50" cy="14" rx="13" ry="3.2" fill="#e6e8ea" stroke="#6d7277" stroke-width="1"/><ellipse cx="50" cy="14" rx="7" ry="1.8" fill="#55595e"/>
+ ${big?`<text x="50" y="${y0+h/2+8}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="24" fill="${"EPB".includes(code)?"#111":"#fff"}">${code}</text>`:`<rect x="22" y="${y0+h+3}" width="56" height="12" rx="2" fill="#1f2226"/><text x="50" y="${y0+h+12.5}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="9.5" fill="#fff">${lab}</text>`}
+ </svg>`;
+}
+/* cartucho estadounidense (3M serie 6000) y filtros de partículas */
+function usSVG(k,w){
+ if(k==="P100")return `<svg class="fi" width="${w}" height="${w*.8}" viewBox="0 0 120 96" role="img" aria-label="Filtro de partículas P100, disco magenta">
+ <ellipse cx="60" cy="56" rx="50" ry="30" fill="#a8136a"/><ellipse cx="60" cy="50" rx="50" ry="30" fill="#d33a95"/>
+ <ellipse cx="60" cy="50" rx="44" ry="25" fill="none" stroke="#b81f7c" stroke-width="2" stroke-dasharray="3 3"/>
+ <text x="60" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="#7a0c4b">P100</text><text x="60" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#7a0c4b">NIOSH</text></svg>`;
+ if(k==="7093")return `<svg class="fi" width="${w*.8}" height="${w}" viewBox="0 0 90 112" role="img" aria-label="Filtro de partículas P100 retangular, etiqueta magenta">
+ <rect x="10" y="6" width="72" height="100" rx="16" fill="#8e9398"/><rect x="6" y="4" width="72" height="100" rx="16" fill="#b4b8bc"/>
+ <rect x="18" y="24" width="56" height="62" rx="4" fill="#d33a95"/><text x="46" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#5c0838">P100</text>
+ <text x="46" y="66" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#5c0838">NIOSH</text></svg>`;
+ const pf=k.endsWith("+P100"),kk=k.replace("+P100",""),[c,t]=UCOL[kk];
+ return `<svg class="fi" width="${w}" height="${w*.8}" viewBox="0 0 120 96" role="img" aria-label="Cartucho americano com etiqueta ${{OV:"preta",AG:"branca",OVAG:"amarela",AM:"verde",MG:"oliva"}[kk]}${pf?" e disco magenta P100":""}">
+ <path d="M16 46 L28 20 Q31 15 37 15 H83 Q89 15 92 20 L104 46 Z" fill="#d9d3c4" stroke="#a49d8c" stroke-width="1.2"/>
+ <ellipse cx="60" cy="31" rx="15" ry="7" fill="#b9b2a1"/><ellipse cx="60" cy="31" rx="9" ry="4" fill="#8d8676"/>
+ <path d="M60 27 V35 M53 31 H67" stroke="#d9d3c4" stroke-width="2"/>
+ ${pf?`<path d="M20 44 L31 21 Q33 18 38 18 H82 Q87 18 89 21 L100 44 Z" fill="#d33a95" opacity=".95"/><text x="60" y="36" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="10" fill="#7a0c4b">P100</text>`:""}
+ <path d="M16 46 H104 V70 Q104 76 98 76 H22 Q16 76 16 70 Z" fill="${c}" stroke="#555" stroke-width="1"/>
+ <path d="M16 46 H104" stroke="#000" stroke-opacity=".25" stroke-width="2"/>
+ <text x="28" y="65" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="${t}">3M</text>
+ <text x="96" y="65" text-anchor="end" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" fill="${t}">NIOSH</text></svg>`;
+}
+function maskSVG(k,w){
+ return `<svg class="fi" width="${w}" height="${w*.75}" viewBox="0 0 120 90" role="img" aria-label="Máscara descartável ${k}">
+ <path d="M8 40 Q2 20 18 18 M112 40 Q118 20 102 18" fill="none" stroke="#e5b800" stroke-width="3"/>
+ <path d="M8 56 Q2 76 18 74 M112 56 Q118 76 102 74" fill="none" stroke="#e5b800" stroke-width="3"/>
+ <path d="M18 30 Q60 4 102 30 Q108 60 60 84 Q12 60 18 30Z" fill="#f4f4f2" stroke="#b9b9b5" stroke-width="1.5"/>
+ <path d="M30 26 Q60 12 90 26" fill="none" stroke="#9aa0a6" stroke-width="3"/>
+ <text x="60" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="#222">${k}</text></svg>`;
 }
 function pnlHTML(p){return `<div class="pnlw"><div class="pnl" role="img" aria-label="Painel de segurança: número de risco ${p[0]}, número ONU ${p[1]}"><b>${p[0]}</b><b>${p[1]}</b></div></div>`;}
 function mgHTML(s){return `<div class="mg" role="img" aria-label="Tela do multigás: O₂ ${fmt(s.o2)} %, LIE ${s.lie} %, CO ${s.co} ppm, H₂S ${fmt(s.h2s)} ppm"><div class="brand">MULTIGÁS</div><div class="lcd">
@@ -1309,7 +1353,7 @@ function runQuiz(o){
   <div class="prog"><i style="width:${100*i/o.items.length}%"></i></div>
   ${it.img?`<img class="photo" src="${IMG[it.img]}" alt="Foto para identificar o nível de proteção" style="margin-top:12px">`:""}
   ${it.ctx?`<div class="ctx">${esc(it.ctx)}</div>`:""}
-  ${it.fsvg?`<div class="fbig">${filterSVG(it.fsvg,110)}</div>`:""}
+  ${it.fsvg?`<div class="fbig">${filterSVG(it.fsvg,it.fsvg.includes(":")?160:110)}</div>`:""}
   ${it.gauge!=null?gaugeSVG(it.gauge):""}
   ${it.room?`<div id="rm">${roomSVG(it,null)}</div>`:""}
   ${it.scr?`<div style="margin-top:12px">${mgHTML(it.scr)}</div>`:""}

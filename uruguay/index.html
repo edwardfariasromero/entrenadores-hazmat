@@ -421,21 +421,33 @@ Object.assign(ACTS,{
   {q:"Recolección de polvo de un producto identificado, al aire libre, con concentración por debajo del límite del filtro y O₂ normal.",c:0,e:"Producto conocido, concentración compatible y O₂ normal: filtro para partículas adecuado."},
   {q:"Gas identificado, concentración medida dentro del límite del filtro aprobado, O₂ de 20,8 % y tarea corta al aire libre.",c:0,e:"Están todas las condiciones para usar un respirador con filtro."}
  ]},
- e4:{lv:2,tp:"epi",type:"mcq",n:8,t:"¿Qué filtro?",d:"Reconoce el filtro por la letra y el color, y qué revisar antes de usarlo.",fico:true,q:[
-  {q:"¿Qué filtro para amoníaco?",o:["K · verde","A · marrón","B · gris","E · amarillo"],e:"K (verde): amoníaco y derivados orgánicos del amoníaco."},
-  {q:"¿Qué filtro para el vapor de un solvente orgánico, como el tolueno?",o:["A · marrón","K · verde","E · amarillo","B · gris"],e:"A (marrón): vapores orgánicos con punto de ebullición por encima de 65 °C."},
-  {q:"¿Qué filtro para cloro?",o:["B · gris","A · marrón","K · verde","E · amarillo"],e:"B (gris): gases inorgánicos, como cloro, sulfuro de hidrógeno y cianuro de hidrógeno."},
-  {q:"¿Qué filtro para sulfuro de hidrógeno (H₂S)?",o:["B · gris","E · amarillo","A · marrón","K · verde"],e:"B (gris): gases inorgánicos. Recuerda que el H₂S es IDLH a 100 ppm: por encima, ERA."},
-  {q:"¿Qué filtro para dióxido de azufre (SO₂)?",o:["E · amarillo","B · gris","K · verde","A · marrón"],e:"E (amarillo): gases ácidos, como dióxido de azufre y cloruro de hidrógeno."},
-  {q:"¿Qué filtro para polvo y partículas?",o:["P · blanco","A · marrón","B · gris","E · amarillo"],e:"P (blanco): partículas. Puede venir combinado con filtros de gas, por ejemplo A2P3."},
-  {q:"Este filtro es para:",fsvg:"K",o:["Amoníaco","Vapores orgánicos (solventes)","Gases ácidos (SO₂, HCl)","Partículas y polvo"],e:"Franja verde, letra K: amoníaco."},
-  {q:"Este filtro es para:",fsvg:"A",o:["Vapores orgánicos (solventes)","Amoníaco","Gases inorgánicos (cloro, H₂S)","Partículas y polvo"],e:"Franja marrón, letra A: vapores orgánicos."},
-  {q:"Este filtro es para:",fsvg:"B",o:["Gases inorgánicos (cloro, H₂S)","Gases ácidos (SO₂, HCl)","Vapores orgánicos (solventes)","Amoníaco"],e:"Franja gris, letra B: gases inorgánicos."},
-  {q:"Este filtro es para:",fsvg:"E",o:["Gases ácidos (SO₂, HCl)","Gases inorgánicos (cloro, H₂S)","Amoníaco","Partículas y polvo"],e:"Franja amarilla, letra E: gases ácidos."},
+ e4:{lv:2,tp:"epi",type:"mcq",n:10,t:"Filtros que se ven en el campo",d:"Los filtros y cartuchos que usan los trabajadores: qué protegen, cómo se reconocen y si les sirven.",fico:true,q:[
+  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:OV",o:["Vapores orgánicos","Gases ácidos","Amoníaco","Partículas y polvo"],e:"Cartucho estadounidense con etiqueta negra: vapores orgánicos. Es el más común en pintura y uso de solventes."},
+  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:AG",o:["Gases ácidos","Partículas, como el filtro P europeo","Vapores orgánicos","Amoníaco"],e:"Etiqueta blanca en un cartucho estadounidense: gases ácidos. Ojo: en el sistema europeo el blanco es partículas."},
+  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:AM",o:["Amoníaco y metilamina","Gases ácidos","Orgánicos y gases ácidos","Monóxido de carbono"],e:"Etiqueta verde: amoníaco y metilamina. Es de los pocos colores que coinciden en los dos sistemas."},
+  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:OVAG",o:["Vapores orgánicos y gases ácidos","Solo gases ácidos, como el filtro E europeo","Amoníaco","Partículas"],e:"Etiqueta amarilla en un cartucho estadounidense: vapores orgánicos y gases ácidos. En el sistema europeo, el amarillo (E) es solo gases ácidos."},
+  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:MG",o:["Multigás: orgánicos, ácidos, amoníaco y otros","Solo vapores orgánicos","Monóxido de carbono y todos los gases","Partículas de alta eficiencia"],e:"Etiqueta oliva: multigás. Protege de varios contaminantes, pero no de todos: no del CO ni de la falta de oxígeno."},
+  {q:"Cartucho con un disco magenta encima. ¿Qué agrega el disco?",fsvg:"US:OV+P100",o:["Filtro de partículas P100","Protección contra amoníaco","Protección contra el monóxido de carbono","Indicador de saturación del cartucho"],e:"El magenta indica filtro de partículas P100 (99,97 %). Con el cartucho negro, protege de vapores orgánicos y partículas."},
+  {q:"¿Qué es este disco magenta?",fsvg:"US:P100",o:["Filtro de partículas P100","Cartucho para vapores orgánicos","Filtro para gases ácidos","Filtro para amoníaco"],e:"Disco P100: solo partículas. No retiene gases ni vapores."},
+  {q:"Este filtro europeo es para:",fsvg:"K",o:["Amoníaco","Vapores orgánicos (solventes)","Gases ácidos (SO₂, HCl)","Partículas y polvo"],e:"Franja verde, letra K: amoníaco."},
+  {q:"Este filtro europeo es para:",fsvg:"A",o:["Vapores orgánicos (solventes)","Amoníaco","Gases inorgánicos (cloro, H₂S)","Partículas y polvo"],e:"Franja marrón, letra A: vapores orgánicos."},
+  {q:"Este filtro europeo es para:",fsvg:"B",o:["Gases inorgánicos (cloro, H₂S)","Gases ácidos (SO₂, HCl)","Vapores orgánicos (solventes)","Amoníaco"],e:"Franja gris, letra B: gases inorgánicos."},
+  {q:"Este filtro europeo es para:",fsvg:"E",o:["Gases ácidos (SO₂, HCl)","Gases inorgánicos (cloro, H₂S)","Vapores orgánicos y gases ácidos","Partículas y polvo"],e:"Franja amarilla, letra E: gases ácidos. No confundir con el cartucho amarillo estadounidense."},
   {q:"Este filtro combinado protege contra:",fsvg:"ABEK",o:["Orgánicos, inorgánicos, ácidos y amoníaco","Orgánicos, partículas, ácidos, amoníaco y mercurio","Todos los gases, incluido el CO","Inorgánicos y partículas"],e:"ABEK: las cuatro franjas juntas. No protege del CO ni de partículas, salvo que también tenga P."},
-  {q:"¿Qué filtro para monóxido de carbono?",o:["Ningún filtro común: ERA","A · marrón","B · gris","ABEK · combinado"],e:"Los filtros comunes no retienen el CO. ERA."},
-  {q:"¿Cómo te das cuenta de que un filtro de gas se saturó?",o:["No siempre se nota: el cambio se planifica","La franja de color del filtro se destiñe con el uso","El respirador da un aviso sonoro","El filtro se pone más pesado y caliente"],e:"Muchos productos no tienen olor o paralizan el olfato. El cambio se planifica por la concentración y el tiempo de uso."},
-  {q:"Antes de colocar un filtro, revisas:",o:["Tipo, vencimiento y envase cerrado","Que el color del filtro combine con el de la máscara","Que el filtro pese lo mismo que el anterior","Que se haya usado menos de tres veces"],e:"Filtro correcto para el producto, vigente, envase intacto, rosca y sello en buen estado."}
+  {q:"En un filtro europeo A2P3, ¿qué indican el 2 y el 3?",fsvg:"A2P3",o:["Capacidad de gas y eficacia de partículas","La cantidad de horas de uso de cada parte","El número de usos permitidos de cada filtro","El tamaño de la rosca y de la máscara compatible"],e:"Gas: clase 1, 2 o 3 según la capacidad. Partículas: P1, P2 o P3 según la eficacia (EN 143)."},
+  {q:"Un operario sale de una fuga de amoníaco con media máscara y cartuchos de etiqueta negra. ¿Estaba protegido?",fsvg:"US:OV",o:["No: el negro es para vapores orgánicos","Sí: el negro sirve para todos los gases","Sí, si la fuga era chica","Sí: el amoníaco es un vapor orgánico"],e:"Para amoníaco hace falta etiqueta verde (o el europeo K). Hay que tratarlo como expuesto sin protección y avisarle al médico."},
+  {q:"Un pintor trabajaba con cartuchos de vapores orgánicos dentro de un tanque con O₂ de 18 %. ¿Estaba protegido?",o:["No: el cartucho no aporta oxígeno","Sí: el cartucho era el correcto para el solvente","Sí, si cambió los cartuchos ese día","Sí, porque el O₂ todavía es mayor que 16 %"],e:"Con O₂ por debajo de 19,5 % ningún filtro sirve. Hace falta aire: ERA o línea de aire."},
+  {q:"El encargado de la planta les ofrece máscaras con cartucho multigás para entrar a una sala con amoníaco de concentración desconocida. ¿Qué haces?",fsvg:"US:MG",o:["No: sin conocer la concentración, ERA","Aceptar: el multigás protege del amoníaco","Aceptar, pero entrar solo unos minutos","Aceptar si la máscara es facial completa"],e:"El cartucho tiene un límite de concentración. Sin saber cuánto hay, se trabaja con ERA, como siempre en el Departamento."},
+  {q:"Trabajadores con cartuchos de etiqueta blanca durante una pequeña pérdida de cloro. ¿Es el tipo de cartucho correcto?",fsvg:"US:AG",o:["Sí, pero solo en baja concentración","No: el blanco es para partículas","No: para cloro hace falta el verde","Sí, y sirve para cualquier concentración"],e:"El cartucho de gases ácidos sirve para cloro en baja concentración y con O₂ normal. En una fuga grande o desconocida, no alcanza."},
+  {q:"¿Una mascarilla N95 protege de los vapores de un solvente?",fsvg:"MASK:N95",o:["No: solo filtra partículas","Sí, filtra el 95 % de los vapores","Sí, si se usa menos de un turno","Solo de los solventes poco volátiles"],e:"Las mascarillas N95, KN95 o FFP2 son de partículas. Contra gases y vapores no protegen."},
+  {q:"¿Qué indica el 95 de una mascarilla N95?",fsvg:"MASK:N95",o:["Filtra al menos el 95 % de partículas","Que protege durante 95 minutos de uso continuo","Que sirve para 95 contaminantes","Que resiste el aceite en un 95 %"],e:"El número es la eficiencia mínima: 95, 99 o 100 (99,97 %)."},
+  {q:"Mecánico con mascarilla N95 en una niebla de aceite de corte. ¿Es la indicada?",o:["No: la serie N no es resistente al aceite","Sí: la N95 sirve para cualquier niebla","Sí, porque filtra el 95 %","No: para aceite hace falta un cartucho negro"],e:"N: no resistente al aceite. R: resistente, se descarta después de un turno. P: a prueba de aceite."},
+  {q:"N95, KN95 y FFP2 son:",fsvg:"MASK:KN95",o:["De partículas, de distintas normas","Tres niveles de protección contra gases","Mascarillas de uso solo hospitalario","La misma mascarilla con distinto tamaño"],e:"N95: Estados Unidos (NIOSH). KN95: China. FFP2: Europa. Las tres son de partículas y de eficacia parecida."},
+  {q:"Un cartucho estadounidense con etiqueta blanca y un filtro europeo con franja blanca. ¿Protegen de lo mismo?",o:["No: el primero es para gases ácidos y el segundo para partículas","Sí: los dos son para partículas","Sí: los dos son para gases ácidos","No: el primero es para partículas y el segundo para gases ácidos"],e:"El mismo color significa distinto en cada sistema. Siempre leer la etiqueta."},
+  {q:"¿Qué filtro debería tener un trabajador expuesto a amoníaco?",o:["K · verde","A · marrón","B · gris","E · amarillo"],e:"K (verde) en el sistema europeo; etiqueta verde en el estadounidense."},
+  {q:"¿Qué filtro debería tener un trabajador expuesto al vapor de un solvente?",o:["A · marrón","K · verde","E · amarillo","B · gris"],e:"A (marrón): vapores orgánicos con punto de ebullición por encima de 65 °C."},
+  {q:"¿Qué filtro protege del monóxido de carbono?",o:["Ninguno común: ERA","A · marrón","B · gris","Multigás oliva de alta capacidad"],e:"Los filtros y cartuchos comunes no retienen el CO."},
+  {q:"¿Cómo se da cuenta un trabajador de que su filtro de gas se saturó?",o:["No siempre se nota: el cambio se planifica","La franja de color del filtro se destiñe con el uso","El respirador da un aviso sonoro","El filtro se pone más pesado y caliente"],e:"Muchos productos no tienen olor o paralizan el olfato. El cambio se planifica por la concentración y el tiempo de uso."}
  ]},
  c3:{lv:2,tp:"dec",type:"cls",n:8,t:"Métodos físicos",d:"Identifica el método físico de descontaminación o de control.",cats:["Absorción","Adsorción","Dilución","Aspiración","Dispersión de vapores","Eliminación"],q:[
   {q:"Vermiculita sobre un derrame de solvente.",c:0,e:"El líquido queda atrapado dentro de la estructura del material: absorción."},
@@ -600,7 +612,9 @@ CARDS.push(
  {id:"k22b",lv:2,tp:"det",t:"Alarmas del Pac 8000",x:"Valores de fábrica, en ppm: • Cloro: A1 0,5 · A2 1. • Amoníaco: A1 20 · A2 40. • Fosfina: A1 0,1 · A2 0,2. • A1: hay gas en ese punto; se marca el límite y se ajustan las zonas. • A2: concentración peligrosa; solo con ERA. • Verifica los valores configurados en cada equipo."},
  {id:"k27",lv:2,tp:"det",t:"Interpretar el % LEL",x:"El multigás ya muestra el % LEL: no hace falta calcular. • Producto distinto del gas de calibración: usar el factor de corrección o actuar con margen. • LEL bajo no quiere decir seguro: el riesgo tóxico se evalúa en ppm (sensor específico o VOC). • El O₂ bajo hace que el LEL marque menos. • Por encima del UEL o del rango, la lectura puede caer a cero."},
  {id:"k23",lv:2,tp:"epi",t:"Filtro o ERA",x:"ERA cuando: O₂ por debajo de 19,5 %, atmósfera IDLH, producto o concentración desconocidos, espacio confinado sin medición. • Filtro solo con producto y concentración conocidos, dentro del límite del filtro, y O₂ adecuado. • El filtro no aporta oxígeno."},
- {id:"k24",lv:2,tp:"epi",t:"Colores de los filtros",x:"A (marrón): vapores orgánicos. • B (gris): gases inorgánicos (cloro, H₂S, HCN). • E (amarillo): gases ácidos (SO₂, HCl). • K (verde): amoníaco. • P (blanco): partículas. • CO: ningún filtro común. • Revisa siempre la marcación del fabricante y la aprobación."},
+ {id:"k24",lv:2,tp:"epi",t:"Filtros europeos (EN 14387 / EN 143)",x:"A (marrón): vapores orgánicos. • B (gris): gases inorgánicos (cloro, H₂S, HCN). • E (amarillo): gases ácidos (SO₂, HCl). • K (verde): amoníaco. • P (blanco): partículas, P1 a P3. • El número tras la letra es la clase: A2 = capacidad media. • CO: ningún filtro común. • Forma típica: filtro de rosca Rd40 de las máscaras completas."},
+ {id:"k24b",lv:2,tp:"epi",t:"Cartuchos estadounidenses (NIOSH, ej. 3M)",x:"Negro: vapores orgánicos. • Blanco: gases ácidos. • Amarillo: orgánicos + gases ácidos. • Verde: amoníaco y metilamina. • Oliva: multigás. • Magenta: partículas P100. • Partículas: N (no resiste aceite), R (resiste, un turno), P (a prueba de aceite); 95, 99 o 100 = eficiencia mínima. • ¡El mismo color no significa lo mismo que en el sistema europeo!"},
+ {id:"k24c",lv:2,tp:"epi",t:"Filtros y el Departamento",x:"El Departamento trabaja con ERA en todas las intervenciones con riesgo respiratorio. • Conocer los filtros sirve para evaluar a los trabajadores: ¿su filtro era el correcto para el producto? ¿había O₂ suficiente? ¿la concentración superaba el límite del filtro? • Si el filtro no era el adecuado, se lo trata como expuesto sin protección y se informa al médico."},
  {id:"k25",lv:2,tp:"dec",t:"Métodos físicos",x:"No alteran la composición del producto. • Absorción: el producto entra en el material. • Adsorción: se adhiere a la superficie (carbón activado). • Dilución: agua para bajar la concentración. • Aspiración: polvo y fibras, con filtro HEPA. • Dispersión de vapores: ventilación. • Eliminación: descartar en lugar de limpiar."},
  {id:"k26",lv:2,tp:"cena",t:"Zonas de trabajo",x:"Caliente: donde está el producto. Solo con EPP adecuado. • Tibia: entre la caliente y la fría; ahí queda el corredor de descontaminación. • Fría: Puesto de Comando, espera de recursos, atención médica y rehabilitación."},
  {id:"k30",lv:3,tp:"det",t:"Limitaciones de la detección",x:"Falso positivo: alarma sin el producto. • Falso negativo: el producto está y el detector no lo muestra (el más peligroso). • Deriva: el sensor pierde precisión de a poco. • Envenenamiento del sensor catalítico: siliconas, plomo, azufre. • Sensibilidad cruzada: el sensor de CO reacciona al hidrógeno."},
@@ -969,7 +983,7 @@ function gaugeSVG(v){
 
 
 /* ================= ESTADO ================= */
-const VER="v0.5",VDATE="19/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.6",VDATE="19/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1116,12 +1130,56 @@ function buildItems(id,count,fresh){
  }
  return [];
 }
-const FCOL={A:"#7a4a1f",B:"#9aa0a6",E:"#f2c200",K:"#2e8b3e",P:"#f4f4f4"};
+const FCOL={A:"#8a5a2b",B:"#9aa0a6",E:"#f2c200",K:"#1f9d3a",P:"#f4f4f4"};
+const UCOL={OV:["#1d1d1f","#fff"],AG:["#f1f1ef","#222"],OVAG:["#f2c200","#222"],AM:["#1f9d3a","#fff"],MG:["#6f7232","#fff"]};
 function filterSVG(code,w){
- const L=code.split(""),bw=60/L.length;
- const stripes=L.map((c,i)=>`<rect x="${10+i*bw}" y="38" width="${bw}" height="34" fill="${FCOL[c]}"/>`).join("");
- const txt=L.length===1?`<text x="40" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="22" fill="${"EP".includes(code)?"#111":"#fff"}">${code}</text>`:`<text x="40" y="86" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#fff">${code}</text>`;
- return `<svg class="fi" width="${w}" height="${w*1.25}" viewBox="0 0 80 100" role="img" aria-label="Filtro ${code}"><rect x="22" y="4" width="36" height="12" rx="3" fill="#6b7178"/><path d="M24 7h32M24 11h32" stroke="#4a4f55" stroke-width="1.5"/><rect x="10" y="14" width="60" height="80" rx="10" fill="#2b2f34" stroke="#111" stroke-width="2"/><g>${stripes}</g><rect x="10" y="38" width="60" height="34" fill="none" stroke="#111" stroke-width="1.5"/>${txt}</svg>`;
+ if(code.startsWith("US:"))return usSVG(code.slice(3),w);
+ if(code.startsWith("MASK:"))return maskSVG(code.slice(5),w);
+ /* filtro europeo de rosca Rd40: cilindro corto con franjas */
+ const L=code.replace(/[0-9]/g,"").split(""),n=L.length,y0=44,h=40,sh=h/n;
+ const bands=L.map((c,i)=>`<rect x="10" y="${y0+i*sh}" width="80" height="${sh+.3}" fill="${FCOL[c]}"/>`).join("");
+ const big=n===1,lab=code;
+ return `<svg class="fi" width="${w}" height="${w*1.1}" viewBox="0 0 100 110" role="img" aria-label="Filtro europeo ${lab}">
+ <defs><linearGradient id="cy" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".35"/><stop offset=".35" stop-color="#fff" stop-opacity=".18"/><stop offset=".65" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></linearGradient></defs>
+ <path d="M10 30 V96 A40 9 0 0 0 90 96 V30 Z" fill="#8d9298"/>${bands}
+ <path d="M10 30 V96 A40 9 0 0 0 90 96 V30 Z" fill="url(#cy)"/>
+ <path d="M10 ${y0} H90 M10 ${y0+h} H90" stroke="#3a3e43" stroke-width="1.6"/>
+ <ellipse cx="50" cy="30" rx="40" ry="9" fill="#b9bdc2" stroke="#6d7277" stroke-width="1"/>
+ <ellipse cx="50" cy="30" rx="27" ry="6" fill="none" stroke="#8d9298" stroke-width="2"/>
+ <path d="M37 30 V14 A13 3.2 0 0 0 63 14 V30 A13 3.2 0 0 1 37 30Z" fill="#cfd2d5" stroke="#6d7277" stroke-width="1"/>
+ <path d="M37 18 Q50 22 63 18 M37 22 Q50 26 63 22 M37 26 Q50 30 63 26" fill="none" stroke="#8d9298" stroke-width="1.2"/>
+ <ellipse cx="50" cy="14" rx="13" ry="3.2" fill="#e6e8ea" stroke="#6d7277" stroke-width="1"/><ellipse cx="50" cy="14" rx="7" ry="1.8" fill="#55595e"/>
+ ${big?`<text x="50" y="${y0+h/2+8}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="24" fill="${"EPB".includes(code)?"#111":"#fff"}">${code}</text>`:`<rect x="22" y="${y0+h+3}" width="56" height="12" rx="2" fill="#1f2226"/><text x="50" y="${y0+h+12.5}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="9.5" fill="#fff">${lab}</text>`}
+ </svg>`;
+}
+/* cartucho estadounidense (3M serie 6000) y filtros de partículas */
+function usSVG(k,w){
+ if(k==="P100")return `<svg class="fi" width="${w}" height="${w*.8}" viewBox="0 0 120 96" role="img" aria-label="Filtro de partículas P100, disco magenta">
+ <ellipse cx="60" cy="56" rx="50" ry="30" fill="#a8136a"/><ellipse cx="60" cy="50" rx="50" ry="30" fill="#d33a95"/>
+ <ellipse cx="60" cy="50" rx="44" ry="25" fill="none" stroke="#b81f7c" stroke-width="2" stroke-dasharray="3 3"/>
+ <text x="60" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="#7a0c4b">P100</text><text x="60" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#7a0c4b">NIOSH</text></svg>`;
+ if(k==="7093")return `<svg class="fi" width="${w*.8}" height="${w}" viewBox="0 0 90 112" role="img" aria-label="Filtro de partículas P100 rectangular, etiqueta magenta">
+ <rect x="10" y="6" width="72" height="100" rx="16" fill="#8e9398"/><rect x="6" y="4" width="72" height="100" rx="16" fill="#b4b8bc"/>
+ <rect x="18" y="24" width="56" height="62" rx="4" fill="#d33a95"/><text x="46" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#5c0838">P100</text>
+ <text x="46" y="66" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#5c0838">NIOSH</text></svg>`;
+ const pf=k.endsWith("+P100"),kk=k.replace("+P100",""),[c,t]=UCOL[kk];
+ return `<svg class="fi" width="${w}" height="${w*.8}" viewBox="0 0 120 96" role="img" aria-label="Cartucho estadounidense con etiqueta ${{OV:"negra",AG:"blanca",OVAG:"amarilla",AM:"verde",MG:"oliva"}[kk]}${pf?" y disco magenta P100":""}">
+ <path d="M16 46 L28 20 Q31 15 37 15 H83 Q89 15 92 20 L104 46 Z" fill="#d9d3c4" stroke="#a49d8c" stroke-width="1.2"/>
+ <ellipse cx="60" cy="31" rx="15" ry="7" fill="#b9b2a1"/><ellipse cx="60" cy="31" rx="9" ry="4" fill="#8d8676"/>
+ <path d="M60 27 V35 M53 31 H67" stroke="#d9d3c4" stroke-width="2"/>
+ ${pf?`<path d="M20 44 L31 21 Q33 18 38 18 H82 Q87 18 89 21 L100 44 Z" fill="#d33a95" opacity=".95"/><text x="60" y="36" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="10" fill="#7a0c4b">P100</text>`:""}
+ <path d="M16 46 H104 V70 Q104 76 98 76 H22 Q16 76 16 70 Z" fill="${c}" stroke="#555" stroke-width="1"/>
+ <path d="M16 46 H104" stroke="#000" stroke-opacity=".25" stroke-width="2"/>
+ <text x="28" y="65" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="${t}">3M</text>
+ <text x="96" y="65" text-anchor="end" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" fill="${t}">NIOSH</text></svg>`;
+}
+function maskSVG(k,w){
+ return `<svg class="fi" width="${w}" height="${w*.75}" viewBox="0 0 120 90" role="img" aria-label="Mascarilla descartable ${k}">
+ <path d="M8 40 Q2 20 18 18 M112 40 Q118 20 102 18" fill="none" stroke="#e5b800" stroke-width="3"/>
+ <path d="M8 56 Q2 76 18 74 M112 56 Q118 76 102 74" fill="none" stroke="#e5b800" stroke-width="3"/>
+ <path d="M18 30 Q60 4 102 30 Q108 60 60 84 Q12 60 18 30Z" fill="#f4f4f2" stroke="#b9b9b5" stroke-width="1.5"/>
+ <path d="M30 26 Q60 12 90 26" fill="none" stroke="#9aa0a6" stroke-width="3"/>
+ <text x="60" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="#222">${k}</text></svg>`;
 }
 function pnlHTML(p){return `<div class="pnlw"><div class="pnl" role="img" aria-label="Panel naranja: número de riesgo ${p[0]}, número ONU ${p[1]}"><b>${p[0]}</b><b>${p[1]}</b></div></div>`;}
 const MGK=["o2","lie","co","h2s","voc"],MGN={o2:"O₂",lie:"LEL",co:"CO",h2s:"H₂S",voc:"VOC"},MGU={o2:"% VOL",lie:"% LEL",co:"ppm",h2s:"ppm",voc:"ppm"},MGB={o2:20.9,lie:0,co:0,h2s:0,voc:0};
@@ -1143,7 +1201,7 @@ function runQuiz(o){
   <div class="prog"><i style="width:${100*i/o.items.length}%"></i></div>
   ${it.img?`<img class="photo" src="${IMG[it.img]}" alt="Foto para identificar" style="margin-top:12px">`:""}
   ${it.ctx?`<div class="ctx">${esc(it.ctx)}</div>`:""}
-  ${it.fsvg?`<div class="fbig">${filterSVG(it.fsvg,110)}</div>`:""}
+  ${it.fsvg?`<div class="fbig">${filterSVG(it.fsvg,it.fsvg.includes(":")?160:110)}</div>`:""}
   ${it.gauge!=null?gaugeSVG(it.gauge):""}
   ${it.room?`<div id="rm">${roomSVG(it,null)}</div>`:""}
   ${it.scr?`<div style="margin-top:12px">${mgHTML(it.scr)}</div>`:""}

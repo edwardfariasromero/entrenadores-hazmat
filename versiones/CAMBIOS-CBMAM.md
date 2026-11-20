@@ -3,6 +3,9 @@
 Numeración: v0.x = versiones de prueba (antes de la entrega oficial al CBMAM). v1.0 = primera versión oficial.
 Cada versión se guarda como archivo propio en esta carpeta. El número aparece en la pantalla de inicio, en "Como funciona", en Créditos (Contato), en el asunto del correo de contacto y en la imagen para compartir.
 
+## v0.9 · 20/11/2026
+- Dibujo nuevo del filtro europeo de rosca (Rd40) en «Qual filtro?», en lugar del anterior.
+
 ## v0.8 · 19/11/2026
 - Escudos de Haz-Mat Uruguay y de Produtos Perigosos CBMAM en alta definición (antes se veían pixelados en pantallas grandes).
 
