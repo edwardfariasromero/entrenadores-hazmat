@@ -1,5 +1,8 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.13 · 20/11/2026
+- Créditos: nuevo logo de la OPAQ (OPCW) en alta definición, con contorno blanco y halo para que se lea en el tema oscuro. Descripción: «OPCW · Organisation for the Prohibition of Chemical Weapons / Organización para la Prohibición de las Armas Químicas (OPAQ)», en lugar de «Curso de la OPAQ · Costa Rica 2026».
+
 ## v0.12 · 20/11/2026
 - Pruebas de nivel sin ayudas del glosario: las siglas se ven como texto normal durante la prueba y en su resultado, para no dar pistas. En actividades y tarjetas siguen tocables.
 - Créditos: al tocar un escudo se ve en grande sobre un fondo traslúcido y difuminado; se cierra tocando, con la X o con Escape.
