@@ -3,6 +3,17 @@
 Numeración: v0.x = versiones de prueba (antes de la entrega oficial al CBMAM). v1.0 = primera versión oficial.
 Cada versión se guarda como archivo propio en esta carpeta. El número aparece en la pantalla de inicio, en "Como funciona", en Créditos (Contato), en el asunto del correo de contacto y en la imagen para compartir.
 
+## v0.10 · 21/11/2026
+Cambios traídos del entrenador de Uruguay (v0.16), para que Produtos Perigosos los revise:
+- Conquistas: 3 medallas por puntos (Bronze, Prata, Ouro) y 9 insignias (Olho clínico, Conhece o detector, Filtro certo, Comando da cena, Estudioso, Sangue-frio, Elite, Constância, Nível máximo). Tocar una conquista que falta muestra cómo obtenerla y lleva a las actividades.
+- Glossário en portugués (33 siglas y fórmulas, con el nombre original en inglés cuando corresponde). Las siglas subrayadas se pueden tocar en preguntas y cartões; en las provas no aparecen ayudas.
+- 5 cartões nuevos: Prioridades da ocorrência, Saturação dos filtros, Reconhecer e identificar, Convenção sobre Armas Químicas, Medir depois de descontaminar.
+- «Ver cartão» junto a cada error en «Para revisar».
+- Compartilhar: sección «Nome e código» con botón para copiar; en «Verificar» se puede pegar el texto copiado.
+- Créditos: los escudos se amplían al tocarlos; logo nuevo de la OPCW, con el nombre en inglés y en portugués.
+- Área de ação protetora: brújula sin flecha, el viento solo en el texto; la escuela no tiene área.
+- Corregido: «Ir para a prova» llevaba al menú del nivel; el botón «Sair» del área de ação protetora no funcionaba.
+
 ## v0.9 · 20/11/2026
 - Dibujo nuevo del filtro europeo de rosca (Rd40) en «Qual filtro?», en lugar del anterior.
 
