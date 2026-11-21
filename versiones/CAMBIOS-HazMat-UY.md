@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.14 · 21/11/2026
+- Ranking: al tocar un nombre se abre la ficha de logros de esa persona (12 logros, obtenidos en color y faltantes en gris), con nivel, dominio, puntos y fecha. En la lista se ve cuántos logros tiene cada uno.
+- El envío al ranking agrega un código de logros de 4 caracteres (tercera pregunta del formulario, «Logros»), firmado con el nombre y el código principal. Los envíos anteriores muestran solo lo que se deduce de los puntos y el dominio.
+- Compartir progreso: nueva sección «Nombre y código» con botón «Copiar nombre y código». En el verificador se puede pegar ese texto en cualquiera de los dos campos y se completan solos.
+
 ## v0.13 · 20/11/2026
 - Créditos: nuevo logo de la OPAQ (OPCW) en alta definición, con contorno blanco y halo para que se lea en el tema oscuro. Descripción: «OPCW · Organisation for the Prohibition of Chemical Weapons / Organización para la Prohibición de las Armas Químicas (OPAQ)», en lugar de «Curso de la OPAQ · Costa Rica 2026».
 - Escudos en mejor definición para verlos bien al ampliarlos: CBMAM (452 px), DNB, UOMATPEL y Benemérito Cuerpo de Bomberos de Costa Rica (640 px; antes 240 px).
