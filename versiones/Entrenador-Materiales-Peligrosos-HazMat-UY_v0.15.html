@@ -1344,7 +1344,7 @@ function buildItems(id,count,fresh){
   return out;
  }
  if(A.type==="scn"){
-  const L=A.steps.map((st,i)=>{const good=st.o.find(o=>o[1]===1);return {q:st.q,ctx:A.t+": "+A.ctx,scr:st.mg,pn:st.pn,opts:shuffle(st.o.map(o=>o[0])),ans:good[0],e:good[2],_k:id+"|"+i};});
+  const L=A.steps.map((st,i)=>{const good=st.o.find(o=>o[1]===1);return {q:st.q,ctx:A.t+": "+A.ctx,scr:st.mg,pac:st.pac,pn:st.pn,opts:shuffle(st.o.map(o=>o[0])),ans:good[0],e:good[2],_k:id+"|"+i};});
   return shuffle(L).slice(0,count||L.length);
  }
  return [];
@@ -1434,6 +1434,7 @@ function runQuiz(o){
   ${it.gauge!=null?gaugeSVG(it.gauge):""}
   ${it.room?`<div id="rm">${roomSVG(it,null)}</div>`:""}
   ${it.scr?`<div style="margin-top:12px">${mgHTML(it.scr)}</div>`:""}
+  ${it.pac?`<div style="display:flex;justify-content:center;margin-top:12px">${pacHTML(it.pac[0],it.pac[1],200,true)}</div>`:""}
   ${it.pn?pnlHTML(it.pn):""}
   <div class="qtx">${gl(esc(it.q))}</div>
   <div class="opts ${it.g2?"g2":""}">${it.opts.map((t,k)=>{const fc=it.fico&&/^[ABEKP]+ ·/.test(t);return `<button class="opt${fc?" wi":""}" data-k="${k}">${fc?filterSVG(t.split(" ")[0],40):""}<span>${esc(t)}</span></button>`;}).join("")}</div>
