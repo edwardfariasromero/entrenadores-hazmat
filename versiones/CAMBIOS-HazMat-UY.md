@@ -8,6 +8,7 @@
 - Tarjetas nuevas: Prioridades del incidente, Saturación de filtros, Reconocer e identificar, Convención sobre Armas Químicas, Medir después de descontaminar.
 - Se quitaron la pregunta del ataque al metro de Tokio y la de «a quién informas» del camión de granos fumigado.
 - «El comando» pasa a «el Comandante de Incidente».
+- Corregido: en «Área de acción protectora», el botón «Salir» contaba como si se hubiera elegido un sector y no dejaba salir.
 
 ## v0.14 · 21/11/2026
 - Ranking: al tocar un nombre se abre la ficha de logros de esa persona (12 logros, obtenidos en color y faltantes en gris), con nivel, dominio, puntos y fecha. En la lista se ve cuántos logros tiene cada uno.
