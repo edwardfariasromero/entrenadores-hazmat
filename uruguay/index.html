@@ -214,6 +214,12 @@ input,select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--l
 .finale p{margin:0 auto 8px;max-width:520px;font-weight:700;font-size:1.05rem}
 @media (max-width:520px){.mgwrap>img{height:140px}.cell b{font-size:1.1rem}.finale h2{font-size:1.6rem}.opts.g2{grid-template-columns:1fr}.two{grid-template-columns:1fr}.hero{grid-template-columns:96px 1fr}.hero .av img{max-height:150px}.fogo{font-size:2.6rem}.lv img{height:48px}.top .tt>span,.top .lg{display:none}}
 .lnk{background:none;border:none;padding:4px 0;color:var(--mut,#a0a6b1);text-decoration:underline;font-size:.88rem;cursor:pointer;font-family:inherit;display:block}
+img.zm{cursor:zoom-in;transition:transform .15s}img.zm:hover{transform:scale(1.05)}
+#zoom{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:rgba(10,12,16,.45);-webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);opacity:0;transition:opacity .18s;cursor:zoom-out}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#zoom{background:rgba(10,12,16,.85)}}
+#zoom.on{opacity:1}#zoom img{max-width:min(86vw,520px);max-height:72vh;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));transform:scale(.92);transition:transform .18s}#zoom.on img{transform:scale(1)}
+#zoom p{margin:0;color:#fff;font-weight:700;text-align:center;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+#zoom .zx{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.18);color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
 </style>
 </head>
 <body>
@@ -1048,7 +1054,7 @@ function gaugeSVG(v){
 
 /* ================= ESTADO ================= */
 const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
-const VER="v0.11",VDATE="20/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.12",VDATE="20/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1093,13 +1099,14 @@ $("#revx").onclick=exitRev;
 $("#thm").onclick=()=>{S.theme=S.theme==="dark"?"light":"dark";save();applyTheme();};
 $("#hdimg").src=IMG.e_hm;$("#hdimg").onclick=()=>S.name&&home();$("#hdtt").onclick=()=>S.name&&home();
 let TIMERS=[];function clearT(){TIMERS.forEach(clearTimeout);TIMERS=[];}
-function view(h){{const t=document.getElementById("gtip");if(t)t.remove();}clearT();app.innerHTML=h;window.scrollTo(0,0);}
+function view(h){{const t=document.getElementById("gtip");if(t)t.remove();const z=document.getElementById("zoom");if(z)z.remove();}clearT();app.innerHTML=h;window.scrollTo(0,0);}
 
 
 /* ================= GLOSARIO ================= */
 const GKEYS=(()=>{const m={};GLOS.forEach(g=>g[0].split(" / ").forEach(k=>{m[k.replace(/ \(.*\)$/,"")]=g;}));return m;})();
 const GRX=new RegExp("(^|[^\\wÀ-ÿ₀-₉])("+Object.keys(GKEYS).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![\\wÀ-ÿ₀-₉])","g");
-function gl(html){const done=new Set();return html.replace(GRX,(m,pre,k)=>{if(done.has(k))return m;done.add(k);const g=GKEYS[k];return `${pre}<abbr class="g" tabindex="0" title="${g[1]}" data-g="${k}">${k}</abbr>`;});}
+let GLOFF=false;
+function gl(html){if(GLOFF)return html;const done=new Set();return html.replace(GRX,(m,pre,k)=>{if(done.has(k))return m;done.add(k);const g=GKEYS[k];return `${pre}<abbr class="g" tabindex="0" title="${g[1]}" data-g="${k}">${k}</abbr>`;});}
 function glTip(e){const a=e.target.closest&&e.target.closest("abbr.g");let t=document.getElementById("gtip");if(t)t.remove();if(!a)return;e.stopPropagation();e.preventDefault();
  const g=GKEYS[a.dataset.g],r=a.getBoundingClientRect();t=document.createElement("div");t.id="gtip";const o=GORIG[g[0]];t.innerHTML=o?`<b>${g[0]}</b> · <i lang="en">${o}</i><em>${g[1]}</em><span>${g[2]}</span>`:`<b>${g[0]}</b> · ${g[1]}<span>${g[2]}</span>`;document.body.appendChild(t);
  const w=Math.min(300,window.innerWidth-24);t.style.width=w+"px";t.style.left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+window.scrollX-20))+"px";t.style.top=(r.bottom+window.scrollY+8)+"px";}
@@ -1176,7 +1183,7 @@ function welcome(){
 
 /* ================= INICIO ================= */
 function allDone(){return lvlDone(LEVELS.length);}
-function home(){
+function home(){GLOFF=false;
  const c=curLevel(),L=LEVELS[c-1],[s,m]=lvlStars(c);hud();
  view(`${S.rev?`<div class="card" style="border:2px dashed #ffb000"><b>Modo revisión activo.</b> Todos los niveles y pruebas están abiertos y nada de lo que juegues queda registrado. <div class="row"><button class="btn sec" id="revx2">Salir del modo revisión</button></div></div>`:""}
   ${allDone()&&!S.rev?`<button class="card" id="bfin" style="display:block;width:100%;text-align:left;cursor:pointer;border:2px solid var(--acc2);background:radial-gradient(120% 140% at 100% 0%,rgba(255,194,26,.25),transparent 60%),var(--pan)"><b style="color:var(--acc2);letter-spacing:.08em">★ NIVEL MÁXIMO ALCANZADO</b><br><span class="mut">Ver la pantalla final y compartirla</span></button>`:""}
@@ -1216,7 +1223,7 @@ function howto(){
 }
 
 /* ================= NIVEL ================= */
-function level(n){
+function level(n){GLOFF=false;
  const L=LEVELS[n-1];
  if(!L.acts.length){view(`<div class="card center"><img src="${lvImg(n)}" alt="" style="height:200px"><h2>Nivel ${n} · ${L.t}</h2><p>${L.d}</p><p class="mut">Este nivel todavía está en construcción.</p><div class="row c"><button class="btn" id="bk">Volver</button></div></div>`);$("#bk").onclick=home;return;}
  const ready=testReady(n),lk=S.rev?false:S.lock[n],t=S.test[n]||{},have=L.acts.filter(id=>S.act[id]&&S.act[id].stars>=2).length;
@@ -1405,7 +1412,7 @@ function runScn(id,onEnd,onExit){
 }
 
 /* ================= JUGAR ACTIVIDAD ================= */
-function play(id){
+function play(id){GLOFF=false;
  const A=ACTS[id];
  const end=(ok,total,miss,x)=>{
   if(S.rev){const p=x&&x.crit?0:ok/total;return actResult(id,{p,st:starsFor(p),ok,total,miss,gain:0,newStars:false,crit:x&&x.crit,rev:true});}
@@ -1453,6 +1460,7 @@ function testItems(n){
  return shuffle(pickFresh("T"+n,pool,12-np).concat(pickFresh("P"+n,prev,np)));
 }
 function test(n){
+ GLOFF=true;
  runQuiz({title:"Prueba del nivel "+n,items:testItems(n),onExit:()=>level(n),onEnd:(ok,total,miss)=>{
   const p=ok/total;
   if(S.rev){view(`<div class="card center">${p>=.8?`<div class="fogo">${ICO.flame}${CHEER}</div>`:`<h2>Todavía no</h2>`}<div class="big">${Math.round(p*100)} %</div><div class="mut">${ok} de ${total} aciertos</div><p class="mut" style="margin-top:10px">Modo revisión: este resultado no se registró.</p></div>${missHTML(miss)}<div class="row"><button class="btn" id="bl">Volver al nivel ${n}</button></div>`);$("#bl").onclick=()=>level(n);return;}
@@ -1576,11 +1584,16 @@ async function finaleBlob(){
 }
 
 /* ================= CRÉDITOS ================= */
+function zoomImg(src,alt){let z=document.getElementById("zoom");if(z)z.remove();z=document.createElement("div");z.id="zoom";z.setAttribute("role","dialog");z.setAttribute("aria-label",alt);
+ z.innerHTML=`<button class="zx" aria-label="Cerrar">×</button><img src="${src}" alt="${esc(alt)}"><p>${esc(alt)}</p>`;document.body.appendChild(z);requestAnimationFrame(()=>z.classList.add("on"));
+ const close=()=>{z.classList.remove("on");setTimeout(()=>z.remove(),180);document.removeEventListener("keydown",k);};const k=e=>{if(e.key==="Escape")close();};
+ z.onclick=close;document.addEventListener("keydown",k);z.querySelector(".zx").focus();}
 function credits(){
  const L=[["e_hm","Haz-Mat Uruguay"],["e_dnb","Dirección Nacional de Bomberos"],["e_pp","Produtos Perigosos · CBMAM (colaborador)"],["e_cbmam","Corpo de Bombeiros Militar do Amazonas (Brasil)"],["e_opaq","Curso de la OPAQ · Costa Rica 2026"],["e_uom","UOMATPEL · Bomberos de Costa Rica"],["e_bcr","Benemérito Cuerpo de Bomberos de Costa Rica"],["e_sinae","SINAE · Sistema Nacional de Emergencias"]];
+ setTimeout(()=>document.querySelectorAll("img.zm").forEach(im=>{im.onclick=()=>zoomImg(im.src,im.alt);im.onkeydown=e=>{if(e.key==="Enter")zoomImg(im.src,im.alt);};}),0);
  view(`<div class="card"><h2>Créditos</h2>
  <p>Entrenador desarrollado por el <b>Departamento de Materiales Peligrosos y Protección Ambiental</b> de la Dirección Nacional de Bomberos (<b>Haz-Mat Uruguay</b>), en colaboración con la unidad de <b>Produtos Perigosos del Corpo de Bombeiros Militar do Amazonas (CBMAM)</b>, de Brasil, que ayudó a probar y mejorar estos entrenadores.</p>
- <div class="logos">${L.map(([k,t])=>`<div class="logo"><img src="${IMG[k]}" alt="">${t}</div>`).join("")}</div></div>
+ <div class="logos">${L.map(([k,t])=>`<div class="logo"><img src="${IMG[k]}" alt="${t}" class="zm" tabindex="0" role="button" aria-label="Ver ${t} en grande">${t}</div>`).join("")}</div></div>
  <div class="card"><h3>Fuentes</h3><ul class="src">
  <li><b>Curso Avanzado Integrado y Ejercicio sobre asistencia y protección contra agentes químicos de guerra y químicos industriales tóxicos</b>, para los Estados Parte de América Latina y el Caribe. Secretaría Técnica de la OPAQ y Benemérito Cuerpo de Bomberos de Costa Rica. San José, Costa Rica, 18 al 25 de agosto de 2026.<br><span class="mut">Original: <i>Integrated Advanced Course and Exercise on assistance and protection against chemical warfare agents (CWAs) and toxic industrial chemicals (TICs), addressed to States Parties in the Latin American and Caribbean region</i>.</span></li>
  <li><b>CRIMAP</b>: Curso para Respondedores a Incidentes con Materiales Peligrosos, SINAE.</li>

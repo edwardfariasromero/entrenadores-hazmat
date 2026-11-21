@@ -1,5 +1,9 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.12 · 20/11/2026
+- Pruebas de nivel sin ayudas del glosario: las siglas se ven como texto normal durante la prueba y en su resultado, para no dar pistas. En actividades y tarjetas siguen tocables.
+- Créditos: al tocar un escudo se ve en grande sobre un fondo traslúcido y difuminado; se cierra tocando, con la X o con Escape.
+
 ## v0.11 · 20/11/2026
 - Sin binoculares (el Departamento no tiene): la pregunta de los binoculares se reemplazó por «En el panel naranja, ¿qué número lleva a la guía de la GRE?»; tarjeta «Aproximación segura» y escenario «Cisterna de ácido en una rotonda» ajustados.
 - «Móvil/ABT» en lugar de «autobomba» cuando se trata del vehículo del Departamento; «móvil 312» en la pantalla final. ABT (autobomba tanque) agregada al glosario.
