@@ -10,6 +10,7 @@
 - «El comando» pasa a «el Comandante de Incidente».
 - Corregido: en «Área de acción protectora», el botón «Salir» contaba como si se hubiera elegido un sector y no dejaba salir.
 - Corregido: en las pruebas de nivel, las preguntas tomadas de los escenarios que dicen «el Pac 8000 marca esto» no mostraban la pantalla del Pac.
+- Criterios ajustados a la configuración real de los equipos: LEL con primera alarma en 10 % y segunda en 50 % (desde 50 %, solo ventilar y cortar la fuga; antes decía 20 %); O₂ aceptable de 19,5 % a 23,5 % (antes 23 %). Lecturas de los escenarios ajustadas.
 
 ## v0.14 · 21/11/2026
 - Ranking: al tocar un nombre se abre la ficha de logros de esa persona (12 logros, obtenidos en color y faltantes en gris), con nivel, dominio, puntos y fecha. En la lista se ve cuántos logros tiene cada uno.
