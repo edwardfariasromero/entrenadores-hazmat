@@ -3,6 +3,7 @@
 ## v0.13 · 20/11/2026
 - Créditos: nuevo logo de la OPAQ (OPCW) en alta definición, con contorno blanco y halo para que se lea en el tema oscuro. Descripción: «OPCW · Organisation for the Prohibition of Chemical Weapons / Organización para la Prohibición de las Armas Químicas (OPAQ)», en lugar de «Curso de la OPAQ · Costa Rica 2026».
 - Escudos en mejor definición para verlos bien al ampliarlos: CBMAM (452 px), DNB, UOMATPEL y Benemérito Cuerpo de Bomberos de Costa Rica (640 px; antes 240 px).
+- Logo del SINAE en alta definición, con la flecha en blanco, contorno blanco y halo (como el de la OPCW) para que se lea en el tema oscuro.
 
 ## v0.12 · 20/11/2026
 - Pruebas de nivel sin ayudas del glosario: las siglas se ven como texto normal durante la prueba y en su resultado, para no dar pistas. En actividades y tarjetas siguen tocables.
