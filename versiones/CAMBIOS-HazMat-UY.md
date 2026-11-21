@@ -5,6 +5,7 @@
 - El envío al ranking agrega un código de logros de 4 caracteres (tercera pregunta del formulario, «Logros»), firmado con el nombre y el código principal. Los envíos anteriores muestran solo lo que se deduce de los puntos y el dominio.
 - Compartir progreso: nueva sección «Nombre y código» con botón «Copiar nombre y código». En el verificador se puede pegar ese texto en cualquiera de los dos campos y se completan solos.
 - Pantalla de logros: al tocar un logro que falta se muestra cómo conseguirlo y se puede ir directo a las actividades (con sus estrellas; las de niveles no habilitados, con candado). Estudioso abre las tarjetas; medallas y La 312, el nivel actual; Constancia indica cuántos días faltan.
+- La insignia «Perfeccionista» (100 % de dominio) pasa a llamarse «Élite», también en el ranking.
 
 ## v0.13 · 20/11/2026
 - Créditos: nuevo logo de la OPAQ (OPCW) en alta definición, con contorno blanco y halo para que se lea en el tema oscuro. Descripción: «OPCW · Organisation for the Prohibition of Chemical Weapons / Organización para la Prohibición de las Armas Químicas (OPAQ)», en lugar de «Curso de la OPAQ · Costa Rica 2026».

@@ -1151,7 +1151,7 @@ function achList(){
   {id:"escena",g:"Insignias",ic:"pin",col:"#ffc21a",t:"Mando en escena",d:"3 estrellas en «Arma la escena», «Arma el corredor» y «Área de acción protectora»",ok:st3(["g_cena","g_corr","g_area"])},
   {id:"estudio",g:"Insignias",ic:"cards",col:"#3fd18a",t:"Estudioso",d:"Abrir todas las tarjetas de repaso",ok:CARDS.every(c=>S.cards[c.id])},
   {id:"sangre",g:"Insignias",ic:"shield",col:"#3fd18a",t:"Sangre fría",d:"Terminar cada escenario al menos una vez sin un error crítico",ok:scn.every(id=>S.act[id]&&S.act[id].clean)},
-  {id:"perfecto",g:"Insignias",ic:"target",col:"#ff5a4f",t:"Perfeccionista",d:"100 % de dominio",ok:dominio()>=100},
+  {id:"perfecto",g:"Insignias",ic:"target",col:"#ff5a4f",t:"Élite",d:"100 % de dominio",ok:dominio()>=100},
   {id:"constancia",g:"Insignias",ic:"cal",col:"#5aa2ff",t:"Constancia",d:"Entrenar en 5 días distintos",ok:(S.days||[]).length>=5,left:5-(S.days||[]).length},
   {id:"la312",g:"Insignias",ic:"truck",col:"#e3241b",t:"La 312",d:"Llegar a la pantalla final",ok:allDone()}
  ];
