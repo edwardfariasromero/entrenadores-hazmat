@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.10 · 20/11/2026
+- Se quitó el término «bump test». La revisión de los medidores es encender, verificar que no muestren errores y revisar la batería (sin exposición a gas).
+- Calibración: tiene un tiempo de validez registrado en cada medidor; se adelanta solo si el equipo presenta un desperfecto, por ejemplo después de una intervención. Sin referencias a empresas externas.
+- Preguntas de revisión y calibración reescritas (quedan 3); se quitó la de cuándo se revisan. Tarjeta «Antes de usar el detector» y explicación sobre la deriva del sensor actualizadas.
+
 ## v0.9 · 20/11/2026
 - Logros: tres medallas por puntos (bronce 1.000, plata 5.000, oro 10.000) y nueve insignias por desafíos (Ojo clínico, Conoce su equipo, Filtros, escenas, Estudioso, Sangre fría, Perfeccionista, Constancia, La 312). Resumen en el inicio, pantalla de logros y aviso al ganar uno.
 - Glosario de siglas (36): pantalla con buscador y siglas tocables en preguntas, explicaciones y tarjetas.
