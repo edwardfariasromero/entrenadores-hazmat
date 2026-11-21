@@ -146,6 +146,8 @@ button.cell{cursor:pointer}button.cell:hover:not(:disabled){border-color:#111}
 abbr.g{text-decoration:underline dotted;text-underline-offset:3px;cursor:help;border:none}
 #gtip{position:absolute;z-index:50;background:var(--pan2);color:var(--tx);border:1px solid var(--acc2);border-radius:12px;padding:10px 12px;font-size:.9rem;box-shadow:var(--sh);line-height:1.4}
 #gtip span{display:block;color:var(--mut);margin-top:4px;font-size:.85rem}
+#gtip i{font-style:italic}#gtip em{display:block;font-style:normal;font-weight:600;margin-top:2px}
+.gi .go{font-style:italic}.gi .gs{display:block;margin-top:2px}
 .gi{padding:10px 0;border-bottom:1px solid var(--line)}.gi:last-child{border-bottom:none}.gi b{color:var(--acc2);margin-right:8px}.gi .gm{font-weight:600}.gi .mut{display:block;font-size:.88rem;margin-top:2px}
 .achsum{display:block;width:100%;text-align:left;cursor:pointer;color:inherit;font:inherit}
 .achrow{display:flex;flex-wrap:wrap;gap:6px}
@@ -836,7 +838,7 @@ const GLOS=[
  ["P100","Filtro de partículas P100","Filtro NIOSH de partículas, a prueba de aceite, que retiene el 99,97 %. Es de color magenta."],
  ["PH₃","Fosfina","Gas muy tóxico que se usa como fumigante de granos y madera."],
  ["PID","Detector de fotoionización","Sensor que ioniza los vapores con luz ultravioleta y mide el total de VOC, en ppm."],
- ["ppb","Partes por billón","Unidad de concentración mil veces más chica que la ppm."],
+ ["ppb","Partes por mil millones","Unidad de concentración mil veces más chica que la ppm. En inglés «billion» son mil millones, no un billón."],
  ["ppm","Partes por millón","Unidad de concentración: 10.000 ppm equivalen a 1 % en volumen."],
  ["QBRN","Químico, biológico, radiológico y nuclear","Se usa para nombrar los riesgos y los equipos de protección contra esos agentes."],
  ["QIT","Químicos industriales tóxicos","Sustancias tóxicas de uso industrial común, como el cloro o el amoníaco."],
@@ -845,6 +847,9 @@ const GLOS=[
  ["UV","Ultravioleta","Tipo de luz que usa el PID para ionizar los vapores."],
  ["VOC","Compuestos orgánicos volátiles","Vapores de solventes, combustibles y otros productos orgánicos. El multigás los mide con el PID."]
 ];
+
+/* nombre original de las siglas que vienen de otro idioma */
+const GORIG={"BLEVE":"Boiling Liquid Expanding Vapor Explosion","EN":"Europäische Norm (alemán)","FFP2":"Filtering Face Piece, clase 2","HEPA":"High Efficiency Particulate Air","IDLH":"Immediately Dangerous to Life or Health","IMS":"Ion Mobility Spectrometry","LEL":"Lower Explosive Limit","UEL":"Upper Explosive Limit","NIOSH":"National Institute for Occupational Safety and Health","PID":"Photoionization Detector","ppb":"parts per billion","ppm":"parts per million","VOC":"Volatile Organic Compounds","eV":"electronvolt"};
 
 /* ================= MINIJUEGOS ================= */
 function svgPt(svg,ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
@@ -1096,14 +1101,14 @@ const GKEYS=(()=>{const m={};GLOS.forEach(g=>g[0].split(" / ").forEach(k=>{m[k.r
 const GRX=new RegExp("(^|[^\\wÀ-ÿ₀-₉])("+Object.keys(GKEYS).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![\\wÀ-ÿ₀-₉])","g");
 function gl(html){const done=new Set();return html.replace(GRX,(m,pre,k)=>{if(done.has(k))return m;done.add(k);const g=GKEYS[k];return `${pre}<abbr class="g" tabindex="0" title="${g[1]}" data-g="${k}">${k}</abbr>`;});}
 function glTip(e){const a=e.target.closest&&e.target.closest("abbr.g");let t=document.getElementById("gtip");if(t)t.remove();if(!a)return;e.stopPropagation();e.preventDefault();
- const g=GKEYS[a.dataset.g],r=a.getBoundingClientRect();t=document.createElement("div");t.id="gtip";t.innerHTML=`<b>${g[0]}</b> · ${g[1]}<span>${g[2]}</span>`;document.body.appendChild(t);
+ const g=GKEYS[a.dataset.g],r=a.getBoundingClientRect();t=document.createElement("div");t.id="gtip";const o=GORIG[g[0]];t.innerHTML=o?`<b>${g[0]}</b> · <i lang="en">${o}</i><em>${g[1]}</em><span>${g[2]}</span>`:`<b>${g[0]}</b> · ${g[1]}<span>${g[2]}</span>`;document.body.appendChild(t);
  const w=Math.min(300,window.innerWidth-24);t.style.width=w+"px";t.style.left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+window.scrollX-20))+"px";t.style.top=(r.bottom+window.scrollY+8)+"px";}
 document.addEventListener("click",glTip,true);
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches&&e.target.matches("abbr.g"))glTip(e);if(e.key==="Escape"){const t=document.getElementById("gtip");if(t)t.remove();}});
 function glossary(){
  view(`<div class="card"><h2>Glosario</h2><p class="mut">Siglas y fórmulas que aparecen en el entrenador. En las preguntas y en las tarjetas, las siglas subrayadas se pueden tocar para ver su significado.</p>
  <div class="form"><div><label for="gq">Buscar</label><input id="gq" placeholder="Por ejemplo, LEL" autocomplete="off"></div></div></div>
- <div class="card" id="gl">${GLOS.map(g=>`<div class="gi" data-s="${(g[0]+" "+g[1]).toLowerCase()}"><b>${g[0]}</b><span class="gm">${g[1]}</span><span class="mut">${g[2]}</span></div>`).join("")}</div>
+ <div class="card" id="gl">${GLOS.map(g=>{const o=GORIG[g[0]];return `<div class="gi" data-s="${(g[0]+" "+g[1]+" "+(o||"")).toLowerCase()}"><b>${g[0]}</b>${o?`<span class="go" lang="en">${o}</span><span class="gm gs">${g[1]}</span>`:`<span class="gm">${g[1]}</span>`}<span class="mut">${g[2]}</span></div>`;}).join("")}</div>
  <div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
  $("#bk").onclick=home;$("#gq").oninput=e=>{const q=e.target.value.toLowerCase().trim();document.querySelectorAll(".gi").forEach(d=>d.style.display=!q||d.dataset.s.includes(q)?"":"none");};
 }

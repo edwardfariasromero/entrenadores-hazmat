@@ -4,6 +4,7 @@
 - Sin binoculares (el Departamento no tiene): la pregunta de los binoculares se reemplazó por «En el panel naranja, ¿qué número lleva a la guía de la GRE?»; tarjeta «Aproximación segura» y escenario «Cisterna de ácido en una rotonda» ajustados.
 - «Móvil/ABT» en lugar de «autobomba» cuando se trata del vehículo del Departamento; «móvil 312» en la pantalla final. ABT (autobomba tanque) agregada al glosario.
 - El botón «Ir a la prueba» (al habilitarse la prueba tras una actividad) ahora abre la prueba directamente, en lugar del menú del nivel.
+- Glosario: las siglas que vienen de otro idioma muestran el nombre original (por ejemplo, LEL · Lower Explosive Limit), su nombre en español y la explicación. «ppb» corregido a «partes por mil millones».
 
 ## v0.10 · 20/11/2026
 - Se quitó el término «bump test». La revisión de los medidores es encender, verificar que no muestren errores y revisar la batería (sin exposición a gas).
