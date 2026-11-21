@@ -2,7 +2,7 @@
 
 ## v0.15 · 21/11/2026
 - Pantallas de los multigás con el diseño real de cada equipo, sobre fotos de frente: RKI GX-6000 (barra violeta, casillas CH₄/O₂, VOC/H₂S, CO; en alarma la casilla se invierte y parpadea) y GMI PS500 (LEL y O₂ arriba, H₂S, CO y VOC abajo, etiquetas en recuadros oscuros; en alarma la pantalla se pone naranja). Se usan en todas las actividades y escenarios con multigás.
-- «Define el perímetro» rediseñada: primero se elige el medidor que corresponde al producto (GMI, RKI o Pac 8000 de Cl₂, NH₃ o PH₃) y después se avanza viendo la lectura en la pantalla del medidor elegido. Siete situaciones (supergás, H₂S, CO₂/O₂, tolueno/VOC, cloro, amoníaco, fosfina).
+- «Define el perímetro» rediseñada: primero se elige el medidor que corresponde al producto (GMI, RKI o Pac 8000 de Cl₂, NH₃ o PH₃) y después se avanza viendo la lectura en la pantalla del medidor elegido. Siete situaciones (supergás, H₂S, CO₂/O₂, tolueno/VOC, cloro, amoníaco, fosfina). Los enunciados nombran el producto sin la fórmula, para que haya que asociarlo con el medidor.
 - «Área de acción protectora»: brújula en el mapa y sin flecha de viento; la dirección se da solo en texto («Viento norte»). En la pregunta de la escuela ya no se dibuja el área, para que no se resuelva sola.
 - «Para repasar»: cada error tiene un botón «Ver tarjeta» que abre la tarjeta de repaso del tema (306 preguntas vinculadas).
 - Tarjetas nuevas: Prioridades del incidente, Saturación de filtros, Reconocer e identificar, Convención sobre Armas Químicas, Medir después de descontaminar.
