@@ -1,5 +1,15 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.16 · 21/11/2026
+- Pantallas iguales a los equipos del Departamento (según fotos de Edward):
+  - RKI GX-6000: pantalla gris verdosa con texto azul oscuro; casillas CH₄ | O₂, H₂S | CO, VOC | vacía; H₂S, O₂ y VOC con un decimal.
+  - GMI PS500: luz de fondo naranja.
+  - Pac 8000: número con punto, como el equipo; amoníaco con un decimal (45.0).
+- Luces de alarma de los multigás en todas las actividades: bandas translúcidas (GMI arriba, RKI a los costados) en verde con parpadeo lento (normal), rojo lento (alarma 1) y rojo muy rápido (alarma 2), según los umbrales reales.
+- Tarjeta nueva «Umbrales de los equipos del Departamento» (AL1, AL2, STEL y TWA de los multigás; A1 y A2 de los Pac). STEL y TWA en el glosario.
+- «Define el perímetro»: la situación de sulfuro de hidrógeno usa 5 ppm (primera alarma) como límite.
+- «Lectura de pantalla»: la pregunta de «solo ventilar y cortar la fuga» pasa a 56 % LEL, acorde a la segunda alarma.
+
 ## v0.15 · 21/11/2026
 - Pantallas de los multigás con el diseño real de cada equipo, sobre fotos de frente: RKI GX-6000 (barra violeta, casillas CH₄/O₂, VOC/H₂S, CO; en alarma la casilla se invierte y parpadea) y GMI PS500 (LEL y O₂ arriba, H₂S, CO y VOC abajo, etiquetas en recuadros oscuros; en alarma la pantalla se pone naranja). Se usan en todas las actividades y escenarios con multigás.
 - «Define el perímetro» rediseñada: primero se elige el medidor que corresponde al producto (GMI, RKI o Pac 8000 de Cl₂, NH₃ o PH₃) y después se avanza viendo la lectura en la pantalla del medidor elegido. Siete situaciones (supergás, H₂S, CO₂/O₂, tolueno/VOC, cloro, amoníaco, fosfina). Los enunciados nombran el producto sin la fórmula, para que haya que asociarlo con el medidor.
