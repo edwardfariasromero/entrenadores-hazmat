@@ -221,6 +221,9 @@ img.zm{cursor:zoom-in;transition:transform .15s}img.zm:hover{transform:scale(1.0
 #zoom p{margin:0;color:#fff;font-weight:700;text-align:center;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 #zoom .zx{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.18);color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
 .codebox{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px;border:1px dashed var(--line);border-radius:12px;margin:8px 0 10px;text-align:center}.codebox b{font-family:ui-monospace,Consolas,monospace;font-size:1.25rem;letter-spacing:.08em;color:var(--acc,#ffc21a)}
+.achb.go{cursor:pointer;transition:border-color .15s}.achb.go:hover,.achb.go:focus{border-color:var(--acc,#ffc21a);outline:none}
+.agl{display:flex;flex-direction:column;gap:8px;margin-top:8px}.agi{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card2,transparent);color:inherit;font:inherit;cursor:pointer}
+.agi b{display:block}.agi small{display:block;color:var(--mut);font-size:.82rem;margin-top:2px}.agi[disabled]{cursor:default;opacity:.6}.agi.ok{opacity:.75}.agi.ok .agr{color:#3fd18a;font-weight:800}.agr{flex:none;display:flex;align-items:center}.agr svg{width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -1168,9 +1171,26 @@ function achToast(a){
 function achSummary(){const L=achList(),n=L.filter(a=>a.ok).length;
  return `<button class="card achsum" id="bach"><div class="hd" style="margin:0 0 8px"><b>Logros</b><span class="mut">${n} de ${L.length}</span></div><div class="achrow">${L.map(a=>achIcon(a,30)).join("")}</div></button>`;}
 function achScreen(){const L=achList(),n=L.filter(a=>a.ok).length,fmtn=x=>x.toLocaleString("es-UY");
- const grp=g=>`<h3 class="achg">${g==="Medallas"?"Medallas por puntos":"Insignias por desafíos"}</h3><div class="achgrid">${L.filter(a=>a.g===g).map(a=>`<div class="achb${a.ok?"":" off"}">${achIcon(a,40)}<b>${a.t}</b><span>${a.d}${!a.ok&&a.left>0?` · te faltan ${fmtn(a.left)}${a.id==="constancia"?(a.left===1?" día":" días"):""}`:""}</span></div>`).join("")}</div>`;
- view(`<div class="card"><div class="hd" style="margin:0"><h2 style="margin:0">Logros</h2><span class="mut">${n} de ${L.length}</span></div>${grp("Medallas")}${grp("Insignias")}</div><div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
- $("#bk").onclick=home;}
+ const grp=g=>`<h3 class="achg">${g==="Medallas"?"Medallas por puntos":"Insignias por desafíos"}</h3><div class="achgrid">${L.filter(a=>a.g===g).map(a=>`<div class="achb${a.ok?"":" off go"}"${a.ok?"":` role="button" tabindex="0" data-a="${a.id}" aria-label="Cómo ganar ${a.t}"`}>${achIcon(a,40)}<b>${a.t}</b><span>${a.d}${!a.ok&&a.left>0?` · te faltan ${fmtn(a.left)}${a.id==="constancia"?(a.left===1?" día":" días"):""}`:""}</span></div>`).join("")}</div>`;
+ view(`<div class="card"><div class="hd" style="margin:0"><h2 style="margin:0">Logros</h2><span class="mut">${n} de ${L.length}</span></div><p class="mut" style="margin:6px 0 0">Toca un logro que te falte para ver cómo conseguirlo.</p>${grp("Medallas")}${grp("Insignias")}</div><div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
+ $("#bk").onclick=home;
+ document.querySelectorAll(".achb.go").forEach(b=>{const go=()=>achGo(L.find(a=>a.id===b.dataset.a));b.onclick=go;b.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}};});}
+function achGo(a){
+ const sets={ojo:["d2","q3"],equipo:["q1","q2"],filtro:["e4"],escena:["g_cena","g_corr","g_area"]};
+ if(a.id==="estudio")return cards();
+ if(["m1","m2","m3","la312"].includes(a.id))return level(curLevel());
+ let ids,done,how;
+ if(sets[a.id]){ids=sets[a.id].filter(id=>ACTS[id]);done=id=>S.act[id]&&S.act[id].stars>=3;how="Consigue 3 estrellas en cada una:";}
+ else if(a.id==="sangre"){ids=builtActs().filter(id=>ACTS[id].type==="scn");done=id=>S.act[id]&&S.act[id].clean;how="Termina cada escenario al menos una vez sin un error crítico:";}
+ else if(a.id==="perfecto"){ids=builtActs().filter(id=>!(S.act[id]&&S.act[id].best>=1)).sort((x,y)=>((S.act[x]||{}).best||0)-((S.act[y]||{}).best||0)||ACTS[x].lv-ACTS[y].lv);done=()=>false;how="Lleva al 100 % estas actividades (las más flojas primero):";}
+ else ids=[];
+ if(ids.length===1&&!done(ids[0])&&unlocked(ACTS[ids[0]].lv))return play(ids[0]);
+ const row=id=>{const A=ACTS[id],r=S.act[id]||{},ok=done(id),op=unlocked(A.lv);
+  return `<button class="agi${ok?" ok":""}" data-id="${id}" ${op&&!ok?"":"disabled"}><span><b>${A.t}</b><small>Nivel ${A.lv}${op?"":" · se habilita al aprobar la prueba del Nivel "+(A.lv-1)}${a.id==="perfecto"&&r.best!==undefined?" · mejor: "+Math.round(r.best*100)+" %":""}</small></span><span class="agr">${ok?"✔":op?starsHTML(r.stars||0):ICO.lock}</span></button>`;};
+ const body=a.id==="constancia"?`<p style="margin-top:14px">Te ${a.left===1?"falta 1 día":"faltan "+a.left+" días"} de entrenamiento, en fechas distintas. Cualquier actividad cuenta: no hay una que acelere esta insignia.</p>`:`<p class="mut" style="margin-top:14px">${how}</p><div class="agl">${ids.map(row).join("")}</div>`;
+ view(`<div class="card"><div style="display:flex;gap:12px;align-items:center">${achIcon(Object.assign({},a,{ok:true}),48)}<div><h2 style="margin:0">${a.t}</h2><p class="mut" style="margin:2px 0 0">${a.d}</p></div></div>${body}</div><div class="row"><button class="btn sec" id="bk">Volver a logros</button></div>`);
+ $("#bk").onclick=achScreen;
+ document.querySelectorAll(".agi:not([disabled])").forEach(b=>b.onclick=()=>play(b.dataset.id));}
 
 /* ================= BIENVENIDA ================= */
 function welcome(){
