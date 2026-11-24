@@ -1,7 +1,7 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
 ## v0.18 · 24/11/2026
-- Al terminar una actividad, botón «Siguiente: [actividad]» para pasar directo a la que sigue en el nivel.
+- Al terminar una actividad, «Siguiente: [actividad]» aparece arriba, junto al resultado. En la última del nivel lleva a la actividad que todavía no tiene 2 estrellas o, si el nivel está completo, al nivel siguiente.
 - El aviso de logro nuevo se puede tocar: lleva a la pantalla de logros.
 - Logros ya ganados que no figuraban como anunciados se anotan al abrir el entrenador, sin mostrar avisos (antes se disparaban todos juntos). Si se ganan más de dos a la vez, sale un solo aviso.
 
@@ -10,7 +10,6 @@
 - Al terminar el test: imagen para compartir con los escudos de Haz-Mat y DNB, nombre, porcentaje, aciertos, fecha y código de verificación de 8 caracteres. «Verificar un resultado» reconoce los códigos de progreso (12) y de test (8).
 - 15 tarjetas nuevas en el tema «Generales»: secciones de la GRE, número de peligro del panel naranja, clases de la ONU, documentación de transporte, inflamación/combustión/ignición (según la IT-03 DNB), efectos en la salud, calor y fenómenos del fuego, tipos de radiación, tiempo-distancia-blindaje, Oficial de Seguridad, cierre e informe, coordinación entre organismos, trasvase y taponamiento, revisión del traje Nivel A, residuos de la intervención.
 - Medallas recalculadas: Bronce 1.500, Plata 6.000, Oro 12.000 puntos (también en el ranking).
-- Ajustes del mismo día (sin cambiar la versión): los logros ya ganados se anotan al abrir el entrenador sin volver a anunciarse; si se ganan más de dos a la vez, un solo aviso. Tocar el aviso de un logro lleva a «Logros». Al terminar una actividad, «Siguiente» aparece arriba, junto al resultado; en la última del nivel lleva a la que falta o al nivel siguiente.
 
 ## v0.16 · 21/11/2026
 - Pantallas iguales a los equipos del Departamento (según fotos de Edward):
