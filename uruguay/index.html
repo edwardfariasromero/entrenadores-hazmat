@@ -1299,6 +1299,7 @@ function achToast(a){
  const t=document.createElement("div");t.className="atoast";t.setAttribute("role","status");
  t.innerHTML=a.multi?`<div><small>Logros</small><b>${a.multi} logros nuevos</b><span>Míralos en «Logros», en el inicio.</span></div>`:`${achIcon(a,40)}<div><small>${a.g==="Medallas"?"Nueva medalla":"Nueva insignia"}</small><b>${a.t}</b><span>${a.d}</span></div>`;
  t.setAttribute("tabindex","0");t.title="Ver logros";t.onclick=()=>{document.querySelectorAll(".atoast").forEach(x=>x.remove());achScreen();};
+ t.tabIndex=0;t.setAttribute("aria-label",(t.textContent||"")+". Toca para ver los logros");t.onclick=t.onkeydown=e=>{if(e.type==="keydown"&&e.key!=="Enter")return;document.querySelectorAll(".atoast").forEach(x=>x.remove());achScreen();};
  document.body.appendChild(t);setTimeout(()=>t.classList.add("on"),30);setTimeout(()=>{t.classList.remove("on");setTimeout(()=>t.remove(),400);},3200);
 }
 function achSummary(){const L=achList(),n=L.filter(a=>a.ok).length;
@@ -1617,7 +1618,10 @@ function cardPop(id){const c=CARDS.find(x=>x.id===id);if(!c)return;let z=documen
  z.onclick=e=>{if(e.target===z||e.target.closest(".zx")||e.target.closest(".cpx"))close();};document.addEventListener("keydown",k);z.querySelector(".zx").focus();}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest(".vt[data-c]");if(b)cardPop(b.dataset.c);});
 function actResult(id,g){
- const A=ACTS[id],r=S.act[id]||{best:0,stars:0},L=A.lv,ready=!g.rev&&testReady(L)&&!lvlDone(L),la=LEVELS[L-1].acts,nx=la[la.indexOf(id)+1]||null;
+ const A=ACTS[id],r=S.act[id]||{best:0,stars:0},L=A.lv,ready=!g.rev&&testReady(L)&&!lvlDone(L),la=LEVELS[L-1].acts;
+ const two=x=>S.act[x]&&S.act[x].stars>=2,nl=LEVELS[L];
+ let nx=la[la.indexOf(id)+1]||null;
+ if(!nx&&!ready)nx=la.find(x=>x!==id&&!two(x))||(nl&&unlocked(nl.n)&&nl.acts[0])||null;
  view(`<div class="card center">
  ${g.crit?`<div class="crit" style="text-align:left"><b>ERROR CRÍTICO</b>El escenario terminó con la decisión: “${esc(g.crit)}”. En un incidente real, ese error pone vidas en riesgo.</div>`:g.st>=1?`<div class="fogo">${ICO.flame}${CHEER}</div><p class="mut" style="margin:0 0 6px">Actividad completada</p>`:`<h2 style="margin-top:6px">Casi</h2><p class="mut">Con 60 % ganas la primera estrella.</p>`}
  ${starsHTML(g.st,true)}
@@ -1625,9 +1629,10 @@ function actResult(id,g){
  ${g.newStars?`<p style="margin-top:10px"><span class="chip ok">Nuevo récord de estrellas</span></p>`:""}
  <div style="text-align:left;margin-top:12px"><div class="kv"><span>Mejor resultado</span><b>${Math.round(r.best*100)} % · ${r.stars} ${r.stars===1?"estrella":"estrellas"}</b></div>
  <div class="kv"><span>Puntos ganados ahora</span><b>+${g.gain}</b></div><div class="kv"><span>Total</span><b>${totalPts()} pts</b></div></div>${g.rev?`<p class="mut" style="margin-top:10px">Modo revisión: este resultado no se registró.</p>`:""}</div>
+ <div class="row" style="margin-top:0">${nx?`<button class="btn" id="anx">Siguiente: ${esc(ACTS[nx].t)}</button>`:""}<button class="btn ${nx?"sec":""}" id="ag">Jugar otra vez</button></div>
  ${ready?`<div class="card"><h3>Prueba del nivel ${L} habilitada</h3><p class="mut">Todas las actividades del nivel tienen al menos 2 estrellas.</p><button class="btn" id="gt">Ir a la prueba</button></div>`:""}
  ${missHTML(g.miss,id)}
- <div class="row">${nx?`<button class="btn" id="anx">Siguiente: ${esc(ACTS[nx].t)}</button><button class="btn sec" id="ag">Jugar otra vez</button>`:`<button class="btn" id="ag">Jugar otra vez</button>`}<button class="btn sec" id="bl">Volver al nivel</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);
+ <div class="row"><button class="btn sec" id="bl">Volver al nivel</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);
  $("#ag").onclick=()=>play(id);if(nx)$("#anx").onclick=()=>play(nx);$("#bl").onclick=()=>level(L);$("#bs").onclick=()=>shareScreen();
  if($("#gt"))$("#gt").onclick=()=>test(L);
 }
