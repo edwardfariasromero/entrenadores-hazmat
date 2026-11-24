@@ -4,6 +4,7 @@
 - Varios usuarios en el mismo navegador: «Cambiar de usuario» en el inicio muestra los usuarios guardados (nivel y puntos), permite usar otro, crear uno nuevo o borrar uno (con confirmación). Cada usuario tiene su propio progreso. La pantalla de bienvenida ofrece seguir con un usuario guardado. «Reiniciar» solo afecta al usuario activo.
 - Copia del progreso: descargar o compartir un archivo .txt con todo el progreso del usuario y recuperarlo en este u otro aparato. La copia lleva una firma: si el archivo se modifica, no se acepta. Si ya existe un usuario con ese nombre, pide confirmación antes de reemplazarlo.
 - Aviso discreto en el inicio cuando hay progreso (300 puntos o más) y no se guardó una copia en los últimos 14 días.
+- La versión se ve siempre en la barra superior, junto al título (también en el celular), para identificarla en las capturas.
 
 ## v0.18 · 24/11/2026
 - Al terminar una actividad, «Siguiente: [actividad]» aparece arriba, junto al resultado. En la última del nivel lleva a la actividad que todavía no tiene 2 estrellas o, si el nivel está completo, al nivel siguiente.
