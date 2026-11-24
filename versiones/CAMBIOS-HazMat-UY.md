@@ -1,5 +1,8 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.20 · 24/11/2026
+- Teclado: con las flechas se recorren las opciones (la seleccionada se resalta) y con Enter se elige. Después de responder, Enter pasa a la siguiente pregunta. Funciona también en los juegos con opciones.
+
 ## v0.19 · 24/11/2026
 - Varios usuarios en el mismo navegador: «Cambiar de usuario» en el inicio muestra los usuarios guardados (nivel y puntos), permite usar otro, crear uno nuevo o borrar uno (con confirmación). Cada usuario tiene su propio progreso. La pantalla de bienvenida ofrece seguir con un usuario guardado. «Reiniciar» solo afecta al usuario activo.
 - Copia del progreso: descargar o compartir un archivo .txt con todo el progreso del usuario y recuperarlo en este u otro aparato. La copia lleva una firma: si el archivo se modifica, no se acepta. Si ya existe un usuario con ese nombre, pide confirmación antes de reemplazarlo.

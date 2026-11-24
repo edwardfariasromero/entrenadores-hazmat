@@ -34,7 +34,7 @@ p{margin:0 0 10px}
 .btn.sec{background:var(--pan2);color:var(--tx);border:1px solid var(--line)}
 .btn.full{width:100%}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.btn:focus-visible,.opt:focus-visible,.lv:focus-visible,.act:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
+.btn:focus-visible,.opt:focus-visible,.lv:focus-visible,.act:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}.opt:focus-visible{border-color:var(--acc2);background:var(--pan2)}
 .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--pan2);color:var(--mut);border:1px solid var(--line)}
 .tag.int{color:#ff5a5a}[data-theme=light] .tag.int{color:#c42020}
 .ctx{background:var(--pan2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:12px;padding:10px 12px;margin:10px 0;font-size:.95rem}
@@ -1188,7 +1188,7 @@ function gaugeSVG(v){
 
 /* ================= ESTADO ================= */
 const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
-const VER="v0.19",VDATE="24/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.20",VDATE="24/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -2042,6 +2042,15 @@ function resetScreen(){
 /* ================= ARRANQUE ================= */
 applyTheme();hud();revBar();
 try{document.getElementById("hver").textContent=VER;}catch(e){}
+/* teclado: flechas para recorrer opciones, Enter para elegir; Enter para seguir después de responder */
+document.addEventListener("keydown",e=>{
+ if(e.ctrlKey||e.altKey||e.metaKey||(e.target&&e.target.matches&&e.target.matches("input,textarea,select")))return;
+ const vis=x=>x.offsetParent!==null,opts=[...document.querySelectorAll(".opt")].filter(x=>!x.disabled&&vis(x));
+ if(["ArrowDown","ArrowUp","ArrowLeft","ArrowRight"].includes(e.key)&&opts.length){
+  e.preventDefault();const i=opts.indexOf(document.activeElement),fw=e.key==="ArrowDown"||e.key==="ArrowRight";
+  const n=i<0?(fw?0:opts.length-1):(i+(fw?1:-1)+opts.length)%opts.length;opts[n].focus();return;}
+ if(e.key==="Enter"&&(!document.activeElement||document.activeElement===document.body)){const nx=document.getElementById("nx");if(nx&&vis(nx)&&!nx.disabled){e.preventDefault();nx.click();}}
+});
 /* logros ya ganados que no quedaron registrados: se anotan sin anunciarlos */
 if(S.name&&!S.rev){try{S.ach=S.ach||[];let ch=0;achList().forEach(a=>{if(a.ok&&!S.ach.includes(a.id)){S.ach.push(a.id);ch=1;}});if(ch)save();}catch(e){}}
 if(S.name)home();else welcome();
