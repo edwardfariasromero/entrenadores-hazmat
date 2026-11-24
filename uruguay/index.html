@@ -157,7 +157,7 @@ abbr.g{text-decoration:underline dotted;text-underline-offset:3px;cursor:help;bo
 .achb b{display:block;margin-top:6px}.achb span{display:block;font-size:.8rem;color:var(--mut);margin-top:4px;line-height:1.35}
 .achb.off b{color:var(--mut)}
 .atoast{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:60;display:flex;gap:12px;align-items:center;background:var(--pan2);border:1px solid var(--acc2);border-radius:14px;padding:12px 16px;box-shadow:var(--sh);max-width:92vw;width:360px;transition:transform .35s ease}
-.atoast.on{transform:translate(-50%,0)}.atoast small{display:block;color:var(--acc2);font-size:.75rem;letter-spacing:.06em}.atoast b{display:block}.atoast span{display:block;font-size:.8rem;color:var(--mut)}
+.atoast{cursor:pointer}.atoast.on{transform:translate(-50%,0)}.atoast small{display:block;color:var(--acc2);font-size:.75rem;letter-spacing:.06em}.atoast b{display:block}.atoast span{display:block;font-size:.8rem;color:var(--mut)}
 @media (prefers-reduced-motion:reduce){.atoast{transition:none}}
 /* tarjetas */
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
@@ -1187,7 +1187,7 @@ function gaugeSVG(v){
 
 /* ================= ESTADO ================= */
 const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
-const VER="v0.17",VDATE="24/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.18",VDATE="24/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1292,11 +1292,13 @@ function achIcon(a,size){return `<svg width="${size}" height="${size}" viewBox="
 function achCheck(){
  if(S.rev)return;S.ach=S.ach||[];const nw=achList().filter(a=>a.ok&&!S.ach.includes(a.id));
  if(!nw.length)return;nw.forEach(a=>S.ach.push(a.id));save();
+ if(nw.length>2)return setTimeout(()=>achToast({multi:nw.length}),400);
  nw.forEach((a,i)=>setTimeout(()=>achToast(a),400+i*3600));
 }
 function achToast(a){
  const t=document.createElement("div");t.className="atoast";t.setAttribute("role","status");
- t.innerHTML=`${achIcon(a,40)}<div><small>${a.g==="Medallas"?"Nueva medalla":"Nueva insignia"}</small><b>${a.t}</b><span>${a.d}</span></div>`;
+ t.innerHTML=a.multi?`<div><small>Logros</small><b>${a.multi} logros nuevos</b><span>Míralos en «Logros», en el inicio.</span></div>`:`${achIcon(a,40)}<div><small>${a.g==="Medallas"?"Nueva medalla":"Nueva insignia"}</small><b>${a.t}</b><span>${a.d}</span></div>`;
+ t.setAttribute("tabindex","0");t.title="Ver logros";t.onclick=()=>{document.querySelectorAll(".atoast").forEach(x=>x.remove());achScreen();};
  document.body.appendChild(t);setTimeout(()=>t.classList.add("on"),30);setTimeout(()=>{t.classList.remove("on");setTimeout(()=>t.remove(),400);},3200);
 }
 function achSummary(){const L=achList(),n=L.filter(a=>a.ok).length;
@@ -1615,7 +1617,7 @@ function cardPop(id){const c=CARDS.find(x=>x.id===id);if(!c)return;let z=documen
  z.onclick=e=>{if(e.target===z||e.target.closest(".zx")||e.target.closest(".cpx"))close();};document.addEventListener("keydown",k);z.querySelector(".zx").focus();}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest(".vt[data-c]");if(b)cardPop(b.dataset.c);});
 function actResult(id,g){
- const A=ACTS[id],r=S.act[id]||{best:0,stars:0},L=A.lv,ready=!g.rev&&testReady(L)&&!lvlDone(L);
+ const A=ACTS[id],r=S.act[id]||{best:0,stars:0},L=A.lv,ready=!g.rev&&testReady(L)&&!lvlDone(L),la=LEVELS[L-1].acts,nx=la[la.indexOf(id)+1]||null;
  view(`<div class="card center">
  ${g.crit?`<div class="crit" style="text-align:left"><b>ERROR CRÍTICO</b>El escenario terminó con la decisión: “${esc(g.crit)}”. En un incidente real, ese error pone vidas en riesgo.</div>`:g.st>=1?`<div class="fogo">${ICO.flame}${CHEER}</div><p class="mut" style="margin:0 0 6px">Actividad completada</p>`:`<h2 style="margin-top:6px">Casi</h2><p class="mut">Con 60 % ganas la primera estrella.</p>`}
  ${starsHTML(g.st,true)}
@@ -1625,8 +1627,8 @@ function actResult(id,g){
  <div class="kv"><span>Puntos ganados ahora</span><b>+${g.gain}</b></div><div class="kv"><span>Total</span><b>${totalPts()} pts</b></div></div>${g.rev?`<p class="mut" style="margin-top:10px">Modo revisión: este resultado no se registró.</p>`:""}</div>
  ${ready?`<div class="card"><h3>Prueba del nivel ${L} habilitada</h3><p class="mut">Todas las actividades del nivel tienen al menos 2 estrellas.</p><button class="btn" id="gt">Ir a la prueba</button></div>`:""}
  ${missHTML(g.miss,id)}
- <div class="row"><button class="btn" id="ag">Jugar otra vez</button><button class="btn sec" id="bl">Volver al nivel</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);
- $("#ag").onclick=()=>play(id);$("#bl").onclick=()=>level(L);$("#bs").onclick=()=>shareScreen();
+ <div class="row">${nx?`<button class="btn" id="anx">Siguiente: ${esc(ACTS[nx].t)}</button><button class="btn sec" id="ag">Jugar otra vez</button>`:`<button class="btn" id="ag">Jugar otra vez</button>`}<button class="btn sec" id="bl">Volver al nivel</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);
+ $("#ag").onclick=()=>play(id);if(nx)$("#anx").onclick=()=>play(nx);$("#bl").onclick=()=>level(L);$("#bs").onclick=()=>shareScreen();
  if($("#gt"))$("#gt").onclick=()=>test(L);
 }
 
@@ -1980,6 +1982,8 @@ function resetScreen(){
 
 /* ================= ARRANQUE ================= */
 applyTheme();hud();revBar();
+/* logros ya ganados que no quedaron registrados: se anotan sin anunciarlos */
+if(S.name&&!S.rev){try{S.ach=S.ach||[];let ch=0;achList().forEach(a=>{if(a.ok&&!S.ach.includes(a.id)){S.ach.push(a.id);ch=1;}});if(ch)save();}catch(e){}}
 if(S.name)home();else welcome();
 </script>
 </body>

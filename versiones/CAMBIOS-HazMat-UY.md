@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.18 · 24/11/2026
+- Al terminar una actividad, botón «Siguiente: [actividad]» para pasar directo a la que sigue en el nivel.
+- El aviso de logro nuevo se puede tocar: lleva a la pantalla de logros.
+- Logros ya ganados que no figuraban como anunciados se anotan al abrir el entrenador, sin mostrar avisos (antes se disparaban todos juntos). Si se ganan más de dos a la vez, sale un solo aviso.
+
 ## v0.17 · 24/11/2026
 - Test de conocimientos: las 41 preguntas de la Prueba Haz Mat 2026 del Departamento, reescritas (opciones incorrectas creíbles y de largo parecido) y revisadas contra el material de estudio. Acceso desde una franja en el inicio, debajo de la tarjeta del usuario. Se responde sin jugar los niveles, en orden al azar y sin ayudas del glosario. Se aprueba con 60 %. Suma 10 puntos por acierto (cuenta el mejor resultado).
 - Al terminar el test: imagen para compartir con los escudos de Haz-Mat y DNB, nombre, porcentaje, aciertos, fecha y código de verificación de 8 caracteres. «Verificar un resultado» reconoce los códigos de progreso (12) y de test (8).
