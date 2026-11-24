@@ -1,5 +1,11 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.17 · 24/11/2026
+- Test de conocimientos: las 41 preguntas de la Prueba Haz Mat 2026 del Departamento, reescritas (opciones incorrectas creíbles y de largo parecido) y revisadas contra el material de estudio. Acceso desde una franja en el inicio, debajo de la tarjeta del usuario. Se responde sin jugar los niveles, en orden al azar y sin ayudas del glosario. Se aprueba con 60 %. Suma 10 puntos por acierto (cuenta el mejor resultado).
+- Al terminar el test: imagen para compartir con los escudos de Haz-Mat y DNB, nombre, porcentaje, aciertos, fecha y código de verificación de 8 caracteres. «Verificar un resultado» reconoce los códigos de progreso (12) y de test (8).
+- 15 tarjetas nuevas en el tema «Generales»: secciones de la GRE, número de peligro del panel naranja, clases de la ONU, documentación de transporte, inflamación/combustión/ignición (según la IT-03 DNB), efectos en la salud, calor y fenómenos del fuego, tipos de radiación, tiempo-distancia-blindaje, Oficial de Seguridad, cierre e informe, coordinación entre organismos, trasvase y taponamiento, revisión del traje Nivel A, residuos de la intervención.
+- Medallas recalculadas: Bronce 1.500, Plata 6.000, Oro 12.000 puntos (también en el ranking).
+
 ## v0.16 · 21/11/2026
 - Pantallas iguales a los equipos del Departamento (según fotos de Edward):
   - RKI GX-6000: pantalla gris verdosa con texto azul oscuro; casillas CH₄ | O₂, H₂S | CO, VOC | vacía; H₂S, O₂ y VOC con un decimal.
