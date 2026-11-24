@@ -256,6 +256,7 @@ ul.miss{list-style:none;padding:0;margin:0}ul.miss li{display:flex;gap:10px;alig
 .ktst{display:flex;gap:8px;margin:12px 0 4px}.ktst div{flex:1;text-align:center;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:8px 4px}.ktst b{display:block;font-size:1.3rem}.ktst span{font-size:.8rem;color:var(--mut)}
 .kres{text-align:center;margin:14px 0 8px}.kres b{display:block;font-size:2.6rem;color:var(--bad)}.kres.ok b{color:var(--good)}.kres span{color:var(--mut)}
 .ktb{display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;background:var(--pan);border:1px solid var(--line);border-left:4px solid #c08cff;border-radius:14px;padding:12px 14px;margin:0 0 14px;color:var(--tx);font:inherit}.ktb:hover{border-color:#c08cff}.ktb .ki{color:#c08cff;display:flex}.ktb .kt{flex:1}.ktb b{display:block}.ktb small{color:var(--mut);font-size:.82rem}.ktb .kc{font-size:1.6rem;color:var(--mut)}[data-theme=light] .ktb{border-left-color:#6b2fb3}[data-theme=light] .ktb .ki{color:#6b2fb3}
+.urow{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.urow>div{flex:1}.urow b{display:block}.urow small{color:var(--mut);font-size:.82rem}.urow .btn{padding:8px 14px}
 </style>
 </head>
 <body>
@@ -1187,7 +1188,7 @@ function gaugeSVG(v){
 
 /* ================= ESTADO ================= */
 const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
-const VER="v0.18",VDATE="24/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.19",VDATE="24/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1331,8 +1332,11 @@ function welcome(){
  <h2>Entrenador de Materiales Peligrosos</h2>
  <p>Detección, EPP, descontaminación y gestión de la escena, en 6 niveles. Cada nivel se abre recién cuando dominas el anterior.</p>
  <div class="form"><div><label for="nm">Tu nombre</label><input id="nm" maxlength="40" placeholder="Aparece en los resultados" autocomplete="name"></div></div>
- <div class="row"><button class="btn full" id="go">Empezar</button></div><p class="mut center" style="font-size:.75rem;margin:12px 0 0">Versión ${VER} · ${VDATE}</p></div>`);
- const go=()=>{const v=$("#nm").value.trim();if(!v){$("#nm").focus();return;}S.name=v;save();home();};
+ <div class="row"><button class="btn full" id="go">Empezar</button></div><div class="row"><button class="lnk" id="wimp">Recuperar progreso desde una copia</button></div><p class="mut center" style="font-size:.75rem;margin:12px 0 0">Versión ${VER} · ${VDATE}</p></div>`);
+ $("#wimp").onclick=()=>backupScreen(true);
+ const go=()=>{const v=$("#nm").value.trim();if(!v){$("#nm").focus();return;}const p=profs(),k=nameKey(v);if(p[k]){const t=S.theme;S=Object.assign(blank(),p[k]);S.theme=t;delete p[k];profSave(p);save();applyTheme();return home();}S.name=v;save();home();};
+ const ul=Object.values(profs());if(ul.length)$("#go").insertAdjacentHTML("afterend",`<div style="width:100%"><p class="mut" style="margin:14px 0 6px">O sigue con un usuario guardado en este navegador:</p>${ul.map(u=>`<button class="btn sec full uw" data-k="${esc(nameKey(u.name))}" style="margin-top:6px">${esc(u.name)}</button>`).join("")}</div>`);
+ document.querySelectorAll(".uw").forEach(b=>b.onclick=()=>switchTo(b.dataset.k));
  $("#go").onclick=go;$("#nm").onkeydown=e=>{if(e.key==="Enter")go();};
 }
 
@@ -1358,10 +1362,10 @@ function home(){GLOFF=false;
   <div class="card" style="margin-top:16px"><div class="row" style="margin-top:0">
    <button class="btn" id="bk">Tarjetas de repaso</button><button class="btn sec" id="bg">Glosario</button><button class="btn sec" id="bh">Cómo funciona</button>
    <button class="btn sec" id="bs">${ICO.share} Compartir progreso</button></div>
-   <div class="row"><button class="btn sec" id="bc">Créditos</button><button class="btn sec" id="bv">Verificar un resultado</button><button class="btn sec" id="br">Reiniciar</button></div></div>`);
+   <div class="row"><button class="btn sec" id="bc">Créditos</button><button class="btn sec" id="bv">Verificar un resultado</button><button class="btn sec" id="br">Reiniciar</button></div>${bkNote()}<div class="row"><button class="btn sec" id="bu">Cambiar de usuario</button><button class="btn sec" id="bb">Copia del progreso</button></div></div>`);
  document.querySelectorAll(".lv").forEach(b=>b.onclick=()=>{const n=+b.dataset.n;if(unlocked(n))level(n);});
  if($("#revx2"))$("#revx2").onclick=exitRev;$("#bach").onclick=achScreen;if($("#bfin"))$("#bfin").onclick=finale;
- $("#bt").onclick=ktest;$("#bk").onclick=()=>cards();$("#bg").onclick=glossary;$("#bh").onclick=howto;$("#bc").onclick=credits;$("#bv").onclick=verify;$("#br").onclick=resetScreen;$("#bs").onclick=()=>shareScreen();
+ $("#bt").onclick=ktest;if($("#bkn"))$("#bkn").onclick=()=>backupScreen();$("#bu").onclick=usersScreen;$("#bb").onclick=()=>backupScreen();$("#bk").onclick=()=>cards();$("#bg").onclick=glossary;$("#bh").onclick=howto;$("#bc").onclick=credits;$("#bv").onclick=verify;$("#br").onclick=resetScreen;$("#bs").onclick=()=>shareScreen();
 }
 
 function howto(){
@@ -1978,8 +1982,59 @@ function verify(){
  };
  $("#vgo").onclick=go;$("#vc").onkeydown=e=>{if(e.key==="Enter")go();};
 }
+/* ================= USUARIOS Y COPIA DEL PROGRESO ================= */
+const PKEY=KEY+"_perfiles";
+function profs(){try{return JSON.parse(localStorage.getItem(PKEY)||"{}")||{};}catch(e){return {};}}
+function profSave(p){try{localStorage.setItem(PKEY,JSON.stringify(p));}catch(e){}}
+function stash(){if(!S.name)return;const p=profs();p[nameKey(S.name)]=JSON.parse(JSON.stringify(S));profSave(p);}
+function peek(u){const t=S;S=Object.assign(blank(),u);let r;try{r={lv:curLevel(),pts:totalPts()};}catch(e){r={lv:1,pts:0};}S=t;return r;}
+function switchTo(k){const p=profs();if(!p[k])return;stash();const q=profs(),t=S.theme;S=Object.assign(blank(),q[k]);S.theme=t;delete q[k];profSave(q);save();applyTheme();hud();revBar();home();}
+function newUser(){stash();const t=S.theme;S=blank();S.theme=t;save();hud();revBar();welcome();}
+function usersScreen(){
+ const p=profs(),me=nameKey(S.name),others=Object.entries(p).filter(([k])=>k!==me);let del=null;
+ const row=(u,k,act)=>{const i=peek(u);return `<div class="urow"><div><b>${esc(u.name)}</b><small>Nivel ${i.lv} · ${i.pts} pts${act?" · en uso":""}</small></div>${act?"":`<button class="btn sec" data-go="${esc(k)}">Usar</button><button class="lnk" data-del="${esc(k)}">Borrar</button>`}</div>`;};
+ view(`<div class="card"><h2>Usuarios de este navegador</h2><p class="mut">Cada usuario tiene su propio progreso. Cambiar de usuario no borra nada.</p>
+ ${row(S,me,true)}${others.map(([k,u])=>row(u,k,false)).join("")}
+ <div class="row"><button class="btn" id="unew">+ Usuario nuevo</button></div><p class="mut" id="um" style="margin:8px 0 0;font-size:.85rem"></p></div>
+ <div class="card"><p class="mut" style="margin:0">El progreso queda guardado solo en este navegador. Para no perderlo, usa «Copia del progreso».</p></div>
+ <div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
+ $("#bk").onclick=home;$("#unew").onclick=newUser;
+ document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>switchTo(b.dataset.go));
+ document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{const k=b.dataset.del,u=p[k];
+  if(del!==k){del=k;document.querySelectorAll("[data-del]").forEach(x=>x.textContent="Borrar");b.textContent="Confirmar: borrar a «"+u.name+"»";$("#um").textContent="Se borra todo su progreso de este navegador. No se puede deshacer.";return;}
+  const q=profs();delete q[k];profSave(q);usersScreen();});
+}
+const BKH="HAZMAT-UY-PROGRESO 1";
+function b64e(t){return btoa(unescape(encodeURIComponent(t)));}
+function b64d(t){return decodeURIComponent(escape(atob(t)));}
+function bkSig(b){return (fnv(SALT+"|exp|"+b)>>>0).toString(36)+"-"+(fnv("x|"+b+"|"+SALT)>>>0).toString(36);}
+function bkText(){const o=JSON.parse(JSON.stringify(S));delete o.rev;const b=b64e(JSON.stringify(o));return BKH+"\n"+b+"\n"+bkSig(b)+"\n";}
+function bkRead(t){const L=String(t).trim().split(/\r?\n/).map(x=>x.trim());if(L[0]!==BKH||!L[1]||bkSig(L[1])!==L[2])return null;try{const o=JSON.parse(b64d(L[1]));return o&&o.name?o:null;}catch(e){return null;}}
+function bkFile(){return "hazmat-progreso-"+S.name.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^\w]+/g,"_").replace(/^_|_$/g,"")+".txt";}
+function bkNote(){if(totalPts()<300)return "";const d=S.lastExp==null?null:dayNum()-S.lastExp;if(d!=null&&d<14)return "";
+ return `<p class="mut" style="margin:10px 0 0;font-size:.82rem">${d==null?"Todavía no guardaste una copia de tu progreso.":`Hace ${d} días que no guardas una copia de tu progreso.`} <button class="lnk" id="bkn" style="font-size:.82rem">Guardar ahora</button></p>`;}
+function backupScreen(fromWelcome){
+ const has=!!S.name&&!fromWelcome;let pend=null;
+ view(`${has?`<div class="card"><h2>Guardar una copia</h2><p class="mut">Descarga un archivo con todo el progreso de <b>${esc(S.name)}</b>. Guárdalo en un pendrive, en el correo o en la nube. La copia vale hasta el momento en que la guardas.</p>
+ <div class="row"><button class="btn" id="bdl">${ICO.down} Descargar copia</button><button class="btn sec" id="bsh">${ICO.share} Compartir copia</button></div><p class="mut" id="bm" style="margin:8px 0 0;font-size:.85rem">${S.lastExp!=null?"Última copia: "+dayStr(S.lastExp)+".":""}</p></div>`:""}
+ <div class="card"><h2>Recuperar desde una copia</h2><p class="mut">Elige el archivo de la copia. El progreso vuelve como un usuario de este navegador. Si el archivo fue modificado, no se acepta.</p>
+ <label class="btn sec" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer">${ICO.up||""}Elegir archivo<input type="file" id="bf" accept=".txt,text/plain" style="display:none"></label>
+ <div id="br2"></div></div>
+ <div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
+ $("#bk").onclick=()=>fromWelcome||!S.name?welcome():home();
+ if(has){const mk=()=>new Blob([bkText()],{type:"text/plain"}),done=t=>{S.lastExp=dayNum();save();$("#bm").textContent=t;};
+  $("#bdl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(mk());a.download=bkFile();document.body.appendChild(a);a.click();a.remove();done("Copia descargada: "+bkFile()+". Búscala en la carpeta de descargas.");};
+  $("#bsh").onclick=async()=>{const f=new File([mk()],bkFile(),{type:"text/plain"});if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:"Copia del progreso · Entrenador HazMat"});done("Copia compartida.");}catch(e){}}else $("#bdl").click();};}
+ $("#bf").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{const o=bkRead(rd.result);const out=h=>{$("#br2").innerHTML=h;};
+  if(!o)return out(`<div class="verdict bad">✘ El archivo no es una copia válida o fue modificado.</div>`);
+  const k=nameKey(o.name),p=profs(),exists=(S.name&&nameKey(S.name)===k)||!!p[k];
+  const apply=()=>{if(S.name&&nameKey(S.name)!==k)stash();const q=profs();delete q[k];profSave(q);const t=S.theme;S=Object.assign(blank(),o);S.theme=t;S.rev=false;save();applyTheme();hud();revBar();home();};
+  if(!exists)return apply();
+  out(`<div class="verdict"><b>Ya hay un usuario «${esc(o.name)}» en este navegador.</b><div style="margin-top:6px">Si sigues, su progreso actual se reemplaza por el de la copia (${peek(o).pts} pts).</div><div class="row c"><button class="btn" id="bry">Reemplazar</button><button class="btn sec" id="brn">Cancelar</button></div></div>`);
+  $("#bry").onclick=apply;$("#brn").onclick=()=>out("");};rd.readAsText(f);};
+}
 function resetScreen(){
- view(`<div class="card"><h2>Reiniciar el progreso</h2><p>Borra estrellas, puntos (${totalPts()}), pruebas aprobadas y tarjetas repasadas. Vuelves al Nivel 1.</p><p class="mut">Se mantienen el nombre y el tema. No se puede deshacer.</p>
+ view(`<div class="card"><h2>Reiniciar el progreso</h2><p>Borra estrellas, puntos (${totalPts()}), pruebas aprobadas, test y tarjetas repasadas de <b>${esc(S.name)}</b>. Vuelves al Nivel 1. Los demás usuarios de este navegador no se tocan.</p><p class="mut">Se mantienen el nombre y el tema. No se puede deshacer.</p>
  <div class="row"><button class="btn" id="ry" style="background:var(--bad)">Sí, reiniciar</button><button class="btn sec" id="rn">Cancelar</button></div></div>`);
  $("#rn").onclick=home;$("#ry").onclick=()=>{const n=S.name,t=S.theme;S=blank();S.name=n;S.theme=t;save();home();};
 }
