@@ -1,5 +1,13 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.21 · 25/11/2026
+- Inicio más ordenado: los botones de abajo quedan en dos grupos, «Estudiar» (Tarjetas, Glosario) y «Mi progreso» (Ranking, Compartir, Copia, Verificar), en dos columnas.
+- El ranking tiene su propio botón y su propia pantalla (antes estaba dentro de «Compartir progreso»).
+- Menú ☰ en la barra superior, disponible desde cualquier pantalla: muestra el usuario activo y lleva a Cambiar de usuario, Cómo funciona, Créditos y Reiniciar (este último fuera del camino para no tocarlo por error).
+- Créditos: escudos ordenados de a pares, la unidad a la izquierda y su Dirección Nacional a la derecha (Haz-Mat Uruguay y DNB; Produtos Perigosos y CBMAM; UOMATPEL y Bomberos de Costa Rica), y al final SINAE y OPAQ.
+- Los documentos citados por su código llevan también el nombre: «IT-03 Terminología de incendio (DNB)» (pregunta 20 del test, su explicación y la tarjeta de inflamación), normas EN 143 y EN 14387 con lo que cubren, y la GRE con su nombre completo.
+- Escenarios: ya no nombran el producto antes de preguntar qué indica el panel naranja. «Camión con clorato de sodio volcado» pasa a «Camión volcado con bolsones de polvo»; «Explosión de amoníaco en un pesquero» pasa a «Explosión en un pesquero amarrado»; en «Oleoducto roto en un barrio» el texto habla de «un líquido oscuro» y de «el producto» hasta el panel.
+
 ## v0.20 · 24/11/2026
 - Teclado: con las flechas se recorren las opciones (la seleccionada se resalta) y con Enter se elige. Después de responder, Enter pasa a la siguiente pregunta. Funciona también en los juegos con opciones.
 
