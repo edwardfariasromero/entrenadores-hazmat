@@ -323,7 +323,7 @@ const ACTS={
   {q:"¿Dónde se enciende y se pone a cero el detector?",o:["En aire limpio, antes de entrar a la zona","En la zona tibia, ya cerca del acceso a la caliente","Dentro de la zona, junto al punto a medir","En el móvil/ABT, con el motor encendido"],e:"El cero se hace en aire limpio. Hacerlo en una atmósfera contaminada hace que el detector tome el gas como referencia y marque menos de lo que hay."},
   {q:"En la revisión de los medidores, ¿qué se hace?",o:["Encender, verificar que no haya errores y revisar la batería","Exponerlos a un gas de prueba y comprobar que alarmen","Ajustar la lectura con un gas de concentración conocida","Desarmarlos y limpiar cada sensor por separado"],e:"Se encienden, se verifica que no muestren ningún error y se revisa la carga de la batería. Ajustar la lectura ya es calibrar."},
   {q:"¿Qué diferencia hay entre la revisión y la calibración?",o:["La revisión confirma que funciona; la calibración ajusta la lectura","La revisión ajusta la lectura; la calibración confirma que funciona","La revisión es anual; la calibración, diaria","Ninguna: son lo mismo con distinto nombre"],e:"La revisión confirma que el equipo enciende sin errores y con batería. La calibración ajusta la lectura y tiene un tiempo de validez registrado en cada medidor."},
-  {q:"¿Cuándo se manda a calibrar un medidor antes de que venza su calibración?",o:["Si presenta un desperfecto, por ejemplo después de una intervención","Cada vez que se usa en una intervención","Cuando la batería queda por debajo de la mitad","Nunca: siempre se espera al vencimiento"],e:"La calibración tiene un tiempo de validez registrado en cada medidor. Antes de que venza, solo se manda a calibrar si el equipo presenta un desperfecto, por ejemplo después de una intervención."},
+  {q:"¿Cuándo se manda a calibrar un medidor antes de que venza su calibración?",o:["Si presenta un desperfecto","Cada vez que se usa en una intervención","Cuando la batería queda por debajo de la mitad","Nunca: siempre se espera a la fecha de vencimiento"],e:"La calibración tiene un tiempo de validez registrado en cada medidor. Antes de que venza, solo se manda a calibrar si el equipo presenta un desperfecto, por ejemplo después de una intervención."},
   {q:"¿Dónde mides primero un gas más pesado que el aire?",o:["En los puntos bajos: zanjas y sótanos","A la altura de la cara del bombero","En los puntos altos, como cielorrasos y techos","Junto a las ventanas y salidas de aire"],e:"Los gases y vapores más densos que el aire se acumulan en los puntos bajos. Los más livianos, en los altos."},
   {q:"El sensor catalítico de LEL puede marcar mal cuando:",o:["Hay poco oxígeno en la atmósfera","La humedad relativa pasa de 60 %","El gas es más pesado que el aire","La temperatura ambiente pasa de 30 °C"],e:"El sensor catalítico quema el gas en una perla caliente y necesita oxígeno para eso. Con O₂ bajo, la lectura de LEL queda falsamente baja."},
   {q:"¿El multigás identifica qué producto hay?",o:["No: indica un tipo de riesgo, no el producto","Sí, cuando el producto es inflamable","Sí, si la lectura de VOC es alta","No, salvo que se comparen las lecturas de los 5 sensores"],e:"El detector dice cuánto hay de algo que el sensor percibe. Para identificar el producto hacen falta otras fuentes: documentos, rótulos, panel naranja, otros equipos."},
@@ -501,7 +501,7 @@ Object.assign(ACTS,{
   {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:AG",o:["Gases ácidos","Partículas, como el filtro P europeo","Vapores orgánicos","Amoníaco"],e:"Etiqueta blanca en un cartucho estadounidense: gases ácidos. Ojo: en el sistema europeo el blanco es partículas."},
   {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:AM",o:["Amoníaco y metilamina","Gases ácidos","Orgánicos y gases ácidos","Monóxido de carbono"],e:"Etiqueta verde: amoníaco y metilamina. Es de los pocos colores que coinciden en los dos sistemas."},
   {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:OVAG",o:["Vapores orgánicos y gases ácidos","Solo gases ácidos, como el filtro E europeo","Amoníaco","Partículas"],e:"Etiqueta amarilla en un cartucho estadounidense: vapores orgánicos y gases ácidos. En el sistema europeo, el amarillo (E) es solo gases ácidos."},
-  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:MG",o:["Multigás: orgánicos, ácidos, amoníaco y otros","Solo vapores orgánicos","Monóxido de carbono y todos los gases","Partículas de alta eficiencia"],e:"Etiqueta oliva: multigás. Protege de varios contaminantes, pero no de todos: no del CO ni de la falta de oxígeno."},
+  {q:"Cartucho de la máscara de un trabajador. ¿Para qué es?",fsvg:"US:MG",o:["Multigás: orgánicos, ácidos, amoníaco y otros","Solo vapores orgánicos, como solventes y pinturas","Monóxido de carbono y todos los gases tóxicos","Partículas de alta eficiencia, polvos y humos"],e:"Etiqueta oliva: multigás. Protege de varios contaminantes, pero no de todos: no del CO ni de la falta de oxígeno."},
   {q:"Cartucho con un disco magenta encima. ¿Qué agrega el disco?",fsvg:"US:OV+P100",o:["Filtro de partículas P100","Protección contra amoníaco","Protección contra el monóxido de carbono","Indicador de saturación del cartucho"],e:"El magenta indica filtro de partículas P100 (99,97 %). Con el cartucho negro, protege de vapores orgánicos y partículas."},
   {q:"¿Qué es este disco magenta?",fsvg:"US:P100",o:["Filtro de partículas P100","Cartucho para vapores orgánicos","Filtro para gases ácidos","Filtro para amoníaco"],e:"Disco P100: solo partículas. No retiene gases ni vapores."},
   {q:"Este filtro europeo es para:",fsvg:"K",o:["Amoníaco","Vapores orgánicos (solventes)","Gases ácidos (SO₂, HCl)","Partículas y polvo"],e:"Franja verde, letra K: amoníaco."},
@@ -781,12 +781,12 @@ TOPICS.int="Escenario";
 Object.assign(ACTS,{
  x1:{lv:5,tp:"int",type:"scn",t:"Estibadores caídos en una bodega",d:"Dos estibadores dejan de responder dentro de la bodega de un buque cargado de troncos.",ctx:"Puerto, 07h30. Las tapas de la bodega de un buque cargado de troncos se retiraron con las grúas del propio buque y dos estibadores bajaron con la grúa para guiar la carga. A los pocos minutos dejan de responder por radio. Desde la cubierta se los ve tendidos sobre los troncos. Nadie sabe qué pasó.",steps:[
   {q:"Un compañero de los estibadores quiere bajar ya con la grúa a buscarlos. ¿Qué haces?",o:[["Nadie baja sin protección respiratoria autónoma",1,"Dos personas caídas a la vez en un espacio confinado indican una atmósfera peligrosa, aunque todavía no se sepa cuál es el producto. Quien baja sin protección es una víctima más."],["Lo dejas bajar atado, para sacarlo si se descompone",2,"ERROR CRÍTICO: es exactamente lo que suma víctimas en los espacios confinados."],["Bajas tú con una máscara con filtro para ganar tiempo",2,"ERROR CRÍTICO: no sabes qué hay ni cuánto oxígeno queda. Un filtro no aporta oxígeno ni sirve con un producto desconocido."]]},
-  {q:"¿Qué te dice la escena, antes de medir nada?",o:[["Que hay una atmósfera peligrosa en un espacio confinado",1,"La señal manda: dos víctimas a la vez, en un recinto cerrado y sin una causa a la vista. Se actúa sobre eso, sin esperar a saber qué producto es."],["Que los dos tuvieron un problema médico",0,"Que dos personas caigan juntas en el mismo lugar no es un problema médico casual: es la señal de una atmósfera peligrosa."],["Que se golpearon al bajar con la grúa",0,"Bajaron y dejaron de responder después. Un golpe no explica que caigan los dos."]]},
-  {q:"¿Con qué protección baja el equipo de entrada?",o:[["Nivel A: traje encapsulado con ERA, arnés y línea de vida",1,"Con un producto que todavía no se conoce, se usa la máxima protección de la piel y la respiración. Como se baja con la grúa del buque, el encapsulado es viable. El arnés y la línea de vida permiten sacar al rescatista si algo sale mal."],["Nivel B con ERA",0,"El ERA protege al máximo la respiración, pero el nivel B no protege la piel de vapores. Con un producto desconocido no se puede descartar que afecte la piel."],["Ropa estructural con máscara con filtro",2,"ERROR CRÍTICO: el filtro no sirve sin saber qué hay ni cuánto oxígeno queda."]]},
+  {q:"¿Qué te dice la escena, antes de medir nada?",o:[["Hay una atmósfera peligrosa en la bodega",1,"La señal manda: dos víctimas a la vez, en un recinto cerrado y sin una causa a la vista. Se actúa sobre eso, sin esperar a saber qué producto es."],["Los dos tuvieron un problema médico a la vez",0,"Que dos personas caigan juntas en el mismo lugar no es un problema médico casual: es la señal de una atmósfera peligrosa."],["Se golpearon al bajar colgados de la grúa",0,"Bajaron y dejaron de responder después. Un golpe no explica que caigan los dos."]]},
+  {q:"¿Con qué protección baja el equipo de entrada?",o:[["Nivel A con ERA, arnés y línea de vida",1,"Con un producto que todavía no se conoce, se usa la máxima protección de la piel y la respiración. Como se baja con la grúa del buque, el encapsulado es viable. El arnés y la línea de vida permiten sacar al rescatista si algo sale mal."],["Nivel B con ERA, arnés y línea de vida",0,"El ERA protege al máximo la respiración, pero el nivel B no protege la piel de vapores. Con un producto desconocido no se puede descartar que afecte la piel."],["Estructural con máscara con filtro y arnés",2,"ERROR CRÍTICO: el filtro no sirve sin saber qué hay ni cuánto oxígeno queda."]]},
   {q:"Mientras el equipo de entrada se equipa, mides en la boca de la bodega. El Pac 8000 de fosfina marca esto:",pac:["ph3",0.8],o:[["Confirma un peligro tóxico: se mantiene la entrada con ERA",1,"0,8 ppm de fosfina está por encima de la A2 (0,2 ppm). Es una detección provisional: un solo equipo, en la escena. Alcanza para confirmar el peligro y orientar los pasos. No cambia el plan: ya se entra con ERA."],["Hay que esperar a confirmar el producto antes de bajar",0,"Las víctimas no pueden esperar. El ERA ya cubre el peligro respiratorio; la confirmación del producto llega después."],["Con 0,8 ppm alcanza con filtro",2,"ERROR CRÍTICO: está por encima de la A2, en un espacio confinado con víctimas caídas. Solo ERA."]]},
   {q:"Durante el rescate, ¿cuál es la tarea del Departamento en la boca de la bodega?",o:[["Seguir midiendo e informar al Comandante de Incidente",1,"El monitoreo sigue durante toda la operación: oxígeno, inflamables y tóxicos. Con la alarma de LEL (10 %) se retira al equipo de adentro."],["Bajar el Pac atado a una cuerda para medir en el fondo",0,"El Pac es de solapa y funciona por difusión. Bajarlo a una atmósfera muy concentrada puede saturar el sensor y dejarte sin el equipo."],["Nada más: la medición ya se hizo",0,"Una lectura vale para un punto y un momento. La atmósfera de una bodega cambia, sobre todo cuando se empieza a ventilar o a mover la carga."]]},
   {q:"¿Cómo se saca a las víctimas de la bodega?",o:[["Empaquetadas en camilla, izadas, y siempre acompañadas por un rescatista",1,"Adentro solo se hace lo que salva la vida: abrir la vía aérea, controlar una hemorragia. Después se empaqueta a la víctima y se la iza con un sistema de cuerdas o con la grúa, acompañada. Nadie queda solo adentro."],["El rescatista le pasa su máscara a la víctima mientras la suben",2,"ERROR CRÍTICO: el rescatista nunca se quita la máscara dentro de la zona. Si hay aire para la víctima, se lleva aparte."],["Se evalúan los signos vitales y se estabiliza a cada víctima antes de subirla",0,"En la zona no se pierde tiempo: lo que más salva es sacar a la víctima de la atmósfera peligrosa. La atención completa se hace afuera."]]},
-  {q:"Rescatan a las víctimas. ¿Qué hay que informar al personal de salud?",o:[["Lo que marcaron los medidores, el tiempo de exposición y los síntomas",1,"La lectura de fosfina es una detección provisional: se informa como tal. Con el tiempo de exposición y los síntomas, orienta la atención médica."],["Que está confirmado que fue fosfina",0,"Un solo equipo en la escena da una detección provisional. Se informa la lectura, sin presentarla como confirmada."],["Solo sus nombres, edades y el lugar donde las encontraron",0,"Falta lo más importante: a qué estuvieron expuestas, cuánto tiempo y qué marcaron los equipos."]]},
+  {q:"Rescatan a las víctimas. ¿Qué hay que informar al personal de salud?",o:[["Las lecturas, el tiempo de exposición y los síntomas",1,"La lectura de fosfina es una detección provisional: se informa como tal. Con el tiempo de exposición y los síntomas, orienta la atención médica."],["Que está confirmado que fue fosfina, por el Pac",0,"Un solo equipo en la escena da una detección provisional. Se informa la lectura, sin presentarla como confirmada."],["Solo nombres, edades y dónde las encontraron",0,"Falta lo más importante: a qué estuvieron expuestas, cuánto tiempo y qué marcaron los equipos."]]},
   {q:"Las víctimas estuvieron expuestas a un gas y no tienen producto en la ropa. ¿Descontaminación?",o:[["Sacar la ropa por precaución, sin ducha",1,"La exposición a un gas sin residuo no exige descontaminación con agua. Sacar la ropa reduce lo poco que pudo quedar."],["Ducha completa con agua y jabón, obligatoria para todas antes del traslado",0,"Con exposición solo a gas, la ducha retrasa la atención sin beneficio."],["Neutralizar con una solución química suave",2,"ERROR CRÍTICO: nunca se neutraliza sobre personas."]]}]},
  x2:{lv:5,tp:"int",type:"scn",t:"Cisterna de ácido en una rotonda",d:"Camión cisterna volcado en la entrada de una ciudad del interior, con información contradictoria.",ctx:"Ruta nacional, 05h50. Un camión cisterna volcó al tomar la rotonda de entrada a una ciudad del interior. El chofer salió por sus medios. Un vecino dice que “sale humo blanco”; otro llamado dice que no pierde nada.",steps:[
   {q:"Te llegan dos versiones distintas. ¿Qué haces?",o:[["Confirmar en el lugar, desde una distancia segura",1,"La información inicial suele ser incompleta o contradictoria. Se confirma en la escena, sin exponerse."],["Tomar la versión de que no pierde y acercarte",2,"ERROR CRÍTICO: aproximarse confiado a un vehículo con materiales peligrosos sin confirmar."],["Esperar en el cuartel a que la policía aclare la situación",0,"Hay que ir: la confirmación se hace en el lugar, con distancia."]]},
@@ -795,7 +795,7 @@ Object.assign(ACTS,{
   {q:"El chofer tiene una quemadura en la mano y el pantalón salpicado. ¿Qué haces?",o:[["Sacarle la ropa contaminada y lavar con mucha agua",1,"Producto corrosivo sobre la piel: agua en abundancia de inmediato."],["Enviarlo a la ambulancia así como está, para que lo atiendan rápido",2,"ERROR CRÍTICO: una víctima contaminada contamina la ambulancia y al personal de salud."],["Ponerle crema y esperar al médico",0,"Primero se saca el producto con agua."]]},
   {q:"¿Qué EPP para el equipo que va a contener cerca de la cisterna?",o:[["ERA y protección química compatible",1,"Corrosivo líquido con posibilidad de vapores: protección química completa, compatible con el producto."],["Equipo de incendio estructural con ERA",0,"El equipo estructural no protege de la permeación ni de la degradación por el ácido."],["Uniforme de trabajo y guantes de procedimiento",2,"ERROR CRÍTICO: contacto directo con un corrosivo sin protección."]]}]},
  x3:{lv:5,tp:"int",type:"scn",t:"Amoníaco en un frigorífico",d:"Pérdida en la sala de máquinas de un frigorífico, con un operario que falta.",ctx:"Frigorífico, 22h10. Pérdida de amoníaco en la sala de máquinas. Evacuaron la planta, pero falta un operario de mantenimiento. Un compañero tiene tos y ardor en la garganta. Viento suave del este.",steps:[
-  {q:"Llegan al lugar. ¿Cómo se acercan?",o:[["Por el este, con el viento a la espalda, a 100 m o más",1,"Viento a la espalda y distancia inicial de precaución."],["Por el oeste, el camino más corto",2,"ERROR CRÍTICO: con viento del este, el lado oeste queda viento abajo, dentro de la nube."],["Hasta la puerta de la sala de máquinas",2,"ERROR CRÍTICO: entrar en el área sin saber la concentración y sin EPP."]]},
+  {q:"Llegan al lugar. ¿Cómo se acercan?",o:[["Por el este, a barlovento y a 100 m o más",1,"Viento a la espalda y distancia inicial de precaución."],["Por el oeste, el camino más corto, a 100 m",2,"ERROR CRÍTICO: con viento del este, el lado oeste queda viento abajo, dentro de la nube."],["Hasta la puerta de la sala de máquinas, en el vehículo",2,"ERROR CRÍTICO: entrar en el área sin saber la concentración y sin EPP."]]},
   {q:"El amoníaco gaseoso es más liviano que el aire, pero sale líquido y frío de la cañería. ¿Dónde esperas la nube?",o:[["Primero baja como niebla; al calentarse, sube",1,"La densidad orienta, pero la temperatura también cuenta. Se mide en el recorrido y a distintas alturas."],["Siempre arriba, junto al techo",0,"El amoníaco que sale frío forma una niebla densa que al principio queda abajo."],["Solo en el piso, nunca arriba, porque sale líquido",0,"Al calentarse, el amoníaco sube."]]},
   {q:"En la puerta de la sala de máquinas, el Pac 8000 marca esto:",pac:["nh3",45],o:[["Alarma A2",1,"Para amoníaco, la A1 está en 20 ppm y la A2 en 40 ppm."],["Alarma A1",0,"45 ppm está por encima de la A2 (40 ppm)."],["Sin alarma",0,"45 ppm ya es A2."]]},
   {q:"La lectura de VOC del multigás también empieza a marcar. ¿Tienes detección confirmada?",mg:{o2:20.8,lie:0,co:0,h2s:0,voc:38,dev:"gmi"},o:[["No: el VOC no distingue qué sustancia es",1,"La detección confirmada pide dos tecnologías con la selectividad adecuada. El VOC no distingue sustancias."],["Sí: son dos tecnologías diferentes",0,"Son dos tecnologías, pero una no es selectiva para el amoníaco."],["Sí: es identificación inequívoca del producto",0,"Ni cerca: la identificación inequívoca pide equipos de laboratorio o de campo de alta especificidad."]]},
@@ -816,7 +816,7 @@ Object.assign(ACTS,{
   {q:"Hay que ir a tapar las bocas cerca del charco. ¿Qué EPP?",o:[["ERA y traje químico compatible con el ácido",1,"Corrosivo líquido, posibles nieblas ácidas: protección química completa."],["Equipo de incendio con ERA",0,"No protege del ácido."],["Uniforme, botas de goma comunes y máscara con filtro",2,"ERROR CRÍTICO: contacto con un corrosivo sin protección."]]},
   {q:"El equipo sale del área del derrame. ¿Dónde va el agua de la descontaminación?",o:[["Se contiene y se recoge, sin ir al pluvial",1,"Si el agua de descontaminación va al pluvial, se repite el problema."],["Al pluvial, que ya está contaminado y va al mismo lugar",0,"Suma contaminación al río."],["Se deja escurrir por la explanada",0,"Termina en el mismo lugar."]]}]},
  y2:{lv:6,tp:"int",type:"scn",t:"Explosión en un pesquero amarrado",d:"Explosión en la sala de máquinas de un buque pesquero amarrado, con decenas de intoxicados.",ctx:"Puerto, 16h30. Explotó un recipiente del sistema de frío de un buque pesquero amarrado. Hay tripulantes y trabajadores del muelle con tos, falta de aire y ardor en los ojos; varios están en el piso. La nube se mueve hacia una zona de depósitos. Viento del sur.",steps:[
-  {q:"Hay decenas de víctimas. ¿Cómo organizas la atención?",o:[["Sacarlas viento arriba, triage y descontaminar a quien lo necesite",1,"Muchas víctimas: triage. La exposición a gas sin residuo no exige ducha; quien tiene producto líquido encima, sí."],["Ducha completa para todos antes de cualquier atención",0,"Retrasa la atención de quienes solo inhalaron gas."],["Atender a cada una donde cayó",2,"ERROR CRÍTICO: atender dentro de la nube expone al equipo y a las víctimas."]]},
+  {q:"Hay decenas de víctimas. ¿Cómo organizas la atención?",o:[["Sacarlas a barlovento, triage y descontaminar según el caso",1,"Muchas víctimas: triage. La exposición a gas sin residuo no exige ducha; quien tiene producto líquido encima, sí."],["Ducha completa para todas antes de cualquier atención médica",0,"Retrasa la atención de quienes solo inhalaron gas."],["Atender a cada una donde cayó, para no perder tiempo",2,"ERROR CRÍTICO: atender dentro de la nube expone al equipo y a las víctimas."]]},
   {q:"El viento viene del sur. ¿Dónde pones el Puesto de Comando?",o:[["Al sur del buque, viento arriba",1,"Viento arriba, fuera del alcance de la nube."],["Al norte, junto a los depósitos",2,"ERROR CRÍTICO: es viento abajo, donde va la nube."],["Al costado del buque, en el muelle, para ver la operación",0,"Demasiado cerca; con un cambio de viento queda expuesto."]]},
   {q:"Panel naranja en los recipientes de reposición del buque:",pn:["268","1005"],o:[["Amoníaco anhidro",1,"268 = gas tóxico y corrosivo. ONU 1005 = amoníaco anhidro. Guía 125 de la GRE."],["Cloro, gas tóxico",0,"El cloro es ONU 1017."],["Gas inflamable común, como el propano",0,"Un gas inflamable tendría 23 arriba."]]},
   {q:"En el borde de la zona tibia, el Pac 8000 de amoníaco marca esto:",pac:["nh3",27],o:[["A1: marcar el límite",1,"A1 en 20 ppm, A2 en 40 ppm. La detección sirve para establecer las zonas."],["A2: hay que abandonar el área de inmediato y replegar el corredor",0,"27 ppm es A1."],["Sin alarma",0,"27 ppm supera la A1."]]},
@@ -838,7 +838,7 @@ Object.assign(ACTS,{
  y5:{lv:6,tp:"int",type:"scn",t:"Olor a gas en un edificio",d:"Olor a gas en el sótano de un edificio de viviendas con garrafas almacenadas.",ctx:"Edificio de viviendas, 20h30. Vecinos avisan por fuerte olor a gas en el sótano. El encargado guarda ahí varias garrafas de supergás. Hay gente en todos los pisos.",steps:[
   {q:"El supergás es una mezcla de propano y butano. ¿Dónde mides primero?",o:[["A ras del piso y en los puntos bajos",1,"Propano y butano son más pesados que el aire: se extienden a ras del piso y se acumulan en los huecos."],["Cerca del techo, donde se acumula el gas",0,"Eso sería para el gas natural, que sube."],["Solo a la altura de la cabeza",0,"Un gas pesado puede estar abajo y no a esa altura."]]},
   {q:"Desde la escalera, el multigás marca esto:",mg:{o2:20.6,lie:56,co:0,h2s:0,voc:60,dev:"rki"},o:[["Solo ventilar y cortar la fuga, sin tocar interruptores",1,"Desde 50 % LEL (segunda alarma) solo se actúa para ventilar, cortar la fuga y poner el recinto en condiciones seguras."],["Bajar rápido a buscar la garrafa que pierde y cerrarla",0,"Primero se controla la atmósfera."],["Prender la luz para ver mejor",2,"ERROR CRÍTICO: un interruptor puede encender la mezcla."]]},
-  {q:"Bajas un escalón más y el oxígeno empieza a bajar:",mg:{o2:18.9,lie:31,co:0,h2s:0,voc:95,dev:"rki"},o:[["El gas desplaza el O₂ y el LEL puede marcar de menos",1,"El supergás actúa como asfixiante simple. Y el sensor catalítico de LEL necesita oxígeno: con poco oxígeno marca de menos."],["Nada importante: sigue por encima de 18 %",0,"Dos señales de peligro a la vez."],["Que sobra oxígeno en el sótano",0,"El O₂ está bajando, no subiendo."]]},
+  {q:"Bajas un escalón más y el oxígeno empieza a bajar:",mg:{o2:18.9,lie:31,co:0,h2s:0,voc:95,dev:"rki"},o:[["Desplaza el O₂, y el LEL puede marcar de menos",1,"El supergás actúa como asfixiante simple. Y el sensor catalítico de LEL necesita oxígeno: con poco oxígeno marca de menos."],["Nada importante: todavía sigue por encima de 18 %",0,"Dos señales de peligro a la vez."],["Que sobra oxígeno y el LEL marca de más",0,"El O₂ está bajando, no subiendo."]]},
   {q:"¿Qué haces con los vecinos?",o:[["Evacuar por la escalera, sin ascensor",1,"El ascensor y los interruptores son fuentes de ignición, y el sótano puede estar conectado con el hueco del ascensor."],["Que se queden en sus apartamentos",0,"Con una atmósfera inflamable en el sótano, se evacúa."],["Que bajen por el ascensor para ir más rápido",2,"ERROR CRÍTICO: el ascensor es una fuente de ignición y baja al lugar del gas."]]},
   {q:"Se ventila. En la puerta del sótano, el LEL ahora marca 0. ¿Qué sigue?",mg:{o2:20.9,lie:0,co:0,h2s:0,voc:0,dev:"rki"},o:[["Medir en varios puntos bajos y repetir",1,"La concentración varía de un punto a otro y con el tiempo. Al ventilar, la mezcla puede pasar por el rango inflamable."],["Dar por terminada la intervención",0,"Una sola lectura en la puerta no garantiza todo el sótano."],["Guardar el equipo y dejar al encargado a cargo",0,"Hay que confirmar con más mediciones."]]}]},
  y6:{lv:6,tp:"int",type:"scn",t:"Camión de granos fumigado",d:"Chofer con náuseas en una playa de camiones, junto a un camión con granos fumigados.",ctx:"Playa de espera de camiones de una terminal de granos, 13h00. Un chofer que durmió en la cabina tiene náuseas, dolor de cabeza y mareos. Los compañeros dicen que la carga fue fumigada “en el camino” y que hay olor a ajo. Hay unos 40 camiones esperando y choferes descansando a la sombra.",steps:[
@@ -984,6 +984,121 @@ const KTEST={pass:60,q:[
 /* 40 */{q:"El multigás marca 10 % LEL. ¿Qué significa esa lectura?",o:["Hay un 10 % de la concentración mínima para que arda", "El 10 % del aire del lugar es gas inflamable", "La mezcla ya puede arder, aunque con poca energía", "Hay 10 ppm de gas inflamable en el aire del lugar"],e:"Es la primera alarma: sin fuentes de ignición y sin ingresar a trabajar.",c:"k2"},
 /* 41 */{q:"¿Cuándo alcanza el Nivel B en lugar del Nivel A?",o:["Cuando hace falta ERA, pero el producto no daña ni atraviesa la piel", "Cuando el producto es desconocido, pero no se percibe ningún olor", "Cuando hay gases tóxicos que se absorben por la piel", "Cuando el producto y la concentración son conocidos y el O₂ es normal"],e:"Nivel B: máxima protección respiratoria con menor protección de la piel.",c:"k8"}
 ]};
+
+/* ================= NIVEL 7 · ADM Y AGENTES DE GUERRA QUÍMICA (borrador v0.26) =================
+   Fuentes: GRE 2024 (uso criminal o terrorista de agentes QBR, págs. 358–362), OPAQ CR 2026 (mód. 01, 05, 06, 07, 08, 10),
+   CRIMAP-ADM (MR3, MR7), Decreto 570/006 (CIPAQ). Sin casos reales. */
+LEVELS.push({n:7,t:"ADM y agentes de guerra química",d:"Signos e indicadores, detección e identificación, triage START, descontaminación masiva, escena del crimen y la Convención sobre Armas Químicas.",acts:[]});
+
+Object.assign(ACTS,{
+ w1:{lv:7,tp:"det",type:"cls",n:10,t:"¿Qué sugieren los signos?",d:"Clasifica cada cuadro según el tipo de agente que sugiere.",cats:["Nervioso","Vesicante","Asfixiante","Sanguíneo","Incapacitante"],q:[
+  {q:"Pupilas muy chicas, lagrimeo, mucha secreción nasal y dificultad para respirar.",c:0,e:"Miosis y secreciones: cuadro típico de un agente nervioso, que inhibe la acetilcolinesterasa."},
+  {q:"Temblores musculares, pulso lento y convulsiones minutos después de la exposición.",c:0,e:"Fasciculaciones, bradicardia y convulsiones: agente nervioso."},
+  {q:"Ampollas en la piel y ojos irritados que aparecen horas después de pasar por el lugar.",c:1,e:"Efecto retardado (2 a 48 h): típico de las mostazas (vesicantes tipo H)."},
+  {q:"Dolor inmediato e intenso en la piel apenas hubo contacto con un líquido aceitoso.",c:1,e:"La lewisita (L) es un vesicante de efecto inmediato y doloroso."},
+  {q:"Tos y falta de aire que empeoran horas después de inhalar un gas con olor a heno recién cortado.",c:2,e:"Asfixiante (agente pulmonar) como el fosgeno: puede dar edema pulmonar tardío."},
+  {q:"Irritación de las vías respiratorias tras una fuga de un gas amarillo verdoso en una planta de agua.",c:2,e:"El cloro es un asfixiante y también un químico tóxico industrial muy común."},
+  {q:"Falta de aire, confusión y colapso rápido, con piel rosada, en un recinto cerrado.",c:3,e:"Sanguíneo (hemotóxico) como el cianuro: impide que las células usen el oxígeno."},
+  {q:"Confusión y alucinaciones temporales, sin lesiones en la piel ni en los pulmones.",c:4,e:"Incapacitante, como el BZ: altera temporalmente las funciones mentales."},
+  {q:"Lagrimeo y ardor intenso en los ojos que pasan al alejarse de la nube.",c:4,e:"Un irritante (gas lacrimógeno): incapacitante de efecto pasajero."},
+  {q:"Pupilas chicas y mucha saliva en un trabajador rural que fumigó sin protección.",c:0,e:"Los plaguicidas organofosforados actúan como los agentes nerviosos: mismo mecanismo y mismos signos."}]},
+ w2:{lv:7,tp:"cena",type:"cls",n:10,t:"¿Químico, biológico o radiológico?",d:"Indicadores de un posible incidente químico, biológico o radiológico (GRE).",cats:["Químico","Biológico","Radiológico"],q:[
+  {q:"Muchos animales, pájaros y peces muertos en la misma zona.",c:0,e:"No una muerte aislada: numerosos animales muertos en un área. Indicador químico."},
+  {q:"No hay insectos, y se encuentran insectos muertos en el suelo o en el agua.",c:0,e:"Ausencia de insectos: indicador químico."},
+  {q:"Olor inexplicable a ajo, frutas, almendras o heno recién cortado.",c:0,e:"Olores sin explicación en el lugar: indicador químico."},
+  {q:"Pequeñas gotas aceitosas en muchas superficies, sin lluvia reciente.",c:0,e:"Gotas o película aceitosa inusual: indicador químico."},
+  {q:"Nube baja o niebla que no corresponde con el clima.",c:0,e:"Indicador químico."},
+  {q:"Víctimas en minutos a horas, ubicadas en la dirección hacia donde sopla el viento.",c:0,e:"Síntomas rápidos y patrón de víctimas a sotavento: indicador químico."},
+  {q:"Muchas personas enfermas horas o días después, sin olor ni rastro visible.",c:1,e:"Los agentes biológicos suelen ser inodoros e incoloros y dan síntomas en horas o días."},
+  {q:"Un producto rociado de forma inusual al aire libre, de noche.",c:1,e:"Diseminación inusual o no planeada, sobre todo de noche: indicador biológico."},
+  {q:"Un dispositivo de dispersión abandonado, sin olor.",c:1,e:"Indicador biológico."},
+  {q:"Un material que emite calor sin ninguna fuente externa.",c:2,e:"Indicador radiológico."},
+  {q:"Un material que brilla con luz propia.",c:2,e:"Los materiales muy radiactivos pueden emitir radioluminiscencia."},
+  {q:"Un contenedor con el símbolo de radiación entre los restos de una explosión.",c:2,e:"Indicador radiológico: posible dispositivo de dispersión («bomba sucia»)."},
+  {q:"Vómitos y enrojecimiento de la piel que aparecen días o semanas después.",c:2,e:"En un incidente radiológico los síntomas, si los hay, tardan días o semanas."}]},
+ w3:{lv:7,tp:"det",type:"cls",n:9,t:"Detección o identificación",d:"Qué nivel de confianza da cada resultado.",cats:["Detección provisional","Detección confirmada","Identificación"],q:[
+  {q:"El Pac 8000 de fosfina entra en alarma en la boca de un contenedor.",c:0,e:"Un detector en la escena: detección provisional."},
+  {q:"Un multigás marca VOC y las víctimas tienen síntomas compatibles.",c:0,e:"Respuesta del detector junto con los efectos observados: sigue siendo provisional."},
+  {q:"Tres multigás iguales marcan lo mismo.",c:0,e:"La misma tecnología repetida da redundancia, no confirmación."},
+  {q:"El PID del multigás marca 40 ppm de VOC.",c:0,e:"El PID no separa ni identifica compuestos: es detección provisional."},
+  {q:"Dos equipos con tecnologías distintas y la selectividad adecuada dan positivo.",c:1,e:"Detección confirmada: al menos dos tecnologías diferentes."},
+  {q:"Un IMS y un detector de fotometría de llama coinciden en un agente nervioso.",c:1,e:"Dos tecnologías distintas con selectividad para ese agente: detección confirmada."},
+  {q:"Un equipo FTIR de campo compara el espectro con su biblioteca y da un nombre.",c:2,e:"Identificación en campo (presuntiva): dice qué sustancia es."},
+  {q:"Un laboratorio compara con estándares de referencia por dos técnicas y confirma el peso molecular por espectrometría de masa.",c:2,e:"Identificación inequívoca (forense)."},
+  {q:"Un equipo Raman analiza un polvo blanco sin abrir la bolsa y da un resultado.",c:2,e:"Identificación en campo, sin contacto."}]},
+ w4:{lv:7,tp:"gen",type:"tri",t:"Triage START en la zona",d:"Asigna el color a cada víctima con el método START, sin sobreclasificar ni subclasificar."},
+ w5:{lv:7,tp:"dec",type:"mcq",n:7,t:"Descontaminación masiva",d:"Muchas personas contaminadas: rapidez, agua y jabón, y verificación.",q:[
+  {q:"Ante muchas personas contaminadas con un agente químico, la descontaminación masiva:",o:["Empieza ya: desvestir y lavar con agua y jabón", "Espera a que esté armado el corredor técnico completo", "Se deja para el hospital, que tiene duchas y personal", "Se hace solo a quienes ya tienen síntomas visibles"],e:"Según la GRE, la descontaminación de víctimas en masa debe iniciarse lo antes posible, desvistiendo y lavando con agua y jabón."},
+  {q:"Sacarle la ropa a una persona contaminada:",o:["Quita la mayor parte del contaminante", "No sirve de nada si el producto fue un gas o vapor", "Solo tiene sentido con productos radiactivos o polvos", "Se hace después de la ducha, para no perder tiempo"],e:"Retirar la ropa es el paso que más contaminación quita."},
+  {q:"Con muchas víctimas y pocos recursos, una forma de descontaminar es:",o:["Una cortina de agua a baja presión entre autobombas", "Chorros a alta presión directo al cuerpo, para ganar tiempo", "Lavandina diluida rociada sobre las personas con mochila", "Toallas secas y ropa limpia, sin usar agua en el lugar"],e:"La cortina de agua entre autobombas permite lavar a muchas personas a la vez."},
+  {q:"Las soluciones con hipoclorito (lavandina) se usan:",o:["Para equipos y herramientas", "Sobre la piel, siempre diluidas al 0,5 %", "Para enjuagar los ojos con abundante agua", "Para neutralizar el producto sobre las víctimas"],e:"Para personas, agua y jabón. Nunca se neutraliza sobre personas."},
+  {q:"Antes de que una víctima pase al área médica:",o:["Se verifica que esté descontaminada", "Se le devuelve su ropa en una bolsa cerrada", "Se la deja ir por su cuenta si camina bien", "Espera sin ropa a que llegue el resultado del laboratorio"],e:"Verificar la descontaminación evita contaminar el área médica y el hospital."},
+  {q:"El agua de la descontaminación masiva:",o:["Se contiene y se recoge como residuo", "Va al pluvial, diluida con abundante agua limpia", "Se reutiliza para lavar a las personas que siguen", "Se deja evaporar en el lugar, sobre el pavimento"],e:"Recolección y control de las aguas contaminadas (OPAQ 08)."},
+  {q:"En un incidente radiológico, a una persona herida y contaminada se le prioriza:",o:["Su estabilización médica", "Una ducha completa antes de cualquier atención médica", "Un cepillado fuerte de la piel para sacar el polvo", "Aislarla sin atención hasta que se pueda medir la dosis"],e:"La contaminación externa sobre piel sana rara vez es una dosis peligrosa: primero la estabilización (GRE). Sin cepillar fuerte, para no lastimar la piel."}]},
+ w6:{lv:7,tp:"cena",type:"mcq",n:7,t:"Escena del crimen y muestras",d:"Objetos sospechosos, control de acceso, personas expuestas y cadena de custodia.",q:[
+  {q:"Cerca de un posible artefacto, dentro de los 100 m:",o:["Se evita usar celulares y radios", "Se lo fotografía de cerca para la policía", "Se lo traslada a un lugar abierto y seguro", "Se lo cubre con espuma o con agua"],e:"La GRE indica evitar celulares y radios dentro de los 100 m del artefacto sospechoso."},
+  {q:"Un paquete o contenedor sospechoso:",o:["No se toca ni se mueve", "Se abre con cuidado para ver qué contiene", "Se lleva al Puesto de Comando para registrarlo", "Se tira dentro de un contenedor de residuos"],e:"No tocar ni mover. Atención a posibles dispositivos secundarios."},
+  {q:"¿A quién se deja entrar a la zona?",o:["A quien rescata víctimas o evalúa dispositivos", "A todo el personal con EPP de nivel B o superior", "A la prensa, acompañada por un oficial de enlace", "A los familiares de las víctimas, para identificarlas"],e:"Acceso limitado (GRE)."},
+  {q:"Las personas potencialmente expuestas:",o:["Se reúnen y aíslan a barlovento, lejos de la escena", "Se pueden retirar a su casa si no tienen síntomas", "Van al hospital en sus propios vehículos, para no demorar", "Esperan junto al foco hasta que llegue la policía"],e:"Si se van por su cuenta, llevan la contaminación a hospitales y casas y no reciben descontaminación ni seguimiento."},
+  {q:"En el equipo de muestreo, el muestrista u «hombre sucio»:",o:["Toca el material y toma la muestra", "Registra los datos y rotula los envases", "Dirige la maniobra desde la línea de control", "Recibe la muestra limpia del otro lado de la zona"],e:"El asistente (hombre limpio) tiene contacto indirecto; el auxiliar registra; el oficial de seguridad dirige (OPAQ 06)."},
+  {q:"La cadena de custodia exige:",o:["Documentar y firmar cada traspaso", "Que la muestra viaje siempre con quien la tomó", "Abrir la muestra en cada traspaso para verificarla", "Que la muestra la tome únicamente la policía"],e:"Cada traspaso se documenta y se firma; contacto con el laboratorio hasta que llega."},
+  {q:"Además de las muestras del lugar, siempre se toma:",o:["Una muestra de control o de fondo", "Una foto del muestrista con el envase", "Una lectura del PID junto a la muestra", "Una muestra de aire del Puesto de Comando"],e:"La muestra de fondo permite comparar con lo que hay normalmente en el lugar."},
+  {q:"Una muestra tomada en plena emergencia para decidir la respuesta:",o:["Puede no servir como evidencia judicial", "Sirve siempre como evidencia judicial", "No debe analizarse en ningún caso", "Se informa a la prensa como resultado oficial"],e:"Para que sirva como evidencia hace falta un muestreo planificado con cadena de custodia (Noll)."}]},
+ w7:{lv:7,tp:"gen",type:"mcq",n:7,t:"La Convención sobre Armas Químicas",d:"Definiciones, la OPAQ y cómo se aplica en Uruguay (Decreto 570/006).",q:[
+  {q:"Según la Convención, un arma química es:",o:["Tóxicos y municiones destinados a fines prohibidos", "Solo las municiones y misiles cargados con agentes nerviosos", "Cualquier producto que lleve el pictograma de la calavera", "Solo los agentes que fabrica un ejército para la guerra"],e:"Las sustancias tóxicas y sus precursores, salvo para fines no prohibidos, más las municiones y equipos para usarlas. Lo que define el arma es el uso."},
+  {q:"Para la Convención, una sustancia química tóxica es:",o:["Toda la que puede matar o lesionar por acción química", "Solo las que figuran en las listas 1, 2 y 3 de la Convención", "Solo las que se fabricaron con intención de usarlas como arma", "Solo las que tienen número ONU y guía naranja en la GRE"],e:"Toda sustancia que por su acción química sobre los procesos vitales puede causar muerte, incapacidad temporal o lesiones permanentes, cualquiera sea su origen (CAQ, art. II)."},
+  {q:"El organismo internacional que vela por el cumplimiento de la Convención es:",o:["La OPAQ","La OMS","El OIEA","La OACI"],e:"Organización para la Prohibición de las Armas Químicas, con sede en La Haya."},
+  {q:"En Uruguay, actúa como Autoridad Nacional ante la OPAQ:",o:["La CIPAQ, una comisión interministerial", "La Dirección Nacional de Bomberos (DNB)", "El SINAE, a través de su Dirección Nacional", "El Ministerio de Salud Pública (MSP)"],e:"Decreto 570/006: la Comisión Interministerial para la Prohibición de las Armas Químicas es el nexo permanente con la OPAQ."},
+  {q:"La CIPAQ la preside:",o:["Relaciones Exteriores", "Defensa Nacional", "Industria, Energía y Minería", "Economía y Finanzas"],e:"La integran Relaciones Exteriores (preside), Economía y Finanzas, Defensa Nacional, Industria y la Facultad de Química (Udelar)."},
+  {q:"En Uruguay, producir o transferir sustancias de las listas 1 y 2 de la Convención requiere autorización previa de:",o:["El Servicio de Material y Armamento del Ejército", "La Dirección Nacional de Bomberos, por habilitación", "La Dirección Nacional de Aduanas, en el despacho", "El Ministerio de Ambiente, por permiso ambiental"],e:"Decreto 570/006, numerales 5.3, 8.1 y 9.2."},
+  {q:"Los agentes de guerra química no tienen número ONU porque:",o:["No se transportan comercialmente", "Son todos gases y no se envasan", "Son sólidos que no se clasifican", "Los clasifica la OPAQ, no la ONU"],e:"La GRE les asigna igual una guía de la sección naranja para la respuesta inicial."}]}
+});
+
+/* Escenarios del nivel 7 */
+Object.assign(ACTS,{
+ w8:{lv:7,tp:"int",type:"scn",t:"Personas caídas en una terminal",d:"Muchas víctimas a la vez en un lugar público.",ctx:"Terminal de ómnibus, 18h40. La central despacha por «varias personas descompuestas en un andén». Al llegar, la primera dotación ve a unas quince personas en el piso o sentadas, algunas convulsionando. Dos bomberos que se acercaron a ayudar sin protección empiezan con la vista nublada y mucha secreción nasal.",steps:[
+  {q:"¿Qué haces primero?",o:[["Retirar al personal y aislar: nadie entra sin ERA",1,"Respondedores afectados son la señal más clara: la atmósfera es peligrosa. Primero la seguridad propia."],["Entrar todos a sacar a las víctimas lo más rápido posible",2,"ERROR CRÍTICO: así se suman respondedores a las víctimas."],["Esperar afuera a que la policía confirme qué pasó",0,"Hay que aislar y organizar ya. La policía se suma, pero no se espera para actuar."]]},
+  {q:"Pupilas muy chicas, secreciones abundantes y convulsiones. ¿Qué sugieren los signos?",o:[["Un agente nervioso",1,"Miosis, secreciones y convulsiones: cuadro de agente nervioso."],["Un asfixiante como el cloro",0,"El cloro irrita las vías respiratorias, pero no da miosis ni convulsiones como cuadro principal."],["Monóxido de carbono por mala ventilación",0,"El monóxido no da miosis ni secreciones abundantes."]]},
+  {q:"¿Qué más tienes en cuenta?",o:[["Puede ser un ataque: dispositivos secundarios y aviso a la policía",1,"Muchas víctimas a la vez, en un lugar público y sin causa a la vista: indicadores de uso criminal."],["Es un accidente: nada indica otra cosa, se sigue igual",0,"Los indicadores apuntan a un posible ataque. Hay que actuar como tal hasta descartarlo."],["Juntar los objetos sospechosos para que no lastimen a nadie",2,"ERROR CRÍTICO: un paquete sospechoso no se toca ni se mueve."]]},
+  {q:"¿Dónde instalas el Puesto de Comando?",o:[["A barlovento, en altura y lejos de la terminal",1,"Fuera de la contaminación y del alcance de dispositivos secundarios."],["En la entrada del andén, para ver todo lo que pasa",2,"ERROR CRÍTICO: dentro del alcance del agente y de posibles dispositivos."],["A sotavento, junto a las ambulancias que llegan",2,"ERROR CRÍTICO: a sotavento llegan los vapores."]]},
+  {q:"¿Con qué protección entra el equipo a sacar a las víctimas?",o:[["Nivel A con ERA",1,"Producto sin identificar y con posible absorción por la piel: máxima protección de piel y respiración."],["Máscara con filtro, para moverse más rápido",2,"ERROR CRÍTICO: el filtro no sirve con un producto sin identificar."],["Ropa estructural de bombero sin ERA",2,"ERROR CRÍTICO: sin protección respiratoria."]]},
+  {q:"Dentro de la zona, ¿cómo priorizas a las víctimas?",o:[["Con triage START, sin RCP dentro de la zona",1,"Los que caminan salen hacia la descontaminación y se prioriza a los que no caminan y siguen con vida. Adentro solo vía aérea y hemorragias; después, sacar."],["RCP a la primera víctima que no respira",0,"Con víctimas masivas por materiales peligrosos, la RCP no salva vidas: se sigue con las demás."],["Primero a quien más grita y pide ayuda",0,"Quien grita respira y está consciente. Se clasifica por lo que se ve, no por lo que se siente."]]},
+  {q:"Hay más de 30 personas expuestas. ¿Descontaminación?",o:[["Masiva y ya: desvestir y lavar con agua y jabón",1,"La descontaminación de víctimas en masa empieza lo antes posible."],["Esperar a que esté armado el corredor técnico completo",0,"Con muchas víctimas, la masiva no espera al corredor técnico."],["Neutralizar con lavandina diluida sobre la piel",2,"ERROR CRÍTICO: nunca se neutraliza sobre personas. La lavandina es para equipos."]]},
+  {q:"El Departamento solo llega a detección provisional. ¿Qué haces con eso?",o:[["Informar la sospecha a salud, como provisional",1,"A través del Comandante de Incidente. Los antídotos dependen del tiempo: salud necesita los signos y la sospecha cuanto antes."],["Confirmar a la prensa el agente, para tranquilizar",0,"Es una detección provisional. La información pública la dan el Comandante de Incidente y las autoridades."],["No informar nada hasta que lo confirme un laboratorio",0,"Esperar la confirmación retrasa la atención médica."]]}]},
+ w9:{lv:7,tp:"int",type:"scn",t:"Ampollas al día siguiente",d:"Varias personas consultan con síntomas horas después.",ctx:"Policlínica barrial, 10h00. Desde temprano consultaron seis personas con ampollas en brazos y cuello, ojos irritados y tos. Todas pasaron ayer de tarde por la misma plaza, donde dicen que había «olor a ajo» cerca de unos tachos. Siguen con la misma ropa.",steps:[
+  {q:"¿Qué te sugiere el cuadro?",o:[["Un vesicante, con efecto retardado",1,"Ampollas y ojos irritados horas después: típico de las mostazas (2 a 48 h)."],["Una alergia o picaduras de insectos en la plaza",0,"Seis personas con el mismo cuadro y el mismo lugar en común no es casualidad."],["Un agente nervioso de efecto lento",0,"Los nerviosos actúan en minutos y dan miosis y secreciones."]]},
+  {q:"Fue ayer. ¿Ya pasó el peligro?",o:[["No: puede quedar producto en la plaza y en la ropa",1,"Los vesicantes como la mostaza son poco volátiles y persistentes."],["Sí: el producto ya se dispersó y no hace falta aislar la plaza",2,"ERROR CRÍTICO: un producto persistente sigue en el lugar y expone a más gente."],["Solo si vuelve a sentirse olor a ajo en la plaza",0,"Que no haya olor no significa que no haya producto."]]},
+  {q:"Las personas siguen con la misma ropa. ¿Qué haces?",o:[["Descontaminarlas: ropa en bolsas, agua y jabón",1,"La ropa puede seguir contaminada y contaminar a otros. El personal de salud también se protege."],["Nada: pasaron más de 12 horas y ya no hay riesgo",0,"El producto persistente puede seguir en la ropa."],["Lavarles la piel con lavandina diluida al 0,5 %",2,"ERROR CRÍTICO: nunca se neutraliza sobre personas."]]},
+  {q:"¿Qué haces con la plaza?",o:[["Aislarla como escena del crimen, sin tocar los tachos",1,"Aislar protege al público y preserva la evidencia."],["Lavarla con agua a presión para eliminar el producto",0,"Dispersa el producto y destruye la evidencia."],["Retirar los tachos sospechosos con guantes de nitrilo",2,"ERROR CRÍTICO: un contenedor sospechoso no se toca ni se mueve."]]},
+  {q:"¿Con qué protección se acerca el equipo a los tachos?",o:[["Nivel A con ERA",1,"Producto persistente que afecta la piel, y todavía sin identificar."],["Nivel C con máscara y filtro",2,"ERROR CRÍTICO: el producto no está identificado."],["Ropa estructural con ERA",0,"La estructural no protege de un líquido que afecta la piel."]]},
+  {q:"¿Qué más hay que hacer?",o:[["Buscar a otros expuestos e informar a salud",1,"Con efectos retardados, puede haber más expuestos que todavía no consultaron."],["Nada más: ya se atendió a los que consultaron",0,"Puede haber más personas expuestas."],["Difundir en redes el nombre posible del producto",0,"No está identificado. La información pública la dan las autoridades."]]}]}
+});
+LEVELS[6].acts=["w1","w2","w3","w4","w5","w6","w7","w8","w9"];
+
+CARDS.push(
+ {id:"k70",lv:7,tp:"det",t:"Signos según el tipo de agente",x:"Nervioso: miosis, secreciones, dificultad para respirar, fasciculaciones, convulsiones; en minutos. • Vesicante: ampollas y quemaduras en piel, ojos y vías respiratorias; mostazas en 2 a 48 h, lewisita inmediata. • Asfixiante: daño pulmonar, edema que puede aparecer horas después. • Sanguíneo: impide usar el oxígeno; colapso rápido. • Incapacitante: efectos temporales."},
+ {id:"k71",lv:7,tp:"cena",t:"Indicadores de un posible incidente químico",x:"Animales, pájaros y peces muertos en la misma zona. • Ausencia de insectos. • Olores inexplicables. • Víctimas en masa, con patrón a sotavento. • Ampollas o erupciones inexplicables. • Gotas aceitosas en superficies. • Vegetación muerta en un área. • Nube baja que no corresponde al clima. • Restos de municiones. (GRE 2024)"},
+ {id:"k72",lv:7,tp:"cena",t:"Químico, biológico o radiológico",x:"Químico: síntomas en minutos a horas y elementos observables (olor, residuos, animales muertos). • Biológico: síntomas en horas o días; sin olor ni color; el área afectada crece porque la gente se mueve. • Radiológico: síntomas, si los hay, en días o semanas; hace falta equipo para detectarlo."},
+ {id:"k73",lv:7,tp:"cena",t:"Acciones iniciales ante un posible evento QBRN",x:"Primero la seguridad propia. • Sin celulares ni radios a menos de 100 m del artefacto. • Comando a barlovento y en altura. • No tocar ni mover paquetes sospechosos. • Atención a dispositivos secundarios. • Acceso solo para rescate y evaluación de dispositivos. • Reunir y aislar a los expuestos, a barlovento. • Pedir recursos especializados. (GRE 2024)"},
+ {id:"k74",lv:7,tp:"det",t:"Detección e identificación",x:"Detección: saber que hay algo. Identificación: saber qué es. • Detección provisional: un detector en la escena, solo o con los efectos observados. • Confirmada: dos tecnologías distintas con selectividad adecuada. • Identificación provisional, confirmada o inequívoca (de laboratorio). • Varios equipos iguales dan redundancia, no confirmación. • El Departamento llega a detección provisional."},
+ {id:"k75",lv:7,tp:"gen",t:"Triage START",x:"1) Camina: verde 2) No respira: abrir la vía aérea; si no respira, negro; si respira, rojo 3) Respira más de 30 o menos de 10 por minuto: rojo 4) Sin pulso radial o llenado capilar lento: rojo 5) No obedece órdenes simples: rojo 6) Si no, amarillo. Reevaluar siempre. En la zona solo vía aérea y torniquete."},
+ {id:"k76",lv:7,tp:"epi",t:"Señales de alarma con el EPP puesto",x:"Calor excesivo, falta de aire, náuseas o mareo, ansiedad, adormecimiento, cualquier olor o sabor extraño, irritación, visión reducida, desorientación. • Avisar al compañero y salir los dos hacia la descontaminación. • Nunca quitarse la máscara dentro de la zona."},
+ {id:"k77",lv:7,tp:"dec",t:"Descontaminación masiva",x:"Empezar lo antes posible. • Desvestir y lavar con agua y jabón. • Cortina de agua entre autobombas, a baja presión. • La lavandina, para equipos, nunca sobre personas. • Verificar antes del área médica. • Contener y recoger el agua."},
+ {id:"k78",lv:7,tp:"cena",t:"Muestras y cadena de custodia",x:"Muestrista (hombre sucio): toca el material. • Asistente (hombre limpio): contacto indirecto. • Auxiliar: registra. • Oficial de seguridad: dirige. • Siempre una muestra de fondo. • Cada traspaso se documenta y firma. • Una muestra tomada para decidir la respuesta puede no servir como evidencia."},
+ {id:"k79",lv:7,tp:"gen",t:"La Convención en Uruguay",x:"Autoridad Nacional ante la OPAQ: la CIPAQ (Comisión Interministerial para la Prohibición de las Armas Químicas). • La preside Relaciones Exteriores; la integran Economía, Defensa, Industria y la Facultad de Química. • Listas 1 y 2: autorización previa del Servicio de Material y Armamento del Ejército. (Decreto 570/006)"}
+);
+Object.assign(ACTCARD,{w1:"k70",w2:"k72",w3:"k74",w4:"k75",w5:"k77",w6:"k78",w7:"k79",w8:"k73",w9:"k70"});
+
+GLOS.push(
+ ["ADM","Armas de destrucción masiva","Armas químicas, biológicas, radiológicas, nucleares o explosivas capaces de causar muchas víctimas."],
+ ["CAQ","Convención sobre las Armas Químicas","Tratado que prohíbe desarrollar, producir, almacenar y usar armas químicas. Lo controla la OPAQ."],
+ ["CIPAQ","Comisión Interministerial para la Prohibición de las Armas Químicas","Autoridad Nacional de Uruguay ante la OPAQ (Decreto 570/006)."],
+ ["Miosis","Pupilas contraídas","Pupilas muy chicas. Signo típico de los agentes nerviosos y de los plaguicidas organofosforados."],
+ ["Vesicante","Agente que produce ampollas","Lesiona piel, ojos y vías respiratorias. Las mostazas dan efectos horas después."],
+ ["START","Triage simple y tratamiento rápido","Método de triage para víctimas en masa: camina, respira, frecuencia respiratoria, pulso o llenado capilar, y si obedece órdenes."],
+ ["AEI","Artefacto explosivo improvisado","Explosivo de fabricación casera. En un posible ataque, atención a dispositivos secundarios."]
+);
+GLOS.sort((a,b)=>a[0].localeCompare(b[0],"es",{sensitivity:"base"}));
 
 /* ================= MINIJUEGOS ================= */
 function svgPt(svg,ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
@@ -1210,14 +1325,14 @@ function runZon(id,onEnd,onExit){
  const A=ACTS[id],K=4.22,T={x:510,y:494},DW={x:.7071,y:-.7071};
  const TG=[{id:"auto",n:"Auto detenido",x:496,y:391},{id:"cne",n:"Casa al noreste",x:750,y:120},{id:"cso",n:"Casa al suroeste",x:179,y:718},{id:"gan",n:"Ganado",x:120,y:255}];
  const ST={r:30,pc:null,acc:null,ev:new Set(),step:0,done:false,out:null,ok:0};
- const NM=["Aislar","Comando","Acceso","Evacuar"];
+ const NM=["Aislar","Acceso","Comando","Evacuar"];
  const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y)/K;
  const dotW=p=>{const dx=p.x-T.x,dy=p.y-T.y,l=Math.hypot(dx,dy)||1;return (dx*DW.x+dy*DW.y)/l;};
  function layers(){
   let s=`<circle cx="${T.x}" cy="${T.y}" r="${ST.r*K}" fill="rgba(227,36,27,.18)" stroke="#e3241b" stroke-width="4" stroke-dasharray="14 8"/>`;
   if(ST.done){const L=300*K,h=Math.PI/6,a=Math.atan2(DW.y,DW.x),p1=[T.x+L*Math.cos(a-h),T.y+L*Math.sin(a-h)],p2=[T.x+L*Math.cos(a+h),T.y+L*Math.sin(a+h)];
    s=`<path d="M${T.x} ${T.y}L${p1[0]} ${p1[1]}A${L} ${L} 0 0 1 ${p2[0]} ${p2[1]}Z" fill="rgba(255,194,26,.16)" stroke="#ffc21a" stroke-width="4" stroke-dasharray="6 8"/><circle cx="${T.x}" cy="${T.y}" r="${50*K}" fill="none" stroke="#2fbf71" stroke-width="5"/><text x="${T.x+60}" y="${T.y-420}" font-size="34" font-weight="700" fill="#ffc21a" stroke="#000" stroke-width="5" paint-order="stroke" font-family="Arial">sotavento: 300 m</text>`+s;}
-  if(ST.step===2||ST.acc)[["sur",975,-1],["norte",25,1]].forEach(([k,y,d])=>{if(ST.step!==2&&ST.acc!==k)return;const on=ST.acc===k;
+  if(ST.step===1||ST.acc)[["sur",975,-1],["norte",25,1]].forEach(([k,y,d])=>{if(ST.step!==1&&ST.acc!==k)return;const on=ST.acc===k;
    s+=`<path d="M510 ${y}L510 ${y+d*110}" stroke="${on?"#ffc21a":"#fff"}" stroke-width="12" marker-end="url(#zah)"/><circle class="zacc" data-a="${k}" cx="510" cy="${y+d*40}" r="60" fill="transparent" style="cursor:pointer"/>`;});
   if(ST.step===3||ST.ev.size)TG.forEach(t=>{const on=ST.ev.has(t.id);if(ST.step!==3&&!on)return;
    s+=`<circle class="ztg" data-t="${t.id}" cx="${t.x}" cy="${t.y}" r="${t.id==="auto"?30:46}" fill="${on?"rgba(255,194,26,.35)":"rgba(255,255,255,.12)"}" stroke="${on?"#ffc21a":"#fff"}" stroke-width="5" ${on?"":'stroke-dasharray="10 7"'} style="cursor:pointer"/>`;});
@@ -1231,18 +1346,18 @@ function runZon(id,onEnd,onExit){
   <g transform="translate(755 960)"><rect x="-12" y="-50" width="235" height="66" rx="6" fill="rgba(0,0,0,.55)"/><line x1="0" y1="0" x2="211" y2="0" stroke="#fff" stroke-width="5"/><line x1="0" y1="-8" x2="0" y2="8" stroke="#fff" stroke-width="4"/><line x1="211" y1="-8" x2="211" y2="8" stroke="#fff" stroke-width="4"/><text x="105" y="-14" text-anchor="middle" font-size="32" font-weight="700" fill="#fff" font-family="Arial">50 m</text></g></svg></div><div class="zcr">Imagen generada con IA · escala aproximada</div>`;}
  function task(){
   if(ST.step===0)return `<p class="qtx">1 · Ajustá el radio del área que aislás alrededor del derrame (zona caliente inicial).</p><div class="zval" id="zrv">${ST.r} m</div><input class="zrg" type="range" id="zrr" min="10" max="150" step="5" value="${ST.r}" aria-label="Radio de aislamiento">`;
-  if(ST.step===1)return `<p class="qtx">2 · Tocá el mapa para ubicar el puesto de comando. Podés arrastrarlo para corregir.</p><p class="mut" id="zpi">${ST.pc?`A unos ${Math.round(dist(ST.pc,T))} m del camión.`:"Todavía sin ubicar."}</p>`;
-  if(ST.step===2)return `<p class="qtx">3 · ¿Por dónde entran los vehículos de bomberos? Tocá una flecha en el mapa o elegí abajo.</p><div class="opts g2">${[["sur","Desde el sur"],["norte","Desde el norte"]].map(([k,t])=>`<button class="opt${ST.acc===k?" sel":""}" data-a="${k}">${t}</button>`).join("")}</div>`;
+  if(ST.step===2)return `<p class="qtx">3 · Ya sabés por dónde llegan los móviles. Tocá el mapa para ubicar el puesto de comando. Podés arrastrarlo para corregir.</p><p class="mut" id="zpi">${ST.pc?`A unos ${Math.round(dist(ST.pc,T))} m del camión.`:"Todavía sin ubicar."}</p>`;
+  if(ST.step===1)return `<p class="qtx">2 · ¿Por dónde entran los vehículos de bomberos? Tocá una flecha en el mapa o elegí abajo.</p><div class="opts g2">${[["sur","Desde el sur"],["norte","Desde el norte"]].map(([k,t])=>`<button class="opt${ST.acc===k?" sel":""}" data-a="${k}">${t}</button>`).join("")}</div>`;
   return `<p class="qtx">4 · Marcá lo que hay que sacar ya del área. Podés marcar varios, en el mapa o abajo.</p><div class="opts g2">${TG.map(t=>`<button class="opt${ST.ev.has(t.id)?" sel":""}" data-t="${t.id}">${t.n}</button>`).join("")}</div>`;}
  function grade(){const out=[];let ok=0,r=ST.r;const miss=[];
   if(r<50){out.push([0,`Aislamiento de ${r} m: corto. La guía 128 pide al menos 50 m en todas direcciones.`]);miss.push({q:"Aislamiento inicial, guía 128",ans:"al menos 50 m en todas direcciones"});}
   else{ok++;out.push([1,r<=100?`Aislamiento de ${r} m: correcto. Cumple los 50 m de la guía 128.`:`Aislamiento de ${r} m: cumple, aunque es más de lo que pide la guía. Más área para controlar y más recorrido.`]);}
+  if(ST.acc==="sur"){ok++;out.push([1,"Acceso desde el sur: correcto. Llegás con el viento en la espalda, sin cruzar la nube."]);}
+  else{out.push([0,"Acceso desde el norte: entrás a sotavento, por donde van los vapores. Con viento del suroeste se llega desde el sur."]);miss.push({q:"Acceso con viento del suroeste",ans:"desde el sur, con el viento en la espalda"});}
   const d=dist(ST.pc,T),w=dotW(ST.pc);
   if(w>0.2){out.push([0,"Puesto de comando a sotavento (viento abajo): los vapores van hacia ahí. Va a barlovento, del lado desde donde sopla el viento (suroeste)."]);miss.push({q:"Ubicación del puesto de comando",ans:"del lado desde donde sopla el viento, fuera del aislamiento"});}
   else if(d<Math.max(r,50)+10){out.push([0,`Puesto de comando a ${Math.round(d)} m: queda dentro o pegado al área aislada. Alejalo.`]);miss.push({q:"Ubicación del puesto de comando",ans:"fuera del área aislada, del lado desde donde sopla el viento"});}
   else{ok++;out.push([1,`Puesto de comando a ${Math.round(d)} m, a barlovento: correcto.`]);}
-  if(ST.acc==="sur"){ok++;out.push([1,"Acceso desde el sur: correcto. Llegás con el viento en la espalda, sin cruzar la nube."]);}
-  else{out.push([0,"Acceso desde el norte: entrás a sotavento, por donde van los vapores. Con viento del suroeste se llega desde el sur."]);miss.push({q:"Acceso con viento del suroeste",ans:"desde el sur, con el viento en la espalda"});}
   const need=["auto","cne"],ex=[...ST.ev].filter(x=>!need.includes(x)),mi=need.filter(x=>!ST.ev.has(x));
   if(!mi.length&&!ex.length){ok++;out.push([1,"Evacuación: correcto. El auto está a unos 25 m, dentro del aislamiento. La casa del noreste está a unos 105 m, a sotavento, dentro de los 300 m."]);}
   else{const t=[];if(mi.includes("auto"))t.push("El auto está a unos 25 m del camión, dentro del aislamiento: hay que sacar a sus ocupantes ya.");
@@ -1252,7 +1367,7 @@ function runZon(id,onEnd,onExit){
    out.push([0,"Evacuación: "+t.join(" ")]);miss.push({q:"Qué evacuar (derrame grande, guía 128)",ans:"el auto detenido y la casa del noreste, a sotavento"});}
   return {out,ok,miss};}
  function draw(){
-  const can=[true,!!ST.pc,!!ST.acc,true][ST.step];
+  const can=[true,!!ST.acc,!!ST.pc,true][ST.step];
   view(`${ZCSS}<div class="card">${ST.done?`<div class="hd"><span class="tag ${A.tp}">${esc(A.t)}</span></div>`:gHead(A,ST.step+1,4)}
   <p class="mut" style="margin:4px 0 8px">Camión cisterna volcado, pierde producto hacia la cuneta y la cañada. Panel <span class="zpo"><span>30</span><span>1202</span></span> → gasoil, <b>guía 128</b>. Viento <b>del suroeste</b>, 12 km/h. Derrame grande.</p>
   <details style="margin-bottom:8px"><summary class="mut" style="cursor:pointer">Ver lo que dice la guía 128</summary><p class="mut">Aislamiento inmediato: al menos 50 m en todas direcciones. Derrame grande: considerar una evacuación inicial a sotavento (viento abajo) de al menos 300 m. Mantenerse del lado desde donde sopla el viento.</p></details>
@@ -1261,7 +1376,7 @@ function runZon(id,onEnd,onExit){
    :`<div class="zst">${NM.map((n,k)=>`<span class="${k===ST.step?"on":k<ST.step?"dn":""}">${n}</span>`).join("")}</div><div id="ztk">${task()}</div>`}
   </div><div class="row">${ST.done?`<button class="btn full" id="znx">Ver resultado</button>`:`${ST.step?`<button class="btn sec" id="zpv">Anterior</button>`:""}<button class="btn" id="znx" ${can?"":"disabled"}>${ST.step===3?"Comprobar":"Siguiente"}</button><button class="btn sec" id="qx">Salir</button>`}</div>`);
   bind();}
- function refresh(){$("#zly").innerHTML=layers();const t=$("#ztk");if(t){t.innerHTML=task();bindTask();}const n=$("#znx");if(n&&!ST.done)n.disabled=![true,!!ST.pc,!!ST.acc,true][ST.step];}
+ function refresh(){$("#zly").innerHTML=layers();const t=$("#ztk");if(t){t.innerHTML=task();bindTask();}const n=$("#znx");if(n&&!ST.done)n.disabled=![true,!!ST.acc,!!ST.pc,true][ST.step];}
  function bindTask(){
   const rr=$("#zrr");if(rr)rr.oninput=e=>{ST.r=+e.target.value;$("#zrv").textContent=ST.r+" m";$("#zly").innerHTML=layers();};
   document.querySelectorAll("#ztk [data-a]").forEach(b=>b.onclick=()=>{ST.acc=b.dataset.a;refresh();});
@@ -1275,7 +1390,7 @@ function runZon(id,onEnd,onExit){
   const svg=$("#zsv");let drag=false;
   const pt=e=>{const p=svgPt(svg,e);return {x:Math.max(30,Math.min(970,p.x)),y:Math.max(30,Math.min(970,p.y))};};
   svg.onpointerdown=e=>{
-   if(ST.step===1){drag=true;svg.setPointerCapture(e.pointerId);ST.pc=pt(e);$("#zly").innerHTML=layers();return;}
+   if(ST.step===2){drag=true;svg.setPointerCapture(e.pointerId);ST.pc=pt(e);$("#zly").innerHTML=layers();return;}
    const a=e.target.closest&&e.target.closest(".zacc,.ztg");if(!a)return;
    if(a.dataset.a)ST.acc=a.dataset.a;else{const k=a.dataset.t;ST.ev.has(k)?ST.ev.delete(k):ST.ev.add(k);}refresh();};
   svg.onpointermove=e=>{if(drag){ST.pc=pt(e);$("#zly").innerHTML=layers();}};
@@ -1348,10 +1463,51 @@ function runMue(id,onEnd,onExit){
  stage1();
 }
 
+/* ================= TRIAGE START (nivel 7) ================= */
+function runTri(id,onEnd,onExit){
+ const A=ACTS[id];
+ const COL=[["v","Verde","#2fbf71","#06210f"],["a","Amarillo","#ffc21a","#2a2000"],["r","Rojo","#ef4444","#fff"],["n","Negro","#1b1d22","#fff"]];
+ const PRI={v:1,a:2,r:3,n:0};
+ const V=shuffle([
+  {t:"Camina hacia ti tosiendo, con lagrimeo.",c:"v",e:"Camina: verde. Se lo dirige a la descontaminación y se lo reevalúa."},
+  {t:"Camina, pero tiene las pupilas muy chicas y mucha secreción nasal.",c:"v",e:"START clasifica por lo que se ve: camina, verde. Con un agente nervioso puede empeorar: reevaluar seguido."},
+  {t:"Sentado, no puede caminar. Respira 24 por minuto, pulso radial presente, obedece órdenes simples.",c:"a",e:"No camina, respira entre 10 y 30, tiene pulso radial y obedece: amarillo."},
+  {t:"Ampollas en los brazos y dolor en las piernas: no puede caminar. Respira 22, pulso radial presente, responde bien.",c:"a",e:"Amarillo: puede esperar, pero se reevalúa."},
+  {t:"No respira. Al elevarle el mentón empieza a respirar.",c:"r",e:"Respira solo después de abrir la vía aérea: rojo."},
+  {t:"No respira. Al elevarle el mentón sigue sin respirar.",c:"n",e:"No respira con la vía aérea abierta: negro. Con víctimas masivas no se hace RCP; se sigue con las demás."},
+  {t:"No camina. Respira 36 por minuto.",c:"r",e:"Más de 30 por minuto: rojo."},
+  {t:"No camina. Respira 8 por minuto.",c:"r",e:"Menos de 10 por minuto: rojo."},
+  {t:"No camina. Respira 20 por minuto, no tiene pulso radial.",c:"r",e:"Sin pulso radial (o llenado capilar lento): rojo. Si sangra, se intenta controlar la hemorragia."},
+  {t:"No camina. Respira 18, pulso radial presente, pero no obedece órdenes simples.",c:"r",e:"No obedece órdenes simples: rojo."},
+  {t:"Convulsiona en el piso. Respira 28 por minuto, pulso presente, no responde.",c:"r",e:"No obedece órdenes: rojo."},
+  {t:"Grita y pide ayuda, sentado en el piso con una herida en la pierna que no sangra. Respira 22, pulso radial presente.",c:"a",e:"Gritar indica que respira y está consciente. No camina, el resto normal: amarillo. Se clasifica por lo que se ve, no por lo que se siente."}
+ ]);
+ let i=0,ok=0,over=0,under=0;const miss=[];
+ const btn=([k,n,bg,fg])=>`<button class="opt" data-k="${k}" style="background:${bg};color:${fg};border-color:${bg};font-weight:800;text-align:center">${n}</button>`;
+ function show(){
+  view(`<div class="card">${gHead(A,i+1,V.length)}<p class="mut" style="margin:4px 0 8px">Estás en la zona caliente con nivel A. Asigna el color con el método START.</p>
+  <div class="card" style="background:var(--pan2);margin:0 0 10px"><b>Víctima ${i+1}</b><p style="margin:6px 0 0">${esc(V[i].t)}</p></div>
+  <div class="opts g2" id="tc">${COL.map(btn).join("")}</div><div id="tf"></div></div>
+  <div class="row"><button class="btn" id="tn" disabled>${i===V.length-1?"Ver resultado":"Siguiente"}</button><button class="btn sec" id="qx">Salir</button></div>`);
+  document.querySelectorAll("#tc [data-k]").forEach(b=>b.onclick=()=>pick(b.dataset.k));
+  $("#tn").onclick=()=>{i++;i<V.length?show():result();};$("#qx").onclick=onExit;}
+ function pick(k){
+  const v=V[i],good=k===v.c;document.querySelectorAll("#tc [data-k]").forEach(b=>{b.disabled=true;b.style.opacity=b.dataset.k===v.c||b.dataset.k===k?1:.35;});
+  let tag="";if(good)ok++;else{const d=PRI[k]-PRI[v.c];if(d>0){over++;tag="Sobretriage: le diste más prioridad de la que necesita. Le quita recursos a quien sí los necesita.";}else{under++;tag="Subtriage: le diste menos prioridad de la que necesita. Es la principal causa de muertes evitables.";}
+   miss.push({q:"Triage START: "+v.t,ans:COL.find(c=>c[0]===v.c)[1]});}
+  $("#tf").innerHTML=`<div class="fb ${good?"":"bad"}">${good?"Correcto. ":""}${esc(v.e)}${tag?" "+esc(tag):""}</div>`;$("#tn").disabled=false;}
+ function result(){
+  view(`<div class="card"><div class="hd"><span class="tag ${A.tp}">${esc(A.t)}</span></div><h3 style="margin:6px 0">Resultado: ${ok} de ${V.length}</h3>
+  <div class="fb ${over?"bad":""}">Sobretriage: ${over}</div><div class="fb ${under?"bad":""}">Subtriage: ${under}</div>
+  <p class="mut">«Clasifica según lo que ves, no según lo que sientes» (OPAQ, mód. 10). En la zona solo se abre la vía aérea y se controlan hemorragias; después, sacar.</p></div>
+  <div class="row"><button class="btn full" id="tr">Ver resultado</button></div>`);$("#tr").onclick=()=>onEnd(ok,V.length,miss);}
+ window.__tri={V};show();
+}
+
 
 /* ================= ESTADO ================= */
 const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
-const VER="v0.25",VDATE="26/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.26",VDATE="26/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1394,11 +1550,15 @@ function builtActs(){return LEVELS.flatMap(l=>l.acts);}
 function dominio(){const all=builtActs();if(!all.length)return 0;let s=0;all.forEach(id=>s+=(S.act[id]?S.act[id].stars:0));return Math.round(100*s/(3*all.length));}
 function twoStar(){return builtActs().filter(id=>S.act[id]&&S.act[id].stars>=2).length;}
 function unlocked(n){return S.rev||n===1||(S.test[n-1]&&S.test[n-1].passed);}
-function curLevel(){let c=1;for(const l of LEVELS)if(l.n===1||(S.test[l.n-1]&&S.test[l.n-1].passed))c=l.n;return c;}
+function curLevel(){let c=1;for(const l of LEVELS)if(l.n<=MAINLV&&(l.n===1||(S.test[l.n-1]&&S.test[l.n-1].passed)))c=l.n;return c;}
 function lvlDone(n){return S.test[n]&&S.test[n].passed;}
 function lvlStars(n){const L=LEVELS[n-1];let s=0;L.acts.forEach(id=>s+=(S.act[id]?S.act[id].stars:0));return [s,3*L.acts.length];}
 function testReady(n){const L=LEVELS[n-1];if(S.rev)return L.acts.length>0;return L.acts.length&&L.acts.every(id=>S.act[id]&&S.act[id].stars>=2);}
-function lvImg(n){return IMG["n"+n];}
+const MAINLV=6;function isBonus(n){return n>MAINLV;}
+function lvImg(n){return IMG["n"+n]||IMG.n6;}
+function bonusBadge(h){return `<svg width="${h}" height="${h}" viewBox="0 0 100 100" role="img" aria-label="Nivel bonus" style="flex:none"><circle cx="50" cy="50" r="46" fill="#2a2210" stroke="#ffc21a" stroke-width="5"/><path transform="translate(50 40) scale(.78) translate(-50 -48)" d="M50 14 l9.5 19.5 21.5 3.1-15.5 15.1 3.7 21.4L50 63 30.8 73.1l3.7-21.4L19 36.6l21.5-3.1Z" fill="#ffc21a"/><text x="50" y="80" text-anchor="middle" font-family="system-ui,Arial" font-weight="900" font-size="14" fill="#ffc21a" letter-spacing="1">BONUS</text></svg>`;}
+function lvPic(n,st){return isBonus(n)?bonusBadge(parseInt(st)||58):`<img src="${lvImg(n)}" alt="" style="${st||""}">`;}
+function lvName(n){return isBonus(n)?"Nivel bonus":"Nivel "+n;}
 
 function applyTheme(){document.documentElement.dataset.theme=S.theme;$("#thm").innerHTML=S.theme==="dark"?ICO.sun:ICO.moon;}
 const REVH="T9FM9Y";
@@ -1442,6 +1602,7 @@ const AICO={
  shield:'<path d="M24 5 L39 11 V22 C39 32 32 39 24 43 C16 39 9 32 9 22 V11Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 24 l5 5 9-10" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>',
  target:'<circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="3.5" fill="currentColor"/>',
  cal:'<rect x="7" y="10" width="34" height="31" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M7 18 H41 M16 6 V13 M32 6 V13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M16 29 l5 5 10-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+ skull:'<path d="M26.61 44.91C28.57 44.58 30.51 43.68 32.08 42.37C34.12 40.66 35.06 38.87 35.06 36.68C35.06 36.36 35.09 36.2 35.22 35.95C35.65 35.12 35.7 34.66 35.43 34.13L35.26 33.79L35.66 33.66C37.23 33.15 38.32 32.07 38.89 30.45C39.09 29.89 39.09 29.85 39.09 28.91C39.09 28.01 39.08 27.9 38.92 27.39C38.82 27.09 38.71 26.78 38.66 26.69C38.59 26.54 38.6 26.47 38.79 25.9C39.62 23.46 39.75 20.91 39.15 18.42C38.81 16.98 38.01 15.06 37.31 13.98C37.08 13.62 37.07 13.59 37.14 13.44C37.3 13.13 37.66 11.92 37.76 11.39C38.14 9.18 37.4 6.9 35.81 5.36C32.53 2.2 26.6 2.24 19.58 5.49C13.09 8.5 8.6 13.12 8.56 16.82C8.55 18.16 9.16 19.29 10.17 19.78L10.55 19.98L10.51 20.29C10.48 20.46 10.46 21.05 10.46 21.59C10.45 23.11 10.66 24.45 11.12 25.81L11.36 26.52L11.21 26.84C10.63 28.11 10.65 29.74 11.27 31.05C11.81 32.19 12.51 32.87 13.78 33.47L14.39 33.77L14.24 33.91C14.16 33.99 14.04 34.2 13.99 34.38C13.85 34.8 13.93 35.19 14.29 35.94C14.55 36.47 14.56 36.51 14.59 37.18C14.67 38.95 15.58 40.62 17.24 42.08C19.11 43.72 21.41 44.76 23.68 45.0C24.36 45.07 25.94 45.02 26.61 44.91ZM23.85 42.57C22.14 42.37 20.78 41.81 19.39 40.73C18.83 40.29 18.08 39.54 17.72 39.06C17.47 38.73 17.21 38.27 17.27 38.27C17.29 38.27 17.5 38.33 17.74 38.39C19.72 38.92 22.36 38.41 24.28 37.13C24.54 36.96 24.76 36.82 24.78 36.82C24.8 36.82 24.98 36.94 25.19 37.08C27.09 38.4 29.88 38.94 31.86 38.37C32.14 38.29 32.37 38.23 32.38 38.24C32.41 38.27 32.06 38.86 31.85 39.15C30.93 40.4 29.23 41.63 27.73 42.15C26.51 42.56 25.12 42.71 23.85 42.57ZM16.93 33.5C16.65 32.18 16.28 31.72 15.24 31.45C13.44 30.99 12.72 29.26 13.58 27.42C13.93 26.66 13.93 26.5 13.57 25.53C13.26 24.71 13.05 23.84 12.94 22.96C12.85 22.29 12.88 20.12 12.98 20.03C13.01 19.99 13.35 19.86 13.72 19.73C14.53 19.45 15.53 18.96 16.39 18.42C16.97 18.06 17.08 18.02 17.9 17.82C23.11 16.58 28.99 15.6 33.99 15.15C34.58 15.1 35.09 15.07 35.12 15.09C35.22 15.15 35.79 16.13 36.04 16.68C37.36 19.53 37.45 22.82 36.29 25.74C35.99 26.52 35.99 26.72 36.35 27.45C37.25 29.27 36.43 31.09 34.55 31.45C33.75 31.6 33.35 31.89 33.03 32.52C32.87 32.83 32.64 33.61 32.64 33.83C32.64 33.99 32.63 33.99 32.32 33.91C32.06 33.83 31.61 33.51 30.83 32.83C28.83 31.1 27.02 30.75 25.15 31.75L24.76 31.96L24.38 31.75C22.49 30.73 20.67 31.1 18.56 32.94C17.91 33.51 17.42 33.85 17.15 33.93C17.04 33.97 17.02 33.92 16.93 33.5ZM24.08 30.97C24.26 30.89 24.48 30.73 24.58 30.63L24.76 30.44L24.88 30.6C25.06 30.83 25.71 31.12 26.04 31.13C26.7 31.14 27.21 30.8 27.53 30.12C27.88 29.36 27.68 28.27 26.91 26.76C26.31 25.59 25.67 25.09 24.76 25.09C23.87 25.09 23.22 25.59 22.62 26.74C21.84 28.25 21.63 29.35 21.99 30.12C22.25 30.68 22.51 30.91 23.09 31.1C23.39 31.19 23.66 31.16 24.08 30.97ZM19.3 27.48C21.21 26.95 22.72 25.17 22.91 23.21C23.01 22.16 22.45 20.89 21.65 20.36C20.63 19.69 19.6 19.59 18.35 20.04C16.88 20.57 15.85 21.69 15.33 23.3C14.88 24.72 15.37 26.32 16.47 27.06C17.34 27.65 18.22 27.77 19.3 27.48ZM32.23 27.45C33.28 27.1 33.9 26.43 34.25 25.27C34.68 23.82 33.78 21.65 32.33 20.66C30.82 19.62 29.2 19.5 27.92 20.33C27.0 20.92 26.47 22.2 26.64 23.4C26.89 25.22 28.24 26.82 30.01 27.42C30.85 27.7 31.43 27.71 32.23 27.45ZM11.15 17.51C10.85 17.19 10.98 16.13 11.41 15.28C13.58 10.94 21.29 6.31 27.55 5.57C31.05 5.16 33.59 6.0 34.86 8.0C35.48 8.97 35.58 10.52 35.12 11.98C34.91 12.65 34.97 12.61 34.18 12.67C31.37 12.89 26.61 13.56 23.06 14.24C22.45 14.36 21.94 14.45 21.93 14.44C21.9 14.41 23.13 13.57 23.68 13.24C23.98 13.07 24.47 12.82 24.78 12.68C25.43 12.4 25.68 12.17 25.81 11.73C26.05 10.94 25.36 10.14 24.54 10.23C24.23 10.26 22.94 10.87 22.11 11.37C21.35 11.83 20.34 12.55 18.45 14.0C14.88 16.73 13.16 17.67 11.7 17.67C11.34 17.67 11.28 17.65 11.15 17.51Z" fill="currentColor" fill-rule="evenodd"/>',
  truck:'<path d="M4 14 H29 V33 H4Z M29 20 H37 L44 27 V33 H29Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="12" cy="36" r="4" fill="currentColor"/><circle cx="36" cy="36" r="4" fill="currentColor"/><text x="16.5" y="28" text-anchor="middle" font-family="Arial" font-weight="900" font-size="10" fill="currentColor">312</text>'
 };
 function st3(ids){return ids.every(id=>S.act[id]&&S.act[id].stars>=3);}
@@ -1453,17 +1614,17 @@ function achList(){
   {id:"m3",g:"Medallas",ic:"medal",col:"#ffc21a",t:"Oro",d:"12.000 puntos",ok:pts>=12000,left:12000-pts},
   {id:"ojo",g:"Insignias",ic:"eye",col:"#5aa2ff",t:"Ojo clínico",d:"3 estrellas en «Lee el multigás» y «Lectura de pantalla»",ok:st3(["d2","q3"])},
   {id:"equipo",g:"Insignias",ic:"device",col:"#5aa2ff",t:"Conoce su equipo",d:"3 estrellas en «Equipos del Departamento» y «Alarmas del Pac 8000»",ok:st3(["q1","q2"])},
-  {id:"filtro",g:"Insignias",ic:"filter",col:"#ff5a4f",t:"Filtro fino",d:"3 estrellas en «Filtros que se ven en el campo»",ok:st3(["e4"])},
   {id:"escena",g:"Insignias",ic:"pin",col:"#ffc21a",t:"Mando en escena",d:"3 estrellas en «Arma la escena», «Arma el corredor» y «Área de acción protectora»",ok:st3(["g_cena","g_corr","g_area"])},
   {id:"estudio",g:"Insignias",ic:"cards",col:"#3fd18a",t:"Estudioso",d:"Abrir todas las tarjetas de repaso",ok:CARDS.every(c=>S.cards[c.id])},
   {id:"sangre",g:"Insignias",ic:"shield",col:"#3fd18a",t:"Sangre fría",d:"Terminar cada escenario al menos una vez sin un error crítico",ok:scn.every(id=>S.act[id]&&S.act[id].clean)},
   {id:"perfecto",g:"Insignias",ic:"target",col:"#ff5a4f",t:"Élite",d:"100 % de dominio",ok:dominio()>=100},
   {id:"constancia",g:"Insignias",ic:"cal",col:"#5aa2ff",t:"Constancia",d:"Entrenar en 5 días distintos",ok:(S.days||[]).length>=5,left:5-(S.days||[]).length},
-  {id:"la312",g:"Insignias",ic:"truck",col:"#e3241b",t:"La 312",d:"Llegar a la pantalla final",ok:allDone()}
+  {id:"la312",g:"Insignias",ic:"truck",col:"#e3241b",t:"La 312",d:"Llegar a la pantalla final",ok:allDone()},
+  {id:"maquina",g:"Insignias",ic:"skull",col:"#ffc21a",t:"¡Qué máquina!",d:"Completar todos los niveles, hacer el test de conocimientos y enviar tu puntaje al ranking",ok:allDone()&&!!(S.kt&&S.kt.tries)&&!!S.rk}
  ];
  return L;
 }
-function achIcon(a,size){return `<svg width="${size}" height="${size}" viewBox="0 0 48 48" aria-hidden="true" style="color:${a.ok?a.col:"var(--line)"}">${AICO[a.ic]}</svg>`;}
+function achIcon(a,size){return `<svg width="${size}" height="${size}" viewBox="0 0 48 48" aria-hidden="true" style="flex:none;color:${a.ok?a.col:"var(--line)"}">${AICO[a.ic]}</svg>`;}
 function achCheck(){
  if(S.rev)return;S.ach=S.ach||[];const nw=achList().filter(a=>a.ok&&!S.ach.includes(a.id));
  if(!nw.length)return;nw.forEach(a=>S.ach.push(a.id));save();
@@ -1484,7 +1645,7 @@ function achScreen(){const L=achList(),n=L.filter(a=>a.ok).length,fmtn=x=>x.toLo
  $("#bk").onclick=home;
  document.querySelectorAll(".achb.go").forEach(b=>{const go=()=>achGo(L.find(a=>a.id===b.dataset.a));b.onclick=go;b.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}};});}
 function achGo(a){
- const sets={ojo:["d2","q3"],equipo:["q1","q2"],filtro:["e4"],escena:["g_cena","g_corr","g_area"]};
+ const sets={ojo:["d2","q3"],equipo:["q1","q2"],escena:["g_cena","g_corr","g_area"]};
  if(a.id==="estudio")return cards();
  if(["m1","m2","m3","la312"].includes(a.id))return level(curLevel());
  let ids,done,how;
@@ -1494,7 +1655,10 @@ function achGo(a){
  else ids=[];
  if(ids.length===1&&!done(ids[0])&&unlocked(ACTS[ids[0]].lv))return play(ids[0]);
  const row=id=>{const A=ACTS[id],r=S.act[id]||{},ok=done(id),op=unlocked(A.lv);
-  return `<button class="agi${ok?" ok":""}" data-id="${id}" ${op&&!ok?"":"disabled"}><span><b>${A.t}</b><small>Nivel ${A.lv}${op?"":" · se habilita al aprobar la prueba del Nivel "+(A.lv-1)}${a.id==="perfecto"&&r.best!==undefined?" · mejor: "+Math.round(r.best*100)+" %":""}</small></span><span class="agr">${ok?"✔":op?starsHTML(r.stars||0):ICO.lock}</span></button>`;};
+  return `<button class="agi${ok?" ok":""}" data-id="${id}" ${op&&!ok?"":"disabled"}><span><b>${A.t}</b><small>${lvName(A.lv)}${op?"":" · se habilita al aprobar la prueba del nivel "+(A.lv-1)}${a.id==="perfecto"&&r.best!==undefined?" · mejor: "+Math.round(r.best*100)+" %":""}</small></span><span class="agr">${ok?"✔":op?starsHTML(r.stars||0):ICO.lock}</span></button>`;};
+ if(a.id==="maquina"){const it=[["Aprobar la prueba del nivel 6","Los 6 niveles, sin necesidad de 100 %. El bonus no hace falta.",allDone(),()=>level(curLevel())],["Hacer el test de conocimientos","Al menos una vez, con cualquier resultado.",!!(S.kt&&S.kt.tries),ktest],["Enviar tu puntaje al ranking","Por primera vez, desde la pantalla «Ranking».",!!S.rk,rankScreen]];
+  view(`<div class="card"><div style="display:flex;gap:12px;align-items:center">${achIcon(Object.assign({},a,{ok:true}),48)}<div><h2 style="margin:0">${a.t}</h2><p class="mut" style="margin:2px 0 0">${a.d}</p></div></div><p class="mut" style="margin-top:14px">Para conseguirlo:</p><div class="agl">${it.map((x,i)=>`<button class="agi${x[2]?" ok":""}" data-i="${i}" ${x[2]?"disabled":""}><span><b>${x[0]}</b><small>${x[1]}</small></span><span class="agr">${x[2]?"✔":"›"}</span></button>`).join("")}</div></div><div class="row"><button class="btn sec" id="bk">Volver a logros</button></div>`);
+  $("#bk").onclick=achScreen;document.querySelectorAll(".agi:not([disabled])").forEach(b=>b.onclick=it[+b.dataset.i][3]);return;}
  const body=a.id==="constancia"?`<p style="margin-top:14px">Te ${a.left===1?"falta 1 día":"faltan "+a.left+" días"} de entrenamiento, en fechas distintas. Cualquier actividad cuenta: no hay una que acelere esta insignia.</p>`:`<p class="mut" style="margin-top:14px">${how}</p><div class="agl">${ids.map(row).join("")}</div>`;
  view(`<div class="card"><div style="display:flex;gap:12px;align-items:center">${achIcon(Object.assign({},a,{ok:true}),48)}<div><h2 style="margin:0">${a.t}</h2><p class="mut" style="margin:2px 0 0">${a.d}</p></div></div>${body}</div><div class="row"><button class="btn sec" id="bk">Volver a logros</button></div>`);
  $("#bk").onclick=achScreen;
@@ -1515,7 +1679,7 @@ function welcome(){
 }
 
 /* ================= INICIO ================= */
-function allDone(){return lvlDone(LEVELS.length);}
+function allDone(){return lvlDone(MAINLV);}
 function home(){GLOFF=false;
  const c=curLevel(),L=LEVELS[c-1],[s,m]=lvlStars(c);hud();
  view(`${S.rev?`<div class="card" style="border:2px dashed #ffb000"><b>Modo revisión activo.</b> Todos los niveles y pruebas están abiertos y nada de lo que juegues queda registrado. <div class="row"><button class="btn sec" id="revx2">Salir del modo revisión</button></div></div>`:""}
@@ -1529,10 +1693,10 @@ function home(){GLOFF=false;
   <h3 style="margin:18px 4px 10px">Camino de niveles</h3>
   ${LEVELS.map(l=>{const u=unlocked(l.n),d=lvlDone(l.n),cur=l.n===c&&!d;const[ls,lm]=lvlStars(l.n);
    return `<button class="lv ${d?"done":cur?"cur":""} ${u?"":"lock"}" data-n="${l.n}" ${u?"":'aria-disabled="true"'}>
-   <span class="num">${u?l.n:ICO.lock.replace("<svg",'<svg width="22" height="22"')}</span>
-   <span class="tx"><b>Nivel ${l.n} · ${l.t}</b><small>${l.d}</small>
+   <span class="num">${u?(isBonus(l.n)?"★":l.n):ICO.lock.replace("<svg",'<svg width="22" height="22"')}</span>
+   <span class="tx"><b>${lvName(l.n)} · ${l.t}</b><small>${l.d}</small>
    ${d?'<span class="chip ok">Completado</span>':u?(l.acts.length?`<span class="chip go">${ls}/${lm} estrellas</span>`:'<span class="chip">En construcción</span>'):`<span class="chip">Aprueba la prueba del nivel ${l.n-1}</span>`}</span>
-   <img src="${lvImg(l.n)}" alt="" style="${u?"":"filter:grayscale(1) brightness(.6)"}"></button>`;}).join("")}
+   ${isBonus(l.n)?`<span style="${u?"":"filter:grayscale(1) brightness(.6)"}">${bonusBadge(58)}</span>`:`<img src="${lvImg(l.n)}" alt="" style="${u?"":"filter:grayscale(1) brightness(.6)"}">`}</button>`;}).join("")}
   <div class="card" style="margin-top:16px">
    <div class="hsec">ESTUDIAR</div><div class="hgrid"><button class="btn sec" id="bk">${ICO.cards.replace(/width="15" height="15"/,"")} Tarjetas</button><button class="btn sec" id="bg">${ICO.gloss} Glosario</button></div>
    <div class="hsec">MI PROGRESO</div><div class="hgrid" style="margin-bottom:0"><button class="btn sec hrk" id="brk">${ICO.trophy} Ranking</button><button class="btn sec" id="bs">${ICO.share} Compartir</button><button class="btn sec" id="bb">${ICO.save} Copia</button><button class="btn sec" id="bv">${ICO.check} Verificar</button></div>${bkNote()}</div>`);
@@ -1549,6 +1713,7 @@ function howto(){
  <h3 style="margin-top:14px">Puntos</h3><p>Los puntos no abren niveles: lo que los abre es el dominio. De cada actividad cuenta solo tu mejor resultado, así que repetir no infla el total. Las tarjetas dan 1 punto cada una, la primera vez, hasta ${CARDCAP} puntos.</p>
  <h3 style="margin-top:14px">Tarjetas de repaso</h3><p>Están todas abiertas desde el principio, para repasar cuando quieras.</p>
  <h3 style="margin-top:14px">Nivel máximo</h3><p>Al aprobar la prueba del nivel 6 se abre una pantalla final especial, que también puedes compartir.</p>
+ <h3 style="margin-top:14px">Nivel bonus</h3><p>Al aprobar la prueba del nivel 6 también se abre un nivel bonus, sobre armas de destrucción masiva y agentes de guerra química. Es optativo: suma puntos, pero no hace falta para llegar al nivel máximo.</p>
  <h3 style="margin-top:14px">Contacto</h3><p>Consultas, sugerencias o correcciones: <a href="mailto:edward.farias.romero@gmail.com?subject=Entrenador%20de%20Materiales%20Peligrosos%20${VER}" style="color:var(--acc);font-weight:700">edward.farias.romero@gmail.com</a></p>
  <p class="mut" style="font-size:.8rem">Versión ${VER} · ${VDATE}</p>
  <div class="row"><button class="btn" id="bk">Volver</button></div></div>`);
@@ -1561,10 +1726,10 @@ function level(n){GLOFF=false;
  if(!L.acts.length){view(`<div class="card center"><img src="${lvImg(n)}" alt="" style="height:200px"><h2>Nivel ${n} · ${L.t}</h2><p>${L.d}</p><p class="mut">Este nivel todavía está en construcción.</p><div class="row c"><button class="btn" id="bk">Volver</button></div></div>`);$("#bk").onclick=home;return;}
  const ready=testReady(n),lk=S.rev?false:S.lock[n],t=S.test[n]||{},have=L.acts.filter(id=>S.act[id]&&S.act[id].stars>=2).length;
  const byTp={};L.acts.forEach(id=>{(byTp[ACTS[id].tp]=byTp[ACTS[id].tp]||[]).push(id);});
- view(`<div class="card"><div style="display:flex;gap:12px;align-items:center"><img src="${lvImg(n)}" alt="" style="height:96px;width:auto"><div><div class="tag">Nivel ${n}</div><h2 style="margin-top:6px">${L.t}</h2><p class="mut" style="margin:0">${L.d}</p></div></div></div>
+ view(`<div class="card"><div style="display:flex;gap:12px;align-items:center">${lvPic(n,"96")}<div><div class="tag">${lvName(n)}</div><h2 style="margin-top:6px">${L.t}</h2><p class="mut" style="margin:0">${L.d}</p></div></div></div>
  ${Object.keys(byTp).map(tp=>`<div class="card"><span class="tag ${tp}">${TOPICS[tp]}</span><div style="margin-top:10px">${byTp[tp].map(id=>{const A=ACTS[id],r=S.act[id];
   return `<button class="act" data-id="${id}"><span class="tx"><b>${A.t}</b><small>${A.d}</small></span>${starsHTML(r?r.stars:0)}<span class="best">${r?`${Math.round(r.best*100)} %`:"—"}</span></button>`;}).join("")}</div></div>`).join("")}
- <div class="card"><h3>Prueba del nivel ${n}</h3>
+ <div class="card"><h3>Prueba del ${lvName(n).toLowerCase()}</h3>
  ${t.passed?`<p><span class="chip ok">Aprobada con ${Math.round(t.best*100)} %</span></p><p class="mut">Puedes repetirla cuando quieras para entrenar.</p>`:`<p class="mut">12 preguntas. Para aprobar: 80 % de aciertos.</p>`}
  ${!ready?`<div class="lockbox">${ICO.lock}<div>Consigue al menos 2 estrellas en todas las actividades del nivel. Tienes ${have} de ${L.acts.length}.</div></div>`:lk?`<div class="lockbox">${ICO.lock}<div>Juega otra vez alguna actividad de este nivel para habilitar un nuevo intento.</div></div>`:""}
  <div class="row"><button class="btn" id="bt" ${ready&&!lk?"":"disabled"}>Hacer la prueba</button><button class="btn sec" id="bk">Volver</button></div></div>`);
@@ -1782,6 +1947,7 @@ function play(id){GLOFF=false;
  if(A.type==="scrn")return runScrn(id,end,()=>level(A.lv));
  if(A.type==="zon")return runZon(id,end,()=>level(A.lv));
  if(A.type==="mue")return runMue(id,end,()=>level(A.lv));
+ if(A.type==="tri")return runTri(id,end,()=>level(A.lv));
  runQuiz({title:A.t,tp:A.tp,items:buildItems(id),onEnd:end,onExit:()=>level(A.lv)});
 }
 function ckey(q){return String(q).replace(/<[^>]+>/g,"").toLowerCase().replace(/\s+/g," ").trim().slice(0,70);}
@@ -1808,7 +1974,7 @@ function actResult(id,g){
  <div style="text-align:left;margin-top:12px"><div class="kv"><span>Mejor resultado</span><b>${Math.round(r.best*100)} % · ${r.stars} ${r.stars===1?"estrella":"estrellas"}</b></div>
  <div class="kv"><span>Puntos ganados ahora</span><b>+${g.gain}</b></div><div class="kv"><span>Total</span><b>${totalPts()} pts</b></div></div>${g.rev?`<p class="mut" style="margin-top:10px">Modo revisión: este resultado no se registró.</p>`:""}</div>
  <div class="row" style="margin-top:0">${nx?`<button class="btn" id="anx">Siguiente: ${esc(ACTS[nx].t)}</button>`:""}<button class="btn ${nx?"sec":""}" id="ag">Jugar otra vez</button></div>
- ${ready?`<div class="card"><h3>Prueba del nivel ${L} habilitada</h3><p class="mut">Todas las actividades del nivel tienen al menos 2 estrellas.</p><button class="btn" id="gt">Ir a la prueba</button></div>`:""}
+ ${ready?`<div class="card"><h3>Prueba del ${lvName(L).toLowerCase()} habilitada</h3><p class="mut">Todas las actividades del nivel tienen al menos 2 estrellas.</p><button class="btn" id="gt">Ir a la prueba</button></div>`:""}
  ${missHTML(g.miss,id)}
  <div class="row"><button class="btn sec" id="bl">Volver al nivel</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);
  $("#ag").onclick=()=>play(id);if(nx)$("#anx").onclick=()=>play(nx);$("#bl").onclick=()=>level(L);$("#bs").onclick=()=>shareScreen();
@@ -1827,21 +1993,22 @@ function testItems(n){
 }
 function test(n){
  GLOFF=true;
- runQuiz({title:"Prueba del nivel "+n,items:testItems(n),onExit:()=>level(n),onEnd:(ok,total,miss)=>{
+ runQuiz({title:"Prueba del "+lvName(n).toLowerCase(),items:testItems(n),onExit:()=>level(n),onEnd:(ok,total,miss)=>{
   const p=ok/total;
   if(S.rev){view(`<div class="card center">${p>=.8?`<div class="fogo">${ICO.flame}${CHEER}</div>`:`<h2>Todavía no</h2>`}<div class="big">${Math.round(p*100)} %</div><div class="mut">${ok} de ${total} aciertos</div><p class="mut" style="margin-top:10px">Modo revisión: este resultado no se registró.</p></div>${missHTML(miss)}<div class="row"><button class="btn" id="bl">Volver al nivel ${n}</button></div>`);$("#bl").onclick=()=>level(n);return;}
   const t=S.test[n]||{passed:false,best:0,tries:0},was=t.passed;
   t.tries++;if(p>t.best)t.best=p;
   const pass=p>=.8;if(pass)t.passed=true;else if(!was)S.lock[n]=true;
   S.test[n]=t;save();hud();setTimeout(achCheck,300);
-  const up=pass&&!was&&n<LEVELS.length,fin=pass&&n===LEVELS.length;
-  view(`<div class="card center">${pass?`<div class="fogo">${ICO.flame}${CHEER}</div><p class="mut">Prueba del nivel ${n} aprobada</p>`:`<h2>Todavía no</h2><p class="mut">Faltó poco: hace falta 80 %.</p>`}
+  const up=pass&&!was&&n<MAINLV,fin=pass&&n===MAINLV,bon=pass&&!was&&n===MAINLV&&LEVELS.length>MAINLV;
+  view(`<div class="card center">${pass?`<div class="fogo">${ICO.flame}${CHEER}</div><p class="mut">Prueba del ${lvName(n).toLowerCase()} aprobada</p>`:`<h2>Todavía no</h2><p class="mut">Faltó poco: hace falta 80 %.</p>`}
   <div class="big">${Math.round(p*100)} %</div><div class="mut">${ok} de ${total} aciertos</div></div>
   ${up?`<div class="card rankup"><img src="${lvImg(n+1)}" alt=""><div><div class="lvn" style="color:var(--acc2);font-weight:900;letter-spacing:.1em;font-size:.8rem">NUEVO NIVEL</div><h2 style="margin:4px 0">Nivel ${n+1} · ${LEVELS[n].t}</h2><p class="mut" style="margin:0">${LEVELS[n].d}</p></div></div>`:""}
+  ${bon?`<div class="card rankup">${bonusBadge(110)}<div><div class="lvn" style="color:var(--acc2);font-weight:900;letter-spacing:.1em;font-size:.8rem">NIVEL BONUS DESBLOQUEADO</div><h2 style="margin:4px 0">${LEVELS[MAINLV].t}</h2><p class="mut" style="margin:0">${LEVELS[MAINLV].d}</p></div></div>`:""}
   ${!pass&&!was?`<div class="card"><div class="lockbox" style="margin:0">${ICO.lock}<div>Juega otra vez alguna actividad del nivel para habilitar otro intento. Empieza por los temas de abajo.</div></div></div>`:""}
   ${missHTML(miss)}
-  <div class="row">${fin?`<button class="btn" id="nf">★ Ver la pantalla final</button>`:""}${up?`<button class="btn" id="nl">Ir al nivel ${n+1}</button>`:""}<button class="btn ${up||fin?"sec":""}" id="bl">Volver al nivel ${n}</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);if($("#nf"))$("#nf").onclick=finale;
-  if($("#nl"))$("#nl").onclick=()=>level(n+1);$("#bl").onclick=()=>level(n);$("#bs").onclick=()=>shareScreen();
+  <div class="row">${fin?`<button class="btn" id="nf">★ Ver la pantalla final</button>`:""}${up?`<button class="btn" id="nl">Ir al nivel ${n+1}</button>`:""}${bon?`<button class="btn sec" id="nb">★ Ir al nivel bonus</button>`:""}<button class="btn ${up||fin?"sec":""}" id="bl">Volver al ${lvName(n).toLowerCase()}</button><button class="btn sec" id="bs">${ICO.share} Compartir</button></div>`);if($("#nf"))$("#nf").onclick=finale;
+  if($("#nl"))$("#nl").onclick=()=>level(n+1);if($("#nb"))$("#nb").onclick=()=>level(MAINLV+1);$("#bl").onclick=()=>level(n);$("#bs").onclick=()=>shareScreen();
  }});
 }
 
@@ -1916,7 +2083,7 @@ function cards(tp,lv){
  const list=CARDS.filter(c=>(tp==="all"||c.tp===tp)&&(!lv||c.lv===lv)),seen=CARDS.filter(c=>S.cards[c.id]).length;
  view(`<div class="card"><h2>Tarjetas de repaso</h2><p class="mut">Toca una tarjeta para abrirla. Repasadas: ${seen} de ${CARDS.length} · puntos de repaso: ${S.cpts||0} de ${CARDCAP}.</p>
  <div class="filters">${[["all","Todas"],...Object.entries(TOPICS)].map(([k,v])=>`<button class="fl ${tp===k?"on":""}" data-tp="${k}">${v}</button>`).join("")}</div>
- <div class="filters">${[0,...LEVELS.map(l=>l.n)].map(n=>`<button class="fl ${lv===n?"on":""}" data-lv="${n}">${n?"Nivel "+n:"Todos los niveles"}</button>`).join("")}</div></div>
+ <div class="filters">${[0,...LEVELS.map(l=>l.n)].map(n=>`<button class="fl ${lv===n?"on":""}" data-lv="${n}">${n?(isBonus(n)?"Bonus":"Nivel "+n):"Todos los niveles"}</button>`).join("")}</div></div>
  ${list.length?list.map(c=>`<div class="kcard" style="border-left-color:var(--${{det:"blue",epi:"acc",dec:"good",cena:"acc2",int:"mut",gen:"blue"}[c.tp]})"><button data-id="${c.id}" aria-expanded="false"><span class="tag ${c.tp}">${TOPICS[c.tp]}</span><b>${esc(c.t)}</b>${S.cards[c.id]?'<span class="seen">✓</span>':""}</button><div class="body hide">${gl(cardText(esc(c.x)))}</div></div>`).join(""):`<div class="card mut">Todavía no hay tarjetas para este filtro.</div>`}
  <div class="row"><button class="btn sec" id="bk">Volver</button></div>`);
  document.querySelectorAll("[data-tp]").forEach(b=>b.onclick=()=>cards(b.dataset.tp,lv));
@@ -2006,7 +2173,7 @@ async function finaleBlob(){
  x.font="800 38px system-ui,Arial";const n=wrapText(x,"HAS COMPLETADO TODAS LAS ACTIVIDADES Y ALCANZADO EL NIVEL MÁXIMO",W/2,1050,940,48);
  const y0=1050+n*48+20,dom=dominio(),a2=twoStar(),tot=builtActs().length,pts=totalPts(),f=today();
  x.fillStyle="#ffc21a";x.font="800 40px system-ui,Arial";x.fillText(`★ ${pts} pts · ${dom} % de dominio · ${a2}/${tot} ⭐⭐`,W/2,y0+10);
- x.fillStyle="#a0a6b1";x.font="26px system-ui,Arial";x.fillText(f.split(" ")[0]+" · código de verificación",W/2,y0+52);x.fillStyle="#ffc21a";x.font="800 46px ui-monospace,Consolas,monospace";x.fillText(makeCode(S.name,LEVELS.length,a2,dom,pts,dayNum()),W/2,y0+100);
+ x.fillStyle="#a0a6b1";x.font="26px system-ui,Arial";x.fillText(f.split(" ")[0]+" · código de verificación",W/2,y0+52);x.fillStyle="#ffc21a";x.font="800 46px ui-monospace,Consolas,monospace";x.fillText(makeCode(S.name,MAINLV,a2,dom,pts,dayNum()),W/2,y0+100);
  x.textAlign="left";x.fillStyle="#a0a6b1";x.font="22px system-ui,Arial";x.fillText("Entrenador de Materiales Peligrosos · Haz-Mat Uruguay (DNB) · "+VER,36,H-40);x.textAlign="center";
  if(pp){const h=60,w=pp.width*h/pp.height;x.drawImage(pp,W-36-w,H-36-h,w,h);x.textAlign="right";x.fillStyle="#a0a6b1";x.font="20px system-ui,Arial";x.fillText("en colaboración con",W-46-w,H-40);x.textAlign="center";}
  return new Promise(res=>c.toBlob(b=>res(b),"image/png"));
@@ -2038,7 +2205,7 @@ function credits(){
  <div class="logos">${L.map(([k,t,h])=>`<div class="logo"><img src="${IMG[k]}" alt="${t}" class="zm" tabindex="0" role="button" aria-label="Ver ${t} en grande">${h||t}</div>`).join("")}</div></div>
  <div class="card"><h3>Fuentes</h3><ul class="src">
  <li><b>Curso Avanzado Integrado y Ejercicio sobre asistencia y protección contra agentes químicos de guerra y químicos industriales tóxicos</b>, para los Estados Parte de América Latina y el Caribe. Secretaría Técnica de la OPAQ y Benemérito Cuerpo de Bomberos de Costa Rica. San José, Costa Rica, 18 al 25 de agosto de 2026.<br><span class="mut">Original: <i>Integrated Advanced Course and Exercise on assistance and protection against chemical warfare agents (CWAs) and toxic industrial chemicals (TICs), addressed to States Parties in the Latin American and Caribbean region</i>.</span></li>
- <li><b>CRIMAP</b>: Curso para Respondedores a Incidentes con Materiales Peligrosos, SINAE.</li>
+ <li><b>CRIMAP-ADM</b>: Curso para Respondedores a Incidentes con Materiales Peligrosos / Armas de Destrucción Masiva, Nivel de Advertencia. Programa Regional de Asistencia para Desastres (RDAP); SINAE.</li>
  <li><b>Haz-Mat Uruguay</b>: material de estudio, equipos y procedimientos del Departamento de Materiales Peligrosos y Protección Ambiental, DNB.</li>
  <li><b>Guía de Respuesta en caso de Emergencia (GRE) 2024</b>.</li>
  <li>Letras y colores de los filtros: <b>EN 14387 (filtros de gas) y EN 143 (filtros de partículas)</b>. Valores IDLH: NIOSH.</li></ul></div>
@@ -2065,7 +2232,8 @@ function makeCode(name,lv,a2,dom,pts,day){
  const pl=(BigInt(lv&7)<<41n)|(BigInt(Math.min(a2,63))<<35n)|(BigInt(Math.min(dom,100))<<28n)|(BigInt(Math.min(pts,32767))<<13n)|BigInt(day&8191);
  const sig=vsig(name,pl);let v=((pl^vmask(sig))<<16n)|BigInt(sig),o="";
  for(let i=0;i<12;i++){o=B32[Number(v&31n)]+o;v>>=5n;}return o.slice(0,4)+"-"+o.slice(4,8)+"-"+o.slice(8);}
-function achMask(){return achList().reduce((m,a,i)=>a.ok?m|(1<<i):m,0);}
+const MASKIDS=["m1","m2","m3","ojo","equipo","filtro","escena","estudio","sangre","perfecto","constancia","la312","maquina"];
+function achMask(){return achList().reduce((m,a)=>a.ok?m|(1<<MASKIDS.indexOf(a.id)):m,0);}
 function achCode(name,main){const m=achMask(),sig=fnv(SALT+"|ach|"+nameKey(name)+"|"+m+"|"+cleanCode(main))&0xFF;let v=(m<<8)|sig,o="";for(let i=0;i<4;i++){o=B32[v&31]+o;v>>=5;}return o;}
 function myCode(name){return makeCode(name,curLevel(),twoStar(),dominio(),totalPts(),dayNum());}
 function cleanCode(s){return String(s).toUpperCase().replace(/O/g,"0").replace(/[IL]/g,"1").replace(/U/g,"V").replace(/[^0-9A-Z]/g,"");}
@@ -2092,7 +2260,7 @@ async function cardBlob(){
  const box=(cx,val,lab)=>{rr(x,cx-160,850,320,170,24);x.fillStyle="#1e2129";x.fill();x.fillStyle="#ffc21a";x.font="900 76px system-ui,Arial";x.fillText(val,cx,950);x.fillStyle="#a0a6b1";x.font="30px system-ui,Arial";x.fillText(lab,cx,995);};
  const dom=dominio(),a2=twoStar(),tot=builtActs().length,pts=totalPts();
  box(W/2-345,dom+"%","dominio");box(W/2,a2+"/"+tot,"actividades ⭐⭐");box(W/2+345,String(pts),"puntos");
- const lvs=LEVELS.filter(l=>lvlDone(l.n)).length;x.fillStyle="#f2f3f5";x.font="700 38px system-ui,Arial";x.fillText(lvs?`${lvs} ${lvs===1?"prueba de nivel aprobada":"pruebas de nivel aprobadas"}`:"En formación",W/2,1095);
+ const lvs=LEVELS.filter(l=>l.n<=MAINLV&&lvlDone(l.n)).length;x.fillStyle="#f2f3f5";x.font="700 38px system-ui,Arial";x.fillText(lvs?`${lvs} ${lvs===1?"prueba de nivel aprobada":"pruebas de nivel aprobadas"}`:"En formación",W/2,1095);
  const f=today();x.fillStyle="#a0a6b1";x.font="30px system-ui,Arial";
  x.fillText(f.split(" ")[0]+" · código de verificación",W/2,1158);
  x.fillStyle="#ffc21a";x.font="800 54px ui-monospace,Consolas,monospace";x.fillText(makeCode(S.name,lv,a2,dom,pts,dayNum()),W/2,1218);
@@ -2122,7 +2290,7 @@ function rankWire(){
  $("#rks").onclick=()=>{const n=$("#rkn").value.trim();if(!n){$("#rkm").textContent="Escribe un nombre.";$("#rkn").focus();return;}
   if(S.rev){$("#rkm").textContent="En el modo revisión no se puede enviar al ranking.";return;}
   if(!RANK.form){$("#rkm").textContent="El ranking todavía no está habilitado.";return;}
-  window.open(rankUrl(n),"_blank","noopener");$("#rkm").textContent="Se abrió el formulario con tus datos: tócale «Enviar». Hace falta conexión a internet.";};
+  window.open(rankUrl(n),"_blank","noopener");S.rk=1;save();achCheck();$("#rkm").textContent="Se abrió el formulario con tus datos: tócale «Enviar». Hace falta conexión a internet.";};
  $("#rkv").onclick=()=>window.open(RANK.page,"_blank","noopener");
  let rkq=0;$("#rkq").onclick=()=>{const n=$("#rkn").value.trim();if(!n){$("#rkm").textContent="Escribe el nombre con el que figuras en el ranking.";$("#rkn").focus();return;}
   if(S.rev){$("#rkm").textContent="En el modo revisión no se puede usar el ranking.";return;}

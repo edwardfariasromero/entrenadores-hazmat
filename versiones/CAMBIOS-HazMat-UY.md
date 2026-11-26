@@ -1,5 +1,17 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.26 · 26/11/2026
+- **Nivel bonus «ADM y agentes de guerra química»**: se abre al aprobar la prueba del nivel 6 y es optativo (suma puntos, pero no hace falta para el nivel máximo). 9 actividades:
+  - ¿Qué sugieren los signos? · ¿Químico, biológico o radiológico? · Detección o identificación.
+  - Minijuego nuevo **Triage START en la zona**: 12 víctimas, con aviso de sobretriage y subtriage.
+  - Descontaminación masiva · Escena del crimen y muestras · La Convención sobre Armas Químicas (con la CIPAQ y el Decreto 570/006).
+  - Escenarios «Personas caídas en una terminal» y «Ampollas al día siguiente».
+  - 10 tarjetas de repaso nuevas y 7 entradas nuevas en el glosario (ADM, AEI, CAQ, CIPAQ, miosis, START, vesicante).
+- Zonificar: primero se elige por dónde llegan los móviles y después se ubica el Puesto de Comando.
+- Logros: se quita «Filtro fino» y se agrega «¡Qué máquina!» (aprobar los 6 niveles, hacer el test de conocimientos y enviar el puntaje al ranking). Icono hecho con Gemini.
+- Opciones de respuesta reequilibradas: la correcta ya no suele ser la más larga o la más completa.
+- Créditos: el curso pasa a nombrarse CRIMAP-ADM.
+
 ## v0.25 · 26/11/2026
 - Escenario de la bodega, paso 3: la respuesta correcta pasa a ser **nivel A**, encapsulado con ERA, arnés y línea de vida. El producto es desconocido y se baja con la grúa, así que el encapsulado es viable. El nivel B queda como incorrecto, con explicación.
 - Glosario: se agregan «Barlovento» (viento arriba) y «Sotavento» (viento abajo). Se marcan en los textos también en minúscula.
