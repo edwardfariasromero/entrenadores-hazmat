@@ -1,5 +1,18 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.24 · 26/11/2026
+- Escenario de la bodega rehecho: ahora se llama «Estibadores caídos en una bodega» y tiene 8 pasos.
+  - Ya no da el fumigante como dato inicial.
+  - Se baja con las grúas del buque.
+  - Se actúa por las señales: dos víctimas a la vez en un espacio confinado.
+  - Protección: nivel B con ERA, arnés y línea de vida.
+  - La lectura del Pac 8000 en la boca es una detección provisional, que confirma el peligro y no frena el rescate.
+  - El Departamento sigue midiendo durante toda la operación.
+  - La extracción se hace con la víctima empaquetada y acompañada.
+  - A salud se informa la detección como provisional.
+- Viento: «a favor del viento» y «en contra del viento» pasan a «viento abajo» y «viento arriba». Afecta al minijuego de zonificar y a la pregunta 10 del test de conocimientos. La expresión «a favor del viento» se usa con sentidos opuestos en distintas fuentes.
+- «Los 8 pasos» pasa a llamarse «Los 8 pasos del SCI al llegar» (actividad y tarjeta), para no confundirlo con los 8 pasos de Noll.
+
 ## v0.23 · 26/11/2026
 - Se retira «Muestreo en la bodega»: estaba mal planteado (el Pac 8000 funciona por difusión y no lleva manguera; los medidores confirman el peligro, no condicionan un rescate). Se rehará junto con el escenario de la bodega.
 - «Bodega con troncos fumigados», paso 3: se quita la manguera de muestreo.
