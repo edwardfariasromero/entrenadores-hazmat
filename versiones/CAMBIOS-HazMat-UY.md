@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.25 · 26/11/2026
+- Escenario de la bodega, paso 3: la respuesta correcta pasa a ser **nivel A**, encapsulado con ERA, arnés y línea de vida. El producto es desconocido y se baja con la grúa, así que el encapsulado es viable. El nivel B queda como incorrecto, con explicación.
+- Glosario: se agregan «Barlovento» (viento arriba) y «Sotavento» (viento abajo). Se marcan en los textos también en minúscula.
+- Zonificar y pregunta 10 del test: se usan «barlovento» y «sotavento».
+
 ## v0.24 · 26/11/2026
 - Escenario de la bodega rehecho: ahora se llama «Estibadores caídos en una bodega» y tiene 8 pasos.
   - Ya no da el fumigante como dato inicial.
