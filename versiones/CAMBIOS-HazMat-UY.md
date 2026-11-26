@@ -1,5 +1,11 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.22 · 26/11/2026
+- Dos minijuegos nuevos en el nivel 5, sobre imágenes de la escena (generadas con IA, con el aviso debajo de cada una):
+  - «Muestreo en la bodega»: se baja la manguera de muestreo por la bodega de un buque con troncos fumigados, metro a metro, con el Pac 8000 de fosfina y el oxígeno del multigás en vivo. La bomba tarda en traer la muestra: hay que esperar a que la lectura se estabilice antes de registrarla. Después se decide cómo entra el rescate. Se evalúa: medir en el fondo, medir a varias alturas, esperar la lectura estable y la protección elegida.
+  - «Zonificar: cisterna en la ruta»: sobre la vista aérea de un camión cisterna volcado (panel 30/1202, guía 128, viento del suroeste) se ajusta el aislamiento, se ubica el puesto de comando, se elige el acceso y se marca qué evacuar. Al final se dibujan sobre el mapa los 50 m de aislamiento y el sector de 300 m a favor del viento.
+- El nivel 5 pasa de 4 a 6 actividades. Quien ya tenía el nivel en curso necesita 2 estrellas también en las dos nuevas para habilitar la prueba.
+
 ## v0.21 · 25/11/2026
 - Inicio más ordenado: los botones de abajo quedan en dos grupos, «Estudiar» (Tarjetas, Glosario) y «Mi progreso» (Ranking, Compartir, Copia, Verificar), en dos columnas.
 - El ranking tiene su propio botón y su propia pantalla (antes estaba dentro de «Compartir progreso»).
