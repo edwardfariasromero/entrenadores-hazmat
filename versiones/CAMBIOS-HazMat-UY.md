@@ -1,5 +1,10 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.23 · 26/11/2026
+- Se retira «Muestreo en la bodega»: estaba mal planteado (el Pac 8000 funciona por difusión y no lleva manguera; los medidores confirman el peligro, no condicionan un rescate). Se rehará junto con el escenario de la bodega.
+- «Bodega con troncos fumigados», paso 3: se quita la manguera de muestreo.
+- El nivel 5 queda con 5 actividades.
+
 ## v0.22 · 26/11/2026
 - Dos minijuegos nuevos en el nivel 5, sobre imágenes de la escena (generadas con IA, con el aviso debajo de cada una):
   - «Muestreo en la bodega»: se baja la manguera de muestreo por la bodega de un buque con troncos fumigados, metro a metro, con el Pac 8000 de fosfina y el oxígeno del multigás en vivo. La bomba tarda en traer la muestra: hay que esperar a que la lectura se estabilice antes de registrarla. Después se decide cómo entra el rescate. Se evalúa: medir en el fondo, medir a varias alturas, esperar la lectura estable y la protección elegida.
