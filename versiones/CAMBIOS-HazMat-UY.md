@@ -1,5 +1,8 @@
 # Entrenador de Materiales Peligrosos · Haz-Mat Uruguay
 
+## v0.27 · 27/11/2026
+- Nuevo icono de «¡Qué máquina!»: calavera con casco de bombero rojo, la cruz del escudo Haz-Mat en el frente y bigote chevron (imagen generada con Gemini y ajustada). Es el único logro a color: se ve en gris mientras no se gana. También en la página del ranking.
+
 ## v0.26 · 26/11/2026
 - **Nivel bonus «ADM y agentes de guerra química»**: se abre al aprobar la prueba del nivel 6 y es optativo (suma puntos, pero no hace falta para el nivel máximo). 9 actividades:
   - ¿Qué sugieren los signos? · ¿Químico, biológico o radiológico? · Detección o identificación.
