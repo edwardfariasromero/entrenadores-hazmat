@@ -1001,7 +1001,12 @@ Object.assign(ACTS,{
   {q:"Falta de aire, confusión y colapso rápido, con piel rosada, en un recinto cerrado.",c:3,e:"Sanguíneo (hemotóxico) como el cianuro: impide que las células usen el oxígeno."},
   {q:"Confusión y alucinaciones temporales, sin lesiones en la piel ni en los pulmones.",c:4,e:"Incapacitante, como el BZ: altera temporalmente las funciones mentales."},
   {q:"Lagrimeo y ardor intenso en los ojos que pasan al alejarse de la nube.",c:4,e:"Un irritante (gas lacrimógeno): incapacitante de efecto pasajero."},
-  {q:"Pupilas chicas y mucha saliva en un trabajador rural que fumigó sin protección.",c:0,e:"Los plaguicidas organofosforados actúan como los agentes nerviosos: mismo mecanismo y mismos signos."}]},
+  {q:"Pupilas chicas y mucha saliva en un trabajador rural que fumigó sin protección.",c:0,e:"Los plaguicidas organofosforados actúan como los agentes nerviosos: mismo mecanismo y mismos signos."},
+  {q:"Sudor y temblor muscular solo en la zona de la piel donde cayó una gota.",c:0,e:"Contacto de un agente nervioso con la piel: sudor y fasciculaciones en esa zona. Los efectos generales pueden tardar en aparecer."},
+  {q:"Piel enrojecida en axilas e ingles, horas después de pasar por un lugar con olor a ajo.",c:1,e:"Las mostazas afectan sobre todo las zonas húmedas y calientes, con efecto retardado."},
+  {q:"Una persona se siente bien después de inhalar un gas, pero horas más tarde le falta el aire.",c:2,e:"Los agentes pulmonares como el fosgeno pueden dar edema pulmonar horas después: todo expuesto queda en observación."},
+  {q:"Colapso en segundos, con un olor a almendras amargas que solo algunos perciben.",c:3,e:"Cianuro (sanguíneo). No todas las personas pueden percibir su olor."},
+  {q:"Personas que deambulan, hablan sin sentido y tienen la piel seca y caliente.",c:4,e:"Cuadro anticolinérgico, como el del BZ: incapacitante."}]},
  w2:{lv:7,tp:"cena",type:"cls",n:10,t:"¿Químico, biológico o radiológico?",d:"Indicadores de un posible incidente químico, biológico o radiológico (GRE).",cats:["Químico","Biológico","Radiológico"],q:[
   {q:"Muchos animales, pájaros y peces muertos en la misma zona.",c:0,e:"No una muerte aislada: numerosos animales muertos en un área. Indicador químico."},
   {q:"No hay insectos, y se encuentran insectos muertos en el suelo o en el agua.",c:0,e:"Ausencia de insectos: indicador químico."},
@@ -1025,7 +1030,11 @@ Object.assign(ACTS,{
   {q:"Un IMS y un detector de fotometría de llama coinciden en un agente nervioso.",c:1,e:"Dos tecnologías distintas con selectividad para ese agente: detección confirmada."},
   {q:"Un equipo FTIR de campo compara el espectro con su biblioteca y da un nombre.",c:2,e:"Identificación en campo (presuntiva): dice qué sustancia es."},
   {q:"Un laboratorio compara con estándares de referencia por dos técnicas y confirma el peso molecular por espectrometría de masa.",c:2,e:"Identificación inequívoca (forense)."},
-  {q:"Un equipo Raman analiza un polvo blanco sin abrir la bolsa y da un resultado.",c:2,e:"Identificación en campo, sin contacto."}]},
+  {q:"Un equipo Raman analiza un polvo blanco sin abrir la bolsa y da un resultado.",c:2,e:"Identificación en campo, sin contacto."},
+  {q:"Un papel detector cambia de color al tocar una gota en el piso.",c:0,e:"Un solo detector en la escena: detección provisional."},
+  {q:"El multigás marca H₂S y el Pac de fosfina también entra en alarma en el mismo punto.",c:0,e:"Los sensores electroquímicos tienen sensibilidad cruzada: dos alarmas no dicen cuál es el gas. Sigue siendo detección provisional."},
+  {q:"Un PID y un detector electroquímico con selectividad para ese producto coinciden.",c:1,e:"Dos tecnologías distintas, con selectividad adecuada: detección confirmada."},
+  {q:"Un cromatógrafo de gases con espectrómetro de masas portátil da el nombre del compuesto.",c:2,e:"Dice qué sustancia es: identificación en campo."}]},
  w4:{lv:7,tp:"gen",type:"tri",t:"Triage START en la zona",d:"Asigna el color a cada víctima con el método START, sin sobreclasificar ni subclasificar."},
  w5:{lv:7,tp:"dec",type:"mcq",n:7,t:"Descontaminación masiva",d:"Muchas personas contaminadas: rapidez, agua y jabón, y verificación.",q:[
   {q:"Ante muchas personas contaminadas con un agente químico, la descontaminación masiva:",o:["Empieza ya: desvestir y lavar con agua y jabón", "Espera a que esté armado el corredor técnico completo", "Se deja para el hospital, que tiene duchas y personal", "Se hace solo a quienes ya tienen síntomas visibles"],e:"Según la GRE, la descontaminación de víctimas en masa debe iniciarse lo antes posible, desvistiendo y lavando con agua y jabón."},
@@ -1034,7 +1043,11 @@ Object.assign(ACTS,{
   {q:"Las soluciones con hipoclorito (lavandina) se usan:",o:["Para equipos y herramientas", "Sobre la piel, siempre diluidas al 0,5 %", "Para enjuagar los ojos con abundante agua", "Para neutralizar el producto sobre las víctimas"],e:"Para personas, agua y jabón. Nunca se neutraliza sobre personas."},
   {q:"Antes de que una víctima pase al área médica:",o:["Se verifica que esté descontaminada", "Se le devuelve su ropa en una bolsa cerrada", "Se la deja ir por su cuenta si camina bien", "Espera sin ropa a que llegue el resultado del laboratorio"],e:"Verificar la descontaminación evita contaminar el área médica y el hospital."},
   {q:"El agua de la descontaminación masiva:",o:["Se contiene y se recoge como residuo", "Va al pluvial, diluida con abundante agua limpia", "Se reutiliza para lavar a las personas que siguen", "Se deja evaporar en el lugar, sobre el pavimento"],e:"Recolección y control de las aguas contaminadas (OPAQ 08)."},
-  {q:"En un incidente radiológico, a una persona herida y contaminada se le prioriza:",o:["Su estabilización médica", "Una ducha completa antes de cualquier atención médica", "Un cepillado fuerte de la piel para sacar el polvo", "Aislarla sin atención hasta que se pueda medir la dosis"],e:"La contaminación externa sobre piel sana rara vez es una dosis peligrosa: primero la estabilización (GRE). Sin cepillar fuerte, para no lastimar la piel."}]},
+  {q:"En un incidente radiológico, a una persona herida y contaminada se le prioriza:",o:["Su estabilización médica", "Una ducha completa antes de cualquier atención médica", "Un cepillado fuerte de la piel para sacar el polvo", "Aislarla sin atención hasta que se pueda medir la dosis"],e:"La contaminación externa sobre piel sana rara vez es una dosis peligrosa: primero la estabilización (GRE). Sin cepillar fuerte, para no lastimar la piel."},
+  {q:"La ropa que se le saca a una persona contaminada:",o:["Va en bolsas cerradas y rotuladas","Se lava en el lugar y se le devuelve","Va a un contenedor común de residuos","Queda en el piso, junto a la ducha"],e:"Es residuo contaminado y puede ser evidencia: bolsa cerrada, rotulada y con los datos de la persona."},
+  {q:"El agua para la descontaminación masiva, si se puede elegir:",o:["Tibia, nunca caliente","Bien caliente, para arrastrar más producto","Helada, para que el producto no penetre","Da igual: lo que importa es la presión"],e:"El agua caliente aumenta la absorción por la piel y la muy fría provoca hipotermia y rechazo a la ducha."},
+  {q:"Una persona se niega a sacarse la ropa delante de otros:",o:["Se le ofrece privacidad: biombos, bolsas o ponchos","Se la obliga, porque no hay tiempo que perder","Se la deja ir sin descontaminar si no tiene síntomas","Se la manda al hospital en un auto particular"],e:"La privacidad mejora la aceptación. Nadie pasa al área limpia sin descontaminar."},
+  {q:"Las víctimas que caminan y entienden instrucciones:",o:["Se descontaminan solas, guiadas por el personal","Esperan a que terminen con los que no caminan","Van directo a la ambulancia, sin pasar por la ducha","Se van a su casa a ducharse y cambiarse"],e:"La autodescontaminación guiada permite atender a muchas personas a la vez."}]},
  w6:{lv:7,tp:"cena",type:"mcq",n:7,t:"Escena del crimen y muestras",d:"Objetos sospechosos, control de acceso, personas expuestas y cadena de custodia.",q:[
   {q:"Cerca de un posible artefacto, dentro de los 100 m:",o:["Se evita usar celulares y radios", "Se lo fotografía de cerca para la policía", "Se lo traslada a un lugar abierto y seguro", "Se lo cubre con espuma o con agua"],e:"La GRE indica evitar celulares y radios dentro de los 100 m del artefacto sospechoso."},
   {q:"Un paquete o contenedor sospechoso:",o:["No se toca ni se mueve", "Se abre con cuidado para ver qué contiene", "Se lleva al Puesto de Comando para registrarlo", "Se tira dentro de un contenedor de residuos"],e:"No tocar ni mover. Atención a posibles dispositivos secundarios."},
@@ -1043,7 +1056,10 @@ Object.assign(ACTS,{
   {q:"En el equipo de muestreo, el muestrista u «hombre sucio»:",o:["Toca el material y toma la muestra", "Registra los datos y rotula los envases", "Dirige la maniobra desde la línea de control", "Recibe la muestra limpia del otro lado de la zona"],e:"El asistente (hombre limpio) tiene contacto indirecto; el auxiliar registra; el oficial de seguridad dirige (OPAQ 06)."},
   {q:"La cadena de custodia exige:",o:["Documentar y firmar cada traspaso", "Que la muestra viaje siempre con quien la tomó", "Abrir la muestra en cada traspaso para verificarla", "Que la muestra la tome únicamente la policía"],e:"Cada traspaso se documenta y se firma; contacto con el laboratorio hasta que llega."},
   {q:"Además de las muestras del lugar, siempre se toma:",o:["Una muestra de control o de fondo", "Una foto del muestrista con el envase", "Una lectura del PID junto a la muestra", "Una muestra de aire del Puesto de Comando"],e:"La muestra de fondo permite comparar con lo que hay normalmente en el lugar."},
-  {q:"Una muestra tomada en plena emergencia para decidir la respuesta:",o:["Puede no servir como evidencia judicial", "Sirve siempre como evidencia judicial", "No debe analizarse en ningún caso", "Se informa a la prensa como resultado oficial"],e:"Para que sirva como evidencia hace falta un muestreo planificado con cadena de custodia (Noll)."}]},
+  {q:"Una muestra tomada en plena emergencia para decidir la respuesta:",o:["Puede no servir como evidencia judicial", "Sirve siempre como evidencia judicial", "No debe analizarse en ningún caso", "Se informa a la prensa como resultado oficial"],e:"Para que sirva como evidencia hace falta un muestreo planificado con cadena de custodia (Noll)."},
+  {q:"Si hay que mover un objeto para rescatar a una víctima en una escena del crimen:",o:["Se anota y se fotografía dónde estaba","Se lo vuelve a poner en su lugar sin avisar","Se lo lleva al Puesto de Comando como evidencia","Se lo limpia para que no contamine a nadie"],e:"El rescate tiene prioridad, pero todo lo que se mueve se documenta y se informa a la policía."},
+  {q:"Si hay varios puntos para muestrear, se toman:",o:["De lo más limpio a lo más contaminado","De lo más contaminado a lo más limpio","En el orden que resulte más rápido","Solo en el punto con la lectura más alta"],e:"Así no se arrastra contaminación de una muestra a la siguiente."},
+  {q:"Los envases con las muestras:",o:["Se cierran, se rotulan y van en doble o triple envase","Se rotulan después, ya en el laboratorio","Viajan sin cerrar del todo, para no acumular presión","Van todos juntos en una misma bolsa"],e:"Rótulo en el lugar, embalaje múltiple y sellado, y su registro en la cadena de custodia."}]},
  w7:{lv:7,tp:"gen",type:"mcq",n:7,t:"La Convención sobre Armas Químicas",d:"Definiciones, la OPAQ y cómo se aplica en Uruguay (Decreto 570/006).",q:[
   {q:"Según la Convención, un arma química es:",o:["Tóxicos y municiones destinados a fines prohibidos", "Solo las municiones y misiles cargados con agentes nerviosos", "Cualquier producto que lleve el pictograma de la calavera", "Solo los agentes que fabrica un ejército para la guerra"],e:"Las sustancias tóxicas y sus precursores, salvo para fines no prohibidos, más las municiones y equipos para usarlas. Lo que define el arma es el uso."},
   {q:"Para la Convención, una sustancia química tóxica es:",o:["Toda la que puede matar o lesionar por acción química", "Solo las que figuran en las listas 1, 2 y 3 de la Convención", "Solo las que se fabricaron con intención de usarlas como arma", "Solo las que tienen número ONU y guía naranja en la GRE"],e:"Toda sustancia que por su acción química sobre los procesos vitales puede causar muerte, incapacidad temporal o lesiones permanentes, cualquiera sea su origen (CAQ, art. II)."},
@@ -1051,7 +1067,11 @@ Object.assign(ACTS,{
   {q:"En Uruguay, actúa como Autoridad Nacional ante la OPAQ:",o:["La CIPAQ, una comisión interministerial", "La Dirección Nacional de Bomberos (DNB)", "El SINAE, a través de su Dirección Nacional", "El Ministerio de Salud Pública (MSP)"],e:"Decreto 570/006: la Comisión Interministerial para la Prohibición de las Armas Químicas es el nexo permanente con la OPAQ."},
   {q:"La CIPAQ la preside:",o:["Relaciones Exteriores", "Defensa Nacional", "Industria, Energía y Minería", "Economía y Finanzas"],e:"La integran Relaciones Exteriores (preside), Economía y Finanzas, Defensa Nacional, Industria y la Facultad de Química (Udelar)."},
   {q:"En Uruguay, producir o transferir sustancias de las listas 1 y 2 de la Convención requiere autorización previa de:",o:["El Servicio de Material y Armamento del Ejército", "La Dirección Nacional de Bomberos, por habilitación", "La Dirección Nacional de Aduanas, en el despacho", "El Ministerio de Ambiente, por permiso ambiental"],e:"Decreto 570/006, numerales 5.3, 8.1 y 9.2."},
-  {q:"Los agentes de guerra química no tienen número ONU porque:",o:["No se transportan comercialmente", "Son todos gases y no se envasan", "Son sólidos que no se clasifican", "Los clasifica la OPAQ, no la ONU"],e:"La GRE les asigna igual una guía de la sección naranja para la respuesta inicial."}]}
+  {q:"Los agentes de guerra química no tienen número ONU porque:",o:["No se transportan comercialmente", "Son todos gases y no se envasan", "Son sólidos que no se clasifican", "Los clasifica la OPAQ, no la ONU"],e:"La GRE les asigna igual una guía de la sección naranja para la respuesta inicial."},
+  {q:"La Convención sobre Armas Químicas prohíbe:",o:["Tenerlas, fabricarlas, transferirlas y usarlas","Solo usarlas en una guerra declarada entre países","Solo fabricarlas, pero no tenerlas guardadas en depósito","Usarlas contra militares, pero no contra la población civil"],e:"Prohíbe desarrollarlas, producirlas, almacenarlas, transferirlas y usarlas, y obliga a destruir las existentes y las instalaciones para producirlas."},
+  {q:"La Lista 1 de la Convención incluye:",o:["Agentes de guerra y sus precursores, casi sin uso civil","Productos industriales de gran volumen, como el cloro","Todos los plaguicidas de uso agrícola","Los productos de la clase 6.1 con número ONU"],e:"Por ejemplo, el sarín y la mostaza. Las listas 2 y 3 incluyen productos con usos industriales legítimos."},
+  {q:"El fosgeno y el cianuro de hidrógeno:",o:["Tienen usos industriales y se usaron como armas","Están prohibidos en Uruguay para cualquier uso","Solo existen en los arsenales de algunos ejércitos","No son tóxicos en las cantidades de la industria"],e:"Por eso la Convención define el arma por el uso. Los dos están en la Lista 3."},
+  {q:"En la GRE, los agentes de guerra química aparecen:",o:["Con guía y distancias, en «Uso criminal o terrorista»","En la sección amarilla, con un número ONU propio","Solo en la sección azul, ordenados por su nombre","En ninguna parte: hay que consultar a la OPAQ"],e:"No tienen número ONU, pero la GRE les asigna guía y distancias de aislamiento y protección."}]}
 });
 
 /* Escenarios del nivel 7 */
@@ -1507,7 +1527,7 @@ function runTri(id,onEnd,onExit){
 
 /* ================= ESTADO ================= */
 const EQIMG=new Set(["rki","gmi","pac_cl2","pac_nh3","pac_ph3","radeye","idf","pm1703","dmc"]);
-const VER="v0.27",VDATE="27/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
+const VER="v0.28",VDATE="27/11/2026",KEY="hazmat_uy_entrenador_v1",CARDCAP=20;
 let S;
 function blank(){return {name:"",theme:"dark",act:{},test:{},lock:{},cards:{},cpts:0};}
 try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){S=blank();}
@@ -1527,7 +1547,7 @@ const ICO={
  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
  users:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5 6.5-5s5.7 1.5 6.5 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c2 .6 3.2 2.2 3.5 5"/></svg>',
  help:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>',
- info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>',
+ home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>',info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>',
  reset:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
  book:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5Q8 4 12 6q4-2 8-.5V19q-4-1.5-8 .5-4-2-8-.5z"/><path d="M12 6v13.5"/></svg>',
  cards:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="14" height="15" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v13"/></svg>',
@@ -1570,7 +1590,7 @@ $("#mnu").innerHTML=ICO.menu;$("#mnu").onclick=menuOpen;
 $("#thm").onclick=()=>{S.theme=S.theme==="dark"?"light":"dark";save();applyTheme();};
 $("#hdimg").src=IMG.e_hm;$("#hdimg").onclick=()=>S.name&&home();$("#hdtt").onclick=()=>S.name&&home();
 let TIMERS=[];function clearT(){TIMERS.forEach(clearTimeout);TIMERS=[];}
-function view(h){{const t=document.getElementById("gtip");if(t)t.remove();const z=document.getElementById("zoom");if(z)z.remove();const cp=document.getElementById("cpop");if(cp)cp.remove();}clearT();app.innerHTML=h;window.scrollTo(0,0);}
+function view(h){window.__home=false;{const t=document.getElementById("gtip");if(t)t.remove();const z=document.getElementById("zoom");if(z)z.remove();const cp=document.getElementById("cpop");if(cp)cp.remove();}clearT();app.innerHTML=h;window.scrollTo(0,0);}
 
 
 /* ================= GLOSARIO ================= */
@@ -1631,6 +1651,7 @@ function achCheck(){
  if(nw.length>2)return setTimeout(()=>achToast({multi:nw.length}),400);
  nw.forEach((a,i)=>setTimeout(()=>achToast(a),400+i*3600));
 }
+function toast(msg){const t=document.createElement("div");t.className="atoast";t.setAttribute("role","status");t.innerHTML=`<div><b>${esc(msg)}</b></div>`;document.body.appendChild(t);setTimeout(()=>t.classList.add("on"),30);setTimeout(()=>{t.classList.remove("on");setTimeout(()=>t.remove(),400);},2600);}
 function achToast(a){
  const t=document.createElement("div");t.className="atoast";t.setAttribute("role","status");
  t.innerHTML=a.multi?`<div><small>Logros</small><b>${a.multi} logros nuevos</b><span>Míralos en «Logros», en el inicio.</span></div>`:`${achIcon(a,40)}<div><small>${a.g==="Medallas"?"Nueva medalla":"Nueva insignia"}</small><b>${a.t}</b><span>${a.d}</span></div>`;
@@ -1680,7 +1701,7 @@ function welcome(){
 
 /* ================= INICIO ================= */
 function allDone(){return lvlDone(MAINLV);}
-function home(){GLOFF=false;
+function home(){GLOFF=false;resClear();setTimeout(()=>window.__home=true,0);
  const c=curLevel(),L=LEVELS[c-1],[s,m]=lvlStars(c);hud();
  view(`${S.rev?`<div class="card" style="border:2px dashed #ffb000"><b>Modo revisión activo.</b> Todos los niveles y pruebas están abiertos y nada de lo que juegues queda registrado. <div class="row"><button class="btn sec" id="revx2">Salir del modo revisión</button></div></div>`:""}
   ${allDone()&&!S.rev?`<button class="card" id="bfin" style="display:block;width:100%;text-align:left;cursor:pointer;border:2px solid var(--acc2);background:radial-gradient(120% 140% at 100% 0%,rgba(255,194,26,.25),transparent 60%),var(--pan)"><b style="color:var(--acc2);letter-spacing:.08em">★ NIVEL MÁXIMO ALCANZADO</b><br><span class="mut">Ver la pantalla final y compartirla</span></button>`:""}
@@ -1739,13 +1760,29 @@ function level(n){GLOFF=false;
 
 /* ================= PREGUNTAS ================= */
 function ikey(x){return (x.img||x.fsvg||"")+"|"+x.q;}
+/* ---- retomar la actividad si el navegador recarga la página ---- */
+const RESKEY=KEY+"_retomar";
+function resSave(o){try{o.u=S.name;o.t=Date.now();localStorage.setItem(RESKEY,JSON.stringify(o));}catch(e){}}
+function resClear(){try{localStorage.removeItem(RESKEY);}catch(e){}}
+function resTry(){let r=null;try{r=JSON.parse(localStorage.getItem(RESKEY)||"null");}catch(e){}
+ if(!r||r.u!==S.name||Date.now()-r.t>6*3600e3||S.rev){resClear();return false;}
+ const [t,x]=r.k.split(":");
+ if(t==="a"&&ACTS[x]&&unlocked(ACTS[x].lv)){play(x,r);}else if(t==="t"&&LEVELS[+x-1]){test(+x,r);}else{resClear();return false;}
+ toast("Retomaste la actividad donde la dejaste");return true;}
 function pickFresh(sid,list,n){
- S.seen=S.seen||{};const seen=new Set(S.seen[sid]||[]);
- const fresh=shuffle(list.filter(x=>!seen.has(x._k))),old=shuffle(list.filter(x=>seen.has(x._k)));
- let out=fresh.slice(0,n);
- if(out.length<n){out=out.concat(old.slice(0,n-out.length));S.seen[sid]=out.map(x=>x._k);}
- else S.seen[sid]=[...seen,...out.map(x=>x._k)];
- save();return out;
+ S.seen=S.seen||{};S.lastRun=S.lastRun||{};
+ const seen=new Set(S.seen[sid]||[]),last=S.lastRun[sid]||[],lastSet=new Set(last);
+ let out=shuffle(list.filter(x=>!seen.has(x._k))).slice(0,n);
+ if(out.length<n){
+  const ok=new Set(out.map(x=>x._k)),old=list.filter(x=>!ok.has(x._k));
+  const a=shuffle(old.filter(x=>!lastSet.has(x._k))),b=old.filter(x=>lastSet.has(x._k)).sort((x,y)=>last.indexOf(x._k)-last.indexOf(y._k));
+  out=out.concat(a,b).slice(0,n);S.seen[sid]=out.map(x=>x._k);
+ }else S.seen[sid]=[...seen,...out.map(x=>x._k)];
+ out=shuffle(out);
+ /* que no arranque con lo último que se vio la vez anterior */
+ const tail=new Set(last.slice(-3));
+ for(let k=0;k<Math.min(2,out.length);k++){if(tail.has(out[k]._k)){const cand=[];for(let j=Math.ceil(out.length/2);j<out.length;j++)if(!tail.has(out[j]._k))cand.push(j);if(cand.length){const j=cand[Math.floor(Math.random()*cand.length)];[out[k],out[j]]=[out[j],out[k]];}}}
+ S.lastRun[sid]=out.map(x=>x._k);save();return out;
 }
 function buildItems(id,count,fresh){
  const A=ACTS[id],n=count||A.n;fresh=fresh!==false;
@@ -1847,10 +1884,13 @@ function clk(){const d=new Date();return d.getHours()+":"+String(d.getMinutes())
 function pacHTML(k,val,w,blink){const g=PAC.find(p=>p[0]===k);const v=val==null?(0).toFixed(g[5]):Number(val).toFixed(g[5]);
  return `<div class="pac8${blink?" blink":""}" style="--w:${w||230}px" role="img" aria-label="Dräger Pac 8000 de ${g[1].toLowerCase()}: ${v} ppm"><img src="${IMG["pac_"+k]}" alt=""><div class="scr"><div class="g">${g[2].replace("₂","2").replace("₃","3")}</div><div class="v">${v}</div><div class="u">PPM</div></div></div>`;}
 function runQuiz(o){
- /* o: {title,tag,items,onEnd(ok,total,miss)} */
+ /* o: {title,tag,items,onEnd(ok,total,miss),key,resume} */
  let i=0,ok=0;const miss=[];
+ if(o.resume){i=o.resume.i;ok=o.resume.ok;miss.push(...o.resume.miss);}
+ const keep=()=>{if(o.key)resSave({k:o.key,items:o.items,i,ok,miss});};
  function step(){
-  if(i>=o.items.length)return o.onEnd(ok,o.items.length,miss);
+  if(i>=o.items.length){resClear();return o.onEnd(ok,o.items.length,miss);}
+  keep();
   const it=o.items[i];window.__it=it;
   view(`<div class="card"><div class="hd"><span class="tag ${o.tp||""}">${esc(o.title)}</span><span class="mut" style="font-size:.85rem">${i+1}/${o.items.length}</span></div>
   <div class="prog"><i style="width:${100*i/o.items.length}%"></i></div>
@@ -1871,12 +1911,13 @@ function runQuiz(o){
    const pick=it.opts[+b.dataset.k],good=pick===it.ans;
    document.querySelectorAll(".opt").forEach(x=>{x.disabled=true;const t=it.opts[+x.dataset.k];if(t===it.ans)x.classList.add("ok");else if(x===b)x.classList.add("no");});
    if(good)ok++;else miss.push(it);
+   i++;keep();i--;
    if(it.room)$("#rm").innerHTML=roomSVG(it,it.opts.indexOf(it.ans));
    $("#fb").innerHTML=`<div class="fb ${good?"":"bad"}"><b>${good?"Correcto.":"No. Respuesta: "+esc(it.ans)}</b>${gl(esc(it.e||""))}</div><div class="row"><button class="btn full" id="nx">${i+1<o.items.length?"Siguiente":"Ver resultado"}</button></div>`;
    $("#nx").focus();$("#nx").onclick=()=>{i++;step();};
   });
   if(S.rev){$("#rva").onclick=()=>document.querySelectorAll(".opt").forEach(x=>{if(it.opts[+x.dataset.k]===it.ans)x.classList.add("hint");});$("#rvs").onclick=()=>{i++;step();};}
-  $("#qx").onclick=o.onExit;
+  $("#qx").onclick=()=>{resClear();o.onExit();};
  }
  step();
 }
@@ -1898,10 +1939,13 @@ function runOrder(id,onEnd,onExit){
  draw(false);
 }
 
-function runScn(id,onEnd,onExit){
+function runScn(id,onEnd,onExit,res){
  const A=ACTS[id];let i=0,ok=0;const miss=[];
+ if(res){i=res.i;ok=res.ok;miss.push(...res.miss);}
+ const keep=()=>resSave({k:"a:"+id,i,ok,miss});
  function step(){
-  if(i>=A.steps.length)return onEnd(ok,A.steps.length,miss);
+  if(i>=A.steps.length){resClear();return onEnd(ok,A.steps.length,miss);}
+  keep();
   const st=A.steps[i],opts=shuffle(st.o);window.__it={ans:st.o.find(o=>o[1]===1)[0],crit:(st.o.find(o=>o[1]===2)||[])[0]};
   view(`<div class="card"><div class="hd"><span class="tag int">Escenario · ${esc(A.t)}</span><span class="mut" style="font-size:.85rem">${i+1}/${A.steps.length}</span></div>
   <div class="prog"><i style="width:${100*i/A.steps.length}%"></i></div>
@@ -1917,17 +1961,18 @@ function runScn(id,onEnd,onExit){
    else if(o[1]===2){$("#fb").innerHTML=`<div class="crit"><b>ERROR CRÍTICO</b>${esc((t=>t.charAt(0).toUpperCase()+t.slice(1))(o[2].replace(/^ERROR CRÍTICO:\s*/,"")))}<p class="mut" style="margin:6px 0 0">Mejor decisión: ${esc(good[0])}</p></div>`;}
    else{miss.push({q:st.q,ans:good[0]});$("#fb").innerHTML=`<div class="fb bad"><b>No es la mejor decisión.</b>${gl(esc(o[2]))}<p style="margin:6px 0 0"><b style="display:inline">Mejor:</b> ${esc(good[0])}</p></div>`;}
    const crit=o[1]===2;
+   if(crit)resClear();else{i++;keep();i--;}
    $("#fb").insertAdjacentHTML("beforeend",`<div class="row"><button class="btn full" id="nx">${crit?"Ver resultado":i+1<A.steps.length?"Siguiente decisión":"Ver resultado"}</button></div>`);
    $("#nx").focus();$("#nx").onclick=()=>{if(crit)return onEnd(0,A.steps.length,[{q:st.q,ans:good[0]}],{crit:o[0]});i++;step();};
   });
   if(S.rev){$("#rva").onclick=()=>document.querySelectorAll(".opt").forEach(x=>{if(opts[+x.dataset.k][1]===1)x.classList.add("hint");});$("#rvs").onclick=()=>{i++;step();};}
-  $("#qx").onclick=onExit;
+  $("#qx").onclick=()=>{resClear();onExit();};
  }
  step();
 }
 
 /* ================= JUGAR ACTIVIDAD ================= */
-function play(id){GLOFF=false;
+function play(id,res){GLOFF=false;resClear();
  const A=ACTS[id];
  const end=(ok,total,miss,x)=>{
   if(S.rev){const p=x&&x.crit?0:ok/total;return actResult(id,{p,st:starsFor(p),ok,total,miss,gain:0,newStars:false,crit:x&&x.crit,rev:true});}
@@ -1938,7 +1983,7 @@ function play(id){GLOFF=false;
   actResult(id,{p,st,ok,total,miss,gain,newStars:st>prevStars,crit:x&&x.crit});achCheck();
  };
  if(A.type==="ord")return runOrder(id,end,()=>level(A.lv));
- if(A.type==="scn")return runScn(id,end,()=>level(A.lv));
+ if(A.type==="scn")return runScn(id,end,()=>level(A.lv),res);
  if(A.type==="place")return runPlace(id,end,()=>level(A.lv));
  if(A.type==="pad")return runPad(id,end,()=>level(A.lv));
  if(A.type==="slide")return runSlide(id,end,()=>level(A.lv));
@@ -1948,7 +1993,7 @@ function play(id){GLOFF=false;
  if(A.type==="zon")return runZon(id,end,()=>level(A.lv));
  if(A.type==="mue")return runMue(id,end,()=>level(A.lv));
  if(A.type==="tri")return runTri(id,end,()=>level(A.lv));
- runQuiz({title:A.t,tp:A.tp,items:buildItems(id),onEnd:end,onExit:()=>level(A.lv)});
+ runQuiz({title:A.t,tp:A.tp,items:res?res.items:buildItems(id),onEnd:end,onExit:()=>level(A.lv),key:"a:"+id,resume:res});
 }
 function ckey(q){return String(q).replace(/<[^>]+>/g,"").toLowerCase().replace(/\s+/g," ").trim().slice(0,70);}
 function cardFor(m,act){const id=m.c||CARDMAP[ckey(m.q)]||(act&&ACTCARD[act]);return id&&CARDS.find(c=>c.id===id)?id:null;}
@@ -1991,9 +2036,9 @@ function testItems(n){
  const np=prev.length?2:0;
  return shuffle(pickFresh("T"+n,pool,12-np).concat(pickFresh("P"+n,prev,np)));
 }
-function test(n){
- GLOFF=true;
- runQuiz({title:"Prueba del "+lvName(n).toLowerCase(),items:testItems(n),onExit:()=>level(n),onEnd:(ok,total,miss)=>{
+function test(n,res){
+ GLOFF=true;resClear();
+ runQuiz({title:"Prueba del "+lvName(n).toLowerCase(),items:res?res.items:testItems(n),key:"t:"+n,resume:res,onExit:()=>level(n),onEnd:(ok,total,miss)=>{
   const p=ok/total;
   if(S.rev){view(`<div class="card center">${p>=.8?`<div class="fogo">${ICO.flame}${CHEER}</div>`:`<h2>Todavía no</h2>`}<div class="big">${Math.round(p*100)} %</div><div class="mut">${ok} de ${total} aciertos</div><p class="mut" style="margin-top:10px">Modo revisión: este resultado no se registró.</p></div>${missHTML(miss)}<div class="row"><button class="btn" id="bl">Volver al nivel ${n}</button></div>`);$("#bl").onclick=()=>level(n);return;}
   const t=S.test[n]||{passed:false,best:0,tries:0},was=t.passed;
@@ -2186,7 +2231,7 @@ function menuKey(e){if(e.key==="Escape"){e.stopPropagation();menuClose();$("#mnu
  if(e.key==="ArrowDown"||e.key==="ArrowUp"){const it=[...document.querySelectorAll("#mpan button")];if(!it.length)return;e.preventDefault();e.stopPropagation();let i=it.indexOf(document.activeElement);i=e.key==="ArrowDown"?(i+1)%it.length:(i<=0?it.length-1:i-1);it[i].focus();}}
 function menuOpen(){if(document.getElementById("mpan"))return menuClose();
  const m=document.createElement("div");m.id="mpan";m.className="mpan";m.setAttribute("role","menu");
- const A=[["users","Cambiar de usuario",usersScreen],["help","Cómo funciona",howto],["info","Créditos",credits],["reset","Reiniciar",resetScreen]];
+ const A=[["home","Inicio de los entrenadores y ranking",()=>{location.href="https://edwardfariasromero.github.io/entrenadores-hazmat/";}],["users","Cambiar de usuario",usersScreen],["help","Cómo funciona",howto],["info","Créditos",credits],["reset","Reiniciar",resetScreen]];
  m.innerHTML=`<div class="mu">Usuario: <b>${esc(S.name||"—")}</b></div>`+A.map(([i,t],k)=>`<button role="menuitem" data-k="${k}">${ICO[i]} ${t}</button>`).join("");
  $(".top .in").appendChild(m);m.querySelectorAll("button").forEach(b=>b.onclick=()=>{menuClose();A[+b.dataset.k][2]();window.scrollTo(0,0);});
  const b=$("#mnu");b.innerHTML=ICO.close;b.setAttribute("aria-expanded","true");
@@ -2414,7 +2459,25 @@ document.addEventListener("keydown",e=>{
 });
 /* logros ya ganados que no quedaron registrados: se anotan sin anunciarlos */
 if(S.name&&!S.rev){try{S.ach=S.ach||[];let ch=0;achList().forEach(a=>{if(a.ok&&!S.ach.includes(a.id)){S.ach.push(a.id);ch=1;}});if(ch)save();}catch(e){}}
-if(S.name)home();else welcome();
+if(S.name){if(!resTry())home();}else welcome();
+/* ---- botón atrás del celular: vuelve a la pantalla anterior ---- */
+(function(){
+ const mark=()=>{try{if(!history.state||!history.state.hz)history.pushState({hz:1},"");}catch(e){}};
+ const visible=el=>el&&el.offsetParent!==null&&!el.disabled;
+ function back(){
+  const pop=document.getElementById("cpop");if(pop){const c=pop.querySelector(".zx");if(c){c.click();return true;}}
+  const zm=document.getElementById("zoom");if(zm){zm.remove();return true;}
+  if(document.getElementById("mpan")){menuClose();return true;}
+  if(window.__home)return false;
+  for(const sel of ["#qx","#bk","#bl"]){const b=document.querySelector(sel);if(visible(b)){b.click();return true;}}
+  const v=[...document.querySelectorAll("#app button.btn")].find(b=>visible(b)&&/^(Volver|Salir)/.test(b.textContent.trim()));
+  if(v){v.click();return true;}
+  home();return true;
+ }
+ let armed=false;
+ window.addEventListener("popstate",()=>{if(back()){window.scrollTo(0,0);mark();armed=false;}else if(!armed){armed=true;toast("Toca atrás otra vez para salir");mark();setTimeout(()=>armed=false,2500);}else history.back();});
+ mark();
+})();
 </script>
 </body>
 </html>
