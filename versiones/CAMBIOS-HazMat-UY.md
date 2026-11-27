@@ -5,6 +5,7 @@
 - Botón atrás del celular: vuelve a la pantalla anterior (actividad → nivel → inicio; primero cierra tarjetas y menú). En el inicio pide tocar dos veces para salir.
 - Si el navegador recarga la página (por ejemplo, al volver de otra app), se retoma la actividad o la prueba de nivel en la pregunta donde se estaba, con los aciertos acumulados (hasta 6 horas). Los minijuegos vuelven a empezar.
 - Menú: «Inicio de los entrenadores y ranking».
+- Corrección publicada el mismo día, sin cambiar el número de versión: la imagen del nivel volvió a su tamaño (empujaba el título y la descripción fuera de la pantalla desde la v0.26), y se agregaron botones «‹ nivel anterior / nivel siguiente ›» y deslizar a los lados en la pantalla de cada nivel.
 
 ## v0.27 · 27/11/2026
 - Nuevo icono de «¡Qué máquina!»: calavera con casco de bombero rojo, la cruz del escudo Haz-Mat en el frente y bigote chevron (imagen generada con Gemini y ajustada). Es el único logro a color: se ve en gris mientras no se gana. También en la página del ranking.
