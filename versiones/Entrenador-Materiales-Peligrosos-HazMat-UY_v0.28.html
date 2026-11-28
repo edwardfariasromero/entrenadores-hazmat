@@ -2284,7 +2284,7 @@ function makeCode(name,lv,a2,dom,pts,day){
  for(let i=0;i<12;i++){o=B32[Number(v&31n)]+o;v>>=5n;}return o.slice(0,4)+"-"+o.slice(4,8)+"-"+o.slice(8);}
 const MASKIDS=["m1","m2","m3","ojo","equipo","filtro","escena","estudio","sangre","perfecto","constancia","la312","maquina"];
 function achMask(){return achList().reduce((m,a)=>a.ok?m|(1<<MASKIDS.indexOf(a.id)):m,0);}
-function achCode(name,main){const m=achMask(),sig=fnv(SALT+"|ach|"+nameKey(name)+"|"+m+"|"+cleanCode(main))&0xFF;let v=(m<<8)|sig,o="";for(let i=0;i<4;i++){o=B32[v&31]+o;v>>=5;}return o;}
+function achCode(name,main){const m=achMask(),sig=fnv(SALT+"|ach|"+nameKey(name)+"|"+m+"|"+cleanCode(main))&0xFF;let v=(m<<8)|sig,o="";const L=m<4096?4:5;for(let i=0;i<L;i++){o=B32[v&31]+o;v>>=5;}return o;}
 function myCode(name){return makeCode(name,curLevel(),twoStar(),dominio(),totalPts(),dayNum());}
 function cleanCode(s){return String(s).toUpperCase().replace(/O/g,"0").replace(/[IL]/g,"1").replace(/U/g,"V").replace(/[^0-9A-Z]/g,"");}
 function readCode(name,s){const c=cleanCode(s);if(c.length!==12||[...c].some(ch=>B32.indexOf(ch)<0))return null;
